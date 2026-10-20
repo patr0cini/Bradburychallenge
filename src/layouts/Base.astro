@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+import { SITE_NAME } from '../config.js';
+import { HOME_PATH, HTML_LANG, STRINGS as t, archivePath } from '../site/strings.js';
+
+interface Props {
+  title?: string;
+  description?: string;
+  /** Separador ativo no topo. */
+  tab?: 'today' | 'archive';
+}
+
+const { title, description, tab } = Astro.props;
+const fullTitle = title ? `${title} · ${SITE_NAME}` : SITE_NAME;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={HTML_LANG}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description ?? t.tagline} />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="canonical" href={canonical.href} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <slot name="head" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">{t.skip}</a>
+    <header class="site-header">
+      <div class="wrap">
+        <p class="site-name"><a href={HOME_PATH}>{SITE_NAME}</a></p>
+        <nav class="tabs" aria-label={t.sections}>
+          <ul>
+            <li><a href={HOME_PATH} aria-current={tab === 'today' ? 'page' : undefined}>{t.today}</a></li>
+            <li><a href={archivePath()} aria-current={tab === 'archive' ? 'page' : undefined}>{t.archive}</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="content" class="wrap">
+      <slot />
+    </main>
+    <script>
+      import { initReadMarks } from '../site/read-marks.ts';
+      initReadMarks();
+    </script>
+  </body>
+</html>

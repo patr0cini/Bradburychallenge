@@ -1,0 +1,519 @@
+/* Bradbury Challenge — estilos globais.
+   Regra do projeto: o texto de cada linha (título, autor, nota) fica num único elemento e flui
+   ao lado das etiquetas. Não usar flex nem grid em contentores de texto partido em elementos. */
+
+:root {
+  color-scheme: light dark;
+
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --text: #1d1b18;
+  --muted: #5c5750;
+  --border: #e2ddd3;
+  --accent: #1d1b18;
+  --focus: #1f5fbf;
+  --notice-bg: #fdf3dc;
+  --notice-text: #5b4205;
+
+  /* Categorias: fundo e texto das etiquetas (contraste AA em ambos os modos). */
+  --poem-bg: #f6e1e3;
+  --poem-text: #7a1f2b;
+  --essay-bg: #dfeaf5;
+  --essay-text: #1b4a72;
+  --story-bg: #e2efdc;
+  --story-text: #2c5823;
+
+  --font-text: 'Iowan Old Style', 'Palatino Linotype', Palatino, 'Book Antiqua', Georgia, serif;
+  --font-ui: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --measure: 680px;
+  --gutter: 16px;
+  --radius: 10px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161513;
+    --surface: #1f1d1a;
+    --text: #ece8e1;
+    --muted: #b4aea4;
+    --border: #36322d;
+    --accent: #ece8e1;
+    --focus: #8ab4f8;
+    --notice-bg: #3a2f14;
+    --notice-text: #f3dfa6;
+
+    --poem-bg: #42202a;
+    --poem-text: #f4c9cf;
+    --essay-bg: #1a3047;
+    --essay-text: #c2dbf2;
+    --story-bg: #213722;
+    --story-text: #c8e5c0;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-text);
+  font-size: 1.125rem; /* 18px; nunca menos de 16px no texto */
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  text-decoration-thickness: 2px;
+}
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 3px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  background: var(--surface);
+  padding: 8px 12px;
+  z-index: 10;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.skip-link:focus {
+  top: 8px;
+}
+
+.wrap {
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* Cabeçalho com os separadores Hoje e Arquivo, sempre visível. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-ui);
+}
+
+.site-header .wrap {
+  /* Bloco simples: nome à esquerda, separadores à direita, sem flex sobre texto partido. */
+  overflow: hidden;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.site-name {
+  float: left;
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 2.25rem;
+  letter-spacing: 0.01em;
+}
+
+.site-name a {
+  text-decoration: none;
+}
+
+.tabs {
+  float: right;
+}
+
+.tabs ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs li {
+  display: inline-block;
+  margin-left: 4px;
+}
+
+.tabs a {
+  display: inline-block;
+  padding: 0 12px;
+  line-height: 2.25rem;
+  min-height: 2.25rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+.tabs a:hover {
+  color: var(--text);
+}
+
+.tabs a[aria-current='page'] {
+  background: var(--text);
+  color: var(--bg);
+  font-weight: 600;
+}
+
+
+main.wrap {
+  padding-top: 28px;
+  padding-bottom: 48px;
+}
+
+/* Cabeçalho do dia */
+.day-title {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.day-context {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.notice {
+  margin: 20px 0 0;
+  padding: 12px 14px;
+  background: var(--notice-bg);
+  color: var(--notice-text);
+  border-radius: var(--radius);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Etiqueta de categoria: sempre com o nome escrito; a cor nunca é a única pista. */
+.tag {
+  display: inline-block;
+  padding: 0 8px;
+  border-radius: 6px;
+  font-family: var(--font-ui);
+  font-size: 0.8125rem; /* etiqueta, não texto corrido */
+  font-weight: 700;
+  line-height: 1.6rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  vertical-align: 0.12em;
+  white-space: nowrap;
+}
+
+.tag--poem {
+  background: var(--poem-bg);
+  color: var(--poem-text);
+}
+.tag--essay {
+  background: var(--essay-bg);
+  color: var(--essay-text);
+}
+.tag--story {
+  background: var(--story-bg);
+  color: var(--story-text);
+}
+
+/* Cartões de leitura */
+.readings {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+}
+
+.reading {
+  margin: 0 0 16px;
+  padding: 18px 18px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.reading-title {
+  margin: 10px 0 0;
+  font-size: 1.375rem;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.reading-title a {
+  text-decoration: none;
+}
+
+.reading-title a:hover,
+.reading-title a:focus-visible {
+  text-decoration: underline;
+}
+
+.reading-meta {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.reading-note {
+  margin: 12px 0 0;
+}
+
+.reading .notice {
+  margin-top: 12px;
+}
+
+.read-toggle {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 2px;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.read-toggle input {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0 8px 0 0;
+  vertical-align: -0.15em;
+  accent-color: var(--text);
+  cursor: pointer;
+}
+
+/* Navegação entre dias */
+.day-nav {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.day-nav li:first-child {
+  float: left;
+}
+
+.day-nav li:last-child {
+  float: right;
+}
+
+.button {
+  display: inline-block;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  text-decoration: none;
+  line-height: 1.4;
+}
+
+.button:hover {
+  border-color: var(--muted);
+}
+
+.button[aria-disabled='true'] {
+  color: var(--muted);
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+.quiet-links {
+  margin: 28px 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+/* Arquivo */
+.page-title {
+  margin: 0;
+  font-size: 1.75rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.month {
+  margin: 32px 0 8px;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+}
+
+.archive-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border);
+}
+
+.archive-day {
+  position: relative;
+  padding: 14px 4px 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.archive-day:hover {
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+}
+
+.archive-date {
+  margin: 0;
+  padding-right: 28px;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.archive-date a {
+  text-decoration: none;
+}
+
+/* A linha inteira é clicável, mas só a data é a ligação (leitores de ecrã ouvem uma ligação por dia). */
+.archive-date a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.archive-date a:focus-visible {
+  outline: none;
+}
+
+.archive-day:has(a:focus-visible) {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.archive-titles {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+.archive-titles li {
+  margin: 4px 0 0;
+  line-height: 1.5;
+}
+
+.archive-titles .tag {
+  margin-right: 6px;
+}
+
+/* Indicador de leitura: cheio (3 de 3), contorno (parte), nada (nenhum). */
+.read-indicator {
+  position: absolute;
+  top: 18px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+}
+
+.read-indicator.is-partial {
+  border-color: var(--text);
+}
+
+.read-indicator.is-full {
+  border-color: var(--text);
+  background: var(--text);
+}
+
+.pager {
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.pager li:first-child {
+  float: left;
+}
+
+.pager li:last-child {
+  float: right;
+}
+
+.empty {
+  margin: 20px 0 0;
+  color: var(--muted);
+}
+
+@media (max-width: 420px) {
+  .day-title,
+  .page-title {
+    font-size: 1.5rem;
+  }
+  .reading {
+    padding: 16px 14px 12px;
+  }
+  .site-name {
+    font-size: 0.9375rem;
+  }
+  .tabs li {
+    margin-left: 0;
+  }
+  .tabs a {
+    padding: 0 9px;
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 359px) {
+  .site-header .wrap {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .site-name {
+    font-size: 0.875rem;
+  }
+  .tabs a {
+    padding: 0 6px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .tabs a,
+  .button {
+    transition: background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+  }
+}
+

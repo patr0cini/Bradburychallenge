@@ -1,0 +1,70 @@
+---
+import type { GetStaticPaths, Page } from 'astro';
+import Base from '../../layouts/Base.astro';
+import type { SiteDay } from '../../site/data.js';
+import { DAYS_PER_PAGE, pastDays } from '../../site/paths.js';
+import { STRINGS as t, dayPath, formatDayMonth, formatMonthYear } from '../../site/strings.js';
+
+export const getStaticPaths = (({ paginate }) => paginate(pastDays(), { pageSize: DAYS_PER_PAGE })) satisfies GetStaticPaths;
+
+interface Props {
+  page: Page<SiteDay>;
+}
+
+const { page } = Astro.props;
+
+// Agrupa por mês, mantendo a ordem.
+const months: { label: string; days: SiteDay[] }[] = [];
+for (const day of page.data) {
+  const label = formatMonthYear(day.date);
+  if (months.at(-1)?.label !== label) months.push({ label, days: [] });
+  months.at(-1)!.days.push(day);
+}
+---
+
+<Base tab="archive" title={page.currentPage > 1 ? t.archivePage(page.currentPage) : t.archive} description={t.archiveDescription}>
+  <h1 class="page-title">{t.archive}</h1>
+  {page.total === 0 && <p class="empty">{t.noPastDays}</p>}
+  {
+    months.map((month) => (
+      <section aria-labelledby={`m-${month.days[0]!.date}`}>
+        <h2 class="month" id={`m-${month.days[0]!.date}`}>
+          {month.label}
+        </h2>
+        <ol class="archive-list">
+          {month.days.map((day) => (
+            <li class="archive-day">
+              <h3 class="archive-date">
+                <a href={dayPath(day.date)}>{formatDayMonth(day.date)}</a>
+              </h3>
+              <span
+                class="read-indicator"
+                data-read-indicator={day.date}
+                data-label-full={t.read}
+                data-label-partial={t.readPartial(0).replace('0', '{n}')}
+              >
+                <span class="visually-hidden" />
+              </span>
+              <ul class="archive-titles">
+                {day.readings.map((r) => (
+                  <li>
+                    <span class={`tag tag--${r.category}`}>{t.category[r.category]}</span>
+                    <span>{r.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ol>
+      </section>
+    ))
+  }
+  {
+    page.lastPage > 1 && (
+      <ul class="pager" aria-label={t.archivePages}>
+        <li>{page.url.prev && <a class="button" href={page.url.prev}>{t.newer}</a>}</li>
+        <li>{page.url.next && <a class="button" href={page.url.next}>{t.more}</a>}</li>
+      </ul>
+    )
+  }
+</Base>

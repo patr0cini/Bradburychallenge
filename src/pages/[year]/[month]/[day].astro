@@ -1,0 +1,38 @@
+---
+import Base from '../../../layouts/Base.astro';
+import DayView from '../../../components/DayView.astro';
+import { dayPaths, type DayPageProps } from '../../../site/paths.js';
+import { STRINGS as t, dayPath, formatLongDate } from '../../../site/strings.js';
+
+export const getStaticPaths = dayPaths;
+type Props = DayPageProps;
+
+const { day, previous, next } = Astro.props;
+const title = formatLongDate(day.date);
+const list = day.readings.map((r) => t.byAuthor(r.title, r.author)).join('; ');
+---
+
+<Base title={title} description={t.dayDescription(title, list)}>
+  <DayView day={day}>
+    <ul class="day-nav" aria-label={t.otherDays}>
+      <li>
+        {
+          previous ? (
+            <a class="button" href={dayPath(previous)} rel="prev">{t.previousDay}</a>
+          ) : (
+            <span class="button" aria-disabled="true">{t.previousDay}</span>
+          )
+        }
+      </li>
+      <li>
+        {
+          next ? (
+            <a class="button" href={dayPath(next)} rel="next">{t.nextDay}</a>
+          ) : (
+            <span class="button" aria-disabled="true">{t.nextDay}</span>
+          )
+        }
+      </li>
+    </ul>
+  </DayView>
+</Base>

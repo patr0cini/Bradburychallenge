@@ -1,0 +1,19 @@
+---
+import ReadingCard from './ReadingCard.astro';
+import type { SiteDay } from '../site/data.js';
+import { STRINGS as t, formatLongDate } from '../site/strings.js';
+
+interface Props {
+  day: SiteDay;
+}
+
+const { day } = Astro.props;
+---
+
+<h1 class="day-title">{formatLongDate(day.date)}</h1>
+<p class="day-context">{t.dayNumber(day.number)}</p>
+<slot name="notice" />
+<ol class="readings" aria-label={t.readingsOfDay}>
+  {day.readings.map((r) => <ReadingCard reading={r} date={day.date} />)}
+</ol>
+<slot />

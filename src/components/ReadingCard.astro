@@ -1,0 +1,27 @@
+---
+import type { Reading } from '../site/data.js';
+import { STRINGS as t } from '../site/strings.js';
+
+interface Props {
+  reading: Reading;
+  date: string;
+}
+
+const { reading: r, date } = Astro.props;
+const id = `${date}-${r.category}`;
+---
+
+<li class="reading" aria-labelledby={`t-${id}`}>
+  <span class={`tag tag--${r.category}`}>{t.category[r.category]}</span>
+  <h2 class="reading-title" id={`t-${id}`}>
+    <a href={r.url} target="_blank" rel="noopener">{r.title}<span class="visually-hidden">{t.opensNewTab}</span></a>
+  </h2>
+  <p class="reading-meta">
+    {r.author}{r.translator ? t.translatedBy(r.translator) : ''} · {r.siteName}
+  </p>
+  {r.note && <p class="reading-note">{r.note}</p>}
+  {r.unavailable && <p class="notice">{t.unavailable}</p>}
+  <label class="read-toggle">
+    <input type="checkbox" data-read-date={date} data-read-category={r.category} />{t.read}
+  </label>
+</li>

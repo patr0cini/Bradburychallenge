@@ -1,0 +1,36 @@
+{
+  "name": "bradbury-challenge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bradbury Challenge: um poema, um ensaio e um conto por dia.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.12"
+  },
+  "scripts": {
+    "collect": "tsx scripts/collect.ts",
+    "validate": "tsx scripts/validate.ts",
+    "stats": "tsx scripts/stats.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "schedule": "tsx scripts/schedule.ts",
+    "dev": "ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build": "ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "preview": "ASTRO_TELEMETRY_DISABLED=1 astro preview",
+    "sample": "tsx scripts/sample-data.ts",
+    "dev:sample": "BRADBURY_DATA_SET=sample ASTRO_TELEMETRY_DISABLED=1 astro dev",
+    "build:sample": "BRADBURY_DATA_SET=sample ASTRO_TELEMETRY_DISABLED=1 astro build",
+    "check-access": "tsx scripts/check-access.ts"
+  },
+  "dependencies": {
+    "astro": "^7.3.5",
+    "cheerio": "^1.2.0",
+    "robots-parser": "^3.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^5.0.2"
+  }
+}

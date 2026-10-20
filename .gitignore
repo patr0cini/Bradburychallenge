@@ -1,0 +1,30 @@
+# Credenciais e configuração local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*.json
+
+# Dependências e builds
+node_modules/
+dist/
+.astro/
+
+# Cache de recolha (local, não versionado)
+.cache/
+
+# Sistema
+.DS_Store
+
+# graphify
+graphify-out/
+
+# Logs locais
+logs/
+
+# Dados de exemplo (gerados por npm run sample)
+data/sample/
+
+# Configuração local do Claude Code
+.claude/

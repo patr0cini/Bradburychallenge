@@ -1,0 +1,10 @@
+# Cabeçalhos HTTP (Cloudflare Pages e Netlify leem este ficheiro).
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+# Ficheiros com hash no nome: nunca mudam, podem ficar em cache um ano.
+/_astro/*
+  Cache-Control: public, max-age=31536000, immutable
