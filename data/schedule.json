@@ -1,0 +1,32 @@
+{
+  "2026-10-20": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/hills-0",
+      "title": "Hills",
+      "author": "Hilda Conkling",
+      "url": "https://rpo.library.utoronto.ca/content/hills-0",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/toward-a-useful-melancholy-on-howard-normans-ghost-stories",
+      "title": "Toward a Useful Melancholy: On Howard Norman’s Ghost Stories",
+      "author": "Mark Athitakis",
+      "url": "https://lareviewofbooks.org/article/toward-a-useful-melancholy-on-howard-normans-ghost-stories/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/miss-brill",
+      "title": "Miss Brill",
+      "author": "Katherine Mansfield",
+      "url": "https://www.libraryofshortstories.com/onlinereader/miss-brill",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-20T13:42:29.362Z"
+  }
+}
