@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import { SUPPORT_URL } from '../site/settings.js';
+---
+
+<Base tab="support" title="Buy me a coffee" description="Help keep Bradbury Challenge free.">
+  <article class="prose">
+    <h1 class="page-title">Buy me a coffee</h1>
+    <p>
+      Bradbury Challenge is free, with no accounts and no paywalls, and every reading links to a text you can read in full
+      at no cost. Keeping it that way takes time: checking sources, fixing broken links and looking for good new texts.
+    </p>
+    <p>If the daily readings are part of your routine and you would like to help, a small contribution goes a long way.</p>
+    {
+      SUPPORT_URL ? (
+        <p>
+          <a class="button button--primary" href={SUPPORT_URL} target="_blank" rel="noopener">
+            Buy me a coffee
+          </a>
+        </p>
+      ) : (
+        <p class="notice">Contributions will open soon.</p>
+      )
+    }
+    <p>Thank you. Telling a friend about the site helps just as much.</p>
+  </article>
+</Base>

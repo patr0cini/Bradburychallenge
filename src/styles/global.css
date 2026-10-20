@@ -426,6 +426,96 @@ main.wrap {
   font-size: 0.9375rem;
 }
 
+/* Read, Write e Buy me a coffee */
+.label-short {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  /* "Buy me a coffee" passa a "Coffee" no menu; o nome completo continua para leitores de ecrã. */
+  .label-long {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+  .label-short {
+    display: inline;
+  }
+}
+
+.page-lead {
+  margin: 12px 0 0;
+}
+
+.rec-group h2 {
+  margin: 32px 0 4px;
+  font-size: 1.25rem;
+}
+
+.rec-intro {
+  margin: 0 0 8px;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.rec-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+}
+
+.rec-item {
+  margin: 0 0 12px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.rec-title {
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.35;
+}
+
+.rec-by {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.rec-note {
+  margin: 8px 0 0;
+}
+
+.affiliate-notice {
+  margin-top: 20px;
+}
+
+.button--primary {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
+  font-family: var(--font-ui);
+  font-weight: 600;
+}
+
+.button--primary:hover {
+  border-color: var(--text);
+  opacity: 0.9;
+}
+
+.footer-note {
+  margin: -16px 0 24px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
 /* Arquivo */
 .page-title {
   margin: 0;
@@ -544,6 +634,31 @@ main.wrap {
 .empty {
   margin: 20px 0 0;
   color: var(--muted);
+}
+
+@media (max-width: 640px) {
+  .site-name,
+  .tabs {
+    float: none;
+  }
+  .site-name {
+    line-height: 1.75rem;
+  }
+  .tabs ul {
+    margin: 4px -4px 0;
+    white-space: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tabs ul::-webkit-scrollbar {
+    display: none;
+  }
+  .tabs li:first-child {
+    margin-left: 0;
+  }
+  .tabs a {
+    padding: 0 9px;
+  }
 }
 
 @media (max-width: 420px) {

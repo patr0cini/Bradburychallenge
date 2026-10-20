@@ -2,13 +2,13 @@
 import '../styles/global.css';
 import { SITE_NAME } from '../config.js';
 import { HOME_PATH, HTML_LANG, STRINGS as t, archivePath } from '../site/strings.js';
-import { ADSENSE_CLIENT, CF_ANALYTICS_TOKEN } from '../site/settings.js';
+import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, CF_ANALYTICS_TOKEN } from '../site/settings.js';
 
 interface Props {
   title?: string;
   description?: string;
   /** Separador ativo no topo. */
-  tab?: 'today' | 'archive';
+  tab?: 'today' | 'archive' | 'read' | 'write' | 'support';
   /** Data ISO de publicação, nas páginas de cada dia (Open Graph do tipo article). */
   published?: string;
 }
@@ -59,6 +59,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
           <ul>
             <li><a href={HOME_PATH} aria-current={tab === 'today' ? 'page' : undefined}>{t.today}</a></li>
             <li><a href={archivePath()} aria-current={tab === 'archive' ? 'page' : undefined}>{t.archive}</a></li>
+            <li><a href="/read/" aria-current={tab === 'read' ? 'page' : undefined}>Read</a></li>
+            <li><a href="/write/" aria-current={tab === 'write' ? 'page' : undefined}>Write</a></li>
+            <li><a href="/support/" aria-current={tab === 'support' ? 'page' : undefined}><span class="label-long">Buy me a coffee</span><span class="label-short" aria-hidden="true">Coffee</span></a></li>
           </ul>
         </nav>
       </div>
@@ -85,6 +88,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             }
           </ul>
         </nav>
+        {AMAZON_TAG && <p class="footer-note">{AMAZON_DISCLOSURE}</p>}
       </div>
     </footer>
     <script>

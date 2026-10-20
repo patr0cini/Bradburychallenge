@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { ADSENSE_CLIENT, CF_ANALYTICS_TOKEN, CONTACT_EMAIL, OPERATOR_NAME } from '../site/settings.js';
+import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, CF_ANALYTICS_TOKEN, CONTACT_EMAIL, OPERATOR_NAME } from '../site/settings.js';
 
 const UPDATED = '20 October 2026';
 ---
@@ -70,6 +70,14 @@ const UPDATED = '20 October 2026';
         <p>The site does not show advertising at the moment. If that changes, this policy will be updated first.</p>
       )
     }
+
+    <h2>Affiliate links and contributions</h2>
+    <p>
+      The Read and Write pages link to Amazon. {AMAZON_TAG ? <>{AMAZON_DISCLOSURE}{' '}</> : ''}If you follow one of those
+      links, Amazon may use cookies on its own site to record that the visit came from here; we receive no personal data
+      about you, only aggregate figures on purchases. The Buy me a coffee page links to an external payment service, whose
+      own privacy policy applies to any contribution you make there.
+    </p>
 
     <h2>Links to other sites</h2>
     <p>

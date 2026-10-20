@@ -1,0 +1,40 @@
+---
+import type { RecommendationGroup } from '../site/recommendations.js';
+import { AMAZON_DISCLOSURE, AMAZON_TAG, amazonLink } from '../site/settings.js';
+
+interface Props {
+  groups: RecommendationGroup[];
+}
+
+const { groups } = Astro.props;
+---
+
+{
+  AMAZON_TAG && (
+    <p class="notice affiliate-notice">
+      The links below go to Amazon. {AMAZON_DISCLOSURE} It costs you nothing extra and helps keep this site free.
+    </p>
+  )
+}
+{
+  groups.map((g) => (
+    <section class="rec-group">
+      <h2>{g.heading}</h2>
+      {g.intro && <p class="rec-intro">{g.intro}</p>}
+      <ul class="rec-list">
+        {g.items.map((item) => (
+          <li class="rec-item">
+            <h3 class="rec-title">
+              <a href={amazonLink(item.query)} target="_blank" rel="sponsored noopener">
+                {item.title}
+                <span class="visually-hidden"> (opens Amazon in a new tab)</span>
+              </a>
+            </h3>
+            {item.by && <p class="rec-by">{item.by}</p>}
+            <p class="rec-note">{item.note}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))
+}

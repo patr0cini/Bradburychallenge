@@ -28,3 +28,23 @@ export const OPERATOR_NAME = env('BRADBURY_OPERATOR_NAME');
 
 /** "pub-1234567890123456", a forma usada no ads.txt. */
 export const adsTxtPublisherId = () => ADSENSE_CLIENT?.replace(/^ca-/, '');
+
+/** Código de afiliado da Amazon (Amazon Associates), por exemplo "bradbury-20". Sem ele, as ligações não geram comissão. */
+export const AMAZON_TAG = env('BRADBURY_AMAZON_TAG');
+
+/** Loja da Amazon das ligações de afiliado (o código tem de ser dessa loja). */
+export const AMAZON_DOMAIN = env('BRADBURY_AMAZON_DOMAIN') ?? 'www.amazon.com';
+
+/** Ligação de afiliado: pesquisa na Amazon (evita depender de códigos de produto que mudam). */
+export function amazonLink(query: string): string {
+  const url = new URL(`https://${AMAZON_DOMAIN}/s`);
+  url.searchParams.set('k', query);
+  if (AMAZON_TAG) url.searchParams.set('tag', AMAZON_TAG);
+  return url.toString();
+}
+
+/** Página de doações (por exemplo https://buymeacoffee.com/utilizador). Sem ela, o separador não aparece. */
+export const SUPPORT_URL = env('BRADBURY_SUPPORT_URL');
+
+/** Frase de divulgação que o programa Amazon Associates exige. */
+export const AMAZON_DISCLOSURE = 'As an Amazon Associate I earn from qualifying purchases.';
