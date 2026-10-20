@@ -99,3 +99,9 @@ Os espaços têm altura reservada (sem saltos de layout) e nenhum fica no topo d
 4. Definir `BRADBURY_ADSENSE_CLIENT` e as três variáveis dos espaços no Cloudflare Pages e fazer um novo deploy. O `ads.txt` passa a ter a linha da Google, que o AdSense verifica.
 
 O AdSense também precisa da verificação do site: o próprio script com o ID de publisher serve para isso, por isso basta definir `BRADBURY_ADSENSE_CLIENT` antes de pedir a revisão (as variáveis dos espaços podem ficar vazias até lá).
+
+## Motores de busca
+
+O build gera `sitemap.xml` (página inicial, Arquivo, cada dia publicado e páginas fixas) e `robots.txt` (tudo aberto, com a indicação do sitemap). Cada página tem `canonical` e metadados Open Graph; as páginas de dia são do tipo `article`, com a data e os três títulos na descrição, para as pré-visualizações em redes sociais.
+
+Depois do lançamento, vale a pena registar o domínio no Google Search Console (verificação por DNS, que o Cloudflare facilita) e submeter `https://bradburychallenge.org/sitemap.xml`. Ajuda a indexação e o pedido ao AdSense.

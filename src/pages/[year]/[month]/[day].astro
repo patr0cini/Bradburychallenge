@@ -12,7 +12,7 @@ const title = formatLongDate(day.date);
 const list = day.readings.map((r) => t.byAuthor(r.title, r.author)).join('; ');
 ---
 
-<Base title={title} description={t.dayDescription(title, list)}>
+<Base title={title} description={t.dayDescription(title, list)} published={day.date}>
   <DayView day={day}>
     <ul class="day-nav" aria-label={t.otherDays}>
       <li>
