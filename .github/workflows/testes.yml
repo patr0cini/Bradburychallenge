@@ -1,0 +1,29 @@
+# Verificação do código: tipos, testes e build. Os commits diários de dados feitos pelos outros
+# workflows não disparam este (o GITHUB_TOKEN não inicia novos workflows).
+name: Testes
+
+on:
+  push:
+    branches: [main]
+    paths-ignore: ['data/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  testes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build

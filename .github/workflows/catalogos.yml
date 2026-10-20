@@ -1,0 +1,62 @@
+# Atualização dos catálogos. Corre todos os dias, mas cada fonte só é recolhida quando passa o
+# seu intervalo mínimo (7 dias; 28 para as antologias). Fica separada da seleção diária para
+# que uma recolha longa nunca atrase as leituras do dia.
+name: Catálogos
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      fonte:
+        description: 'Recolher só esta fonte, ignorando o intervalo mínimo (por exemplo: lithub). Vazio: todas as que estiverem em dia.'
+        required: false
+        default: ''
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalogos
+  cancel-in-progress: false
+
+jobs:
+  recolher:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      BRADBURY_CONTACT_URL: ${{ vars.BRADBURY_CONTACT_URL || format('{0}/{1}', github.server_url, github.repository) }}
+      FONTE: ${{ inputs.fonte }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - run: npm ci
+
+      - name: Recolher
+        run: |
+          if [ -n "$FONTE" ]; then
+            npm run collect -- --source "$FONTE" --force
+          else
+            npm run collect
+          fi
+
+      - name: Validar os catálogos
+        run: npm run validate
+
+      - name: Commit e envio
+        run: |
+          bash scripts/commit-data.sh "Catálogos: atualização de $(date -u +%F)" data
+
+      - name: Avisar fontes com erro
+        if: always()
+        run: |
+          node -e '
+            const s = require("./data/state/sources.json");
+            for (const [fonte, st] of Object.entries(s))
+              if (st.lastError) console.log(`::warning title=Fonte ${fonte}::${st.lastError}`);
+          '

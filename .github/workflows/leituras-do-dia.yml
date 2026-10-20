@@ -1,0 +1,58 @@
+# Seleção diária: acrescenta ao data/schedule.json as leituras de hoje e faz commit.
+# O commit dispara o deploy no serviço de alojamento ligado ao repositório (ver docs/publicacao.md).
+name: Leituras do dia
+
+on:
+  schedule:
+    # 00:05 em Lisboa é 23:05 UTC na hora de verão (WEST) e 00:05 UTC na de inverno (WET).
+    # Correm as duas todos os dias: a seleção é idempotente, e a que não calha depois da
+    # meia-noite de Lisboa não encontra nada para fazer. A terceira é reserva, caso o GitHub
+    # atrase ou salte uma das anteriores.
+    - cron: '5 23 * * *'
+    - cron: '5 0 * * *'
+    - cron: '35 1 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: leituras-do-dia
+  cancel-in-progress: false
+
+jobs:
+  selecionar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      BRADBURY_START_DATE: ${{ vars.BRADBURY_START_DATE }}
+      BRADBURY_SEED: ${{ vars.BRADBURY_SEED }}
+      BRADBURY_CONTACT_URL: ${{ vars.BRADBURY_CONTACT_URL || format('{0}/{1}', github.server_url, github.repository) }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - run: npm ci
+
+      - name: Confirmar a data de lançamento
+        id: lancamento
+        run: |
+          if [ -z "$BRADBURY_START_DATE" ]; then
+            echo "::warning::A variável de repositório BRADBURY_START_DATE não está definida: não há leituras a selecionar."
+            echo "ativo=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "Primeiro dia de leituras: $BRADBURY_START_DATE"
+            echo "ativo=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Acrescentar a seleção de hoje
+        if: steps.lancamento.outputs.ativo == 'true'
+        run: npm run schedule
+
+      - name: Commit e envio (dispara o deploy)
+        if: steps.lancamento.outputs.ativo == 'true'
+        run: bash scripts/commit-data.sh "Leituras de $(TZ=Europe/Lisbon date +%F)" data
