@@ -80,5 +80,5 @@ verificar antes o robots.txt e os termos do site.
 ## Credenciais
 
 Nada de tokens ou chaves no repositório. Segredos do workflow ficam em GitHub Secrets.
-Configuração local opcional por variáveis de ambiente: `BRADBURY_START_DATE`, `BRADBURY_SEED`,
-`BRADBURY_CONTACT_URL`.
+Configuração por variáveis de ambiente: `BRADBURY_START_DATE`, `BRADBURY_SEED`, `BRADBURY_CONTACT_URL`
+(GitHub Actions) e, no build do site, as dos anúncios, contacto e análise de tráfego (ver `docs/publicacao.md`).

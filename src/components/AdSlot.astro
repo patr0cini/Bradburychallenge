@@ -1,0 +1,32 @@
+---
+// Espaço de anúncio do AdSense. Só aparece com ID de publisher e ID do espaço configurados.
+// A altura fica reservada para o conteúdo não saltar quando o anúncio carrega (CLS).
+// O consentimento é tratado pela plataforma de consentimento do Google (TCF v2.2), configurada no AdSense.
+import { ADSENSE_CLIENT, AD_SLOTS, type AdSlotName } from '../site/settings.js';
+
+interface Props {
+  name: AdSlotName;
+  /** Elemento exterior: 'li' quando o espaço fica dentro de uma lista. */
+  as?: 'div' | 'li';
+}
+
+const { name, as: Tag = 'div' } = Astro.props;
+const slot = AD_SLOTS[name];
+---
+
+{
+  ADSENSE_CLIENT && slot && (
+    <Tag class="ad" aria-label="Advertisement">
+      <p class="ad-label">Advertisement</p>
+      <ins
+        class="adsbygoogle"
+        style="display:block"
+        data-ad-client={ADSENSE_CLIENT}
+        data-ad-slot={slot}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      />
+      <script is:inline>(window.adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </Tag>
+  )
+}

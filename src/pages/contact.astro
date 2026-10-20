@@ -1,0 +1,21 @@
+---
+import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL } from '../site/settings.js';
+---
+
+<Base title="Contact" description="How to get in touch with Bradbury Challenge.">
+  <article class="prose">
+    <h1 class="page-title">Contact</h1>
+    <p>
+      Write to <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>. We read everything, and usually answer within a few
+      days.
+    </p>
+    <p>It is especially useful to hear about:</p>
+    <ul>
+      <li>a link that no longer works, or a reading that has gone behind a paywall;</li>
+      <li>a poem, essay or story you think belongs in the catalogue;</li>
+      <li>a request from a rights holder to remove a link, which we will act on promptly;</li>
+      <li>anything about your personal data (see the <a href="/privacy/">privacy policy</a>).</li>
+    </ul>
+  </article>
+</Base>

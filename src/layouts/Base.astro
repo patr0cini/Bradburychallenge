@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import { SITE_NAME } from '../config.js';
 import { HOME_PATH, HTML_LANG, STRINGS as t, archivePath } from '../site/strings.js';
+import { ADSENSE_CLIENT, CF_ANALYTICS_TOKEN } from '../site/settings.js';
 
 interface Props {
   title?: string;
@@ -25,6 +26,16 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="color-scheme" content="light dark" />
     <link rel="canonical" href={canonical.href} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    {
+      ADSENSE_CLIENT && (
+        <script async src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`} crossorigin="anonymous" />
+      )
+    }
+    {
+      CF_ANALYTICS_TOKEN && (
+        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: CF_ANALYTICS_TOKEN })} />
+      )
+    }
     <slot name="head" />
   </head>
   <body>
@@ -43,9 +54,37 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <main id="content" class="wrap">
       <slot />
     </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <nav aria-label="About this site">
+          <ul>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/cookies/">Cookies</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            {
+              ADSENSE_CLIENT && (
+                <li>
+                  <button type="button" class="link-button" data-privacy-settings>
+                    Privacy settings
+                  </button>
+                </li>
+              )
+            }
+          </ul>
+        </nav>
+      </div>
+    </footer>
     <script>
       import { initReadMarks } from '../site/read-marks.ts';
       initReadMarks();
+      // Reabre a mensagem de consentimento do Google (plataforma de consentimento do AdSense).
+      document.querySelector('[data-privacy-settings]')?.addEventListener('click', () => {
+        const w = window as unknown as { googlefc?: { callbackQueue?: unknown[]; showRevocationMessage?: () => void } };
+        w.googlefc = w.googlefc || {};
+        w.googlefc.callbackQueue = w.googlefc.callbackQueue || [];
+        w.googlefc.callbackQueue.push(() => w.googlefc?.showRevocationMessage?.());
+      });
     </script>
   </body>
 </html>

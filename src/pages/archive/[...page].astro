@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPaths, Page } from 'astro';
 import Base from '../../layouts/Base.astro';
+import AdSlot from '../../components/AdSlot.astro';
 import type { SiteDay } from '../../site/data.js';
 import { DAYS_PER_PAGE, pastDays } from '../../site/paths.js';
 import { STRINGS as t, dayPath, formatDayMonth, formatMonthYear } from '../../site/strings.js';
@@ -12,6 +13,11 @@ interface Props {
 }
 
 const { page } = Astro.props;
+
+// No máximo um anúncio a cada 10 dias da lista (especificação, secção 9).
+const AD_EVERY = 10;
+const position = new Map(page.data.map((d, i) => [d.date, i + 1]));
+const adAfter = (date: string) => position.get(date)! % AD_EVERY === 0 && position.get(date)! < page.data.length;
 
 // Agrupa por mês, mantendo a ordem.
 const months: { label: string; days: SiteDay[] }[] = [];
@@ -33,6 +39,7 @@ for (const day of page.data) {
         </h2>
         <ol class="archive-list">
           {month.days.map((day) => (
+            <>
             <li class="archive-day">
               <h3 class="archive-date">
                 <a href={dayPath(day.date)}>{formatDayMonth(day.date)}</a>
@@ -54,6 +61,8 @@ for (const day of page.data) {
                 ))}
               </ul>
             </li>
+            {adAfter(day.date) && <AdSlot name="archive" as="li" />}
+            </>
           ))}
         </ol>
       </section>

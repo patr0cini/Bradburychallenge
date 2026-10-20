@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import { ADSENSE_CLIENT } from '../site/settings.js';
+
+const UPDATED = '20 October 2026';
+---
+
+<Base title="Cookie policy" description="Which cookies and similar technologies Bradbury Challenge uses.">
+  <article class="prose">
+    <h1 class="page-title">Cookie policy</h1>
+    <p class="updated">Last updated: {UPDATED}</p>
+
+    <h2>Our own site</h2>
+    <p>
+      Bradbury Challenge itself sets no cookies. It keeps one item in your browser's local storage,{' '}
+      <code>bradbury:lidos</code>, which records the readings you have ticked as read. It is strictly necessary for that
+      feature, stays on your device and is never sent to us.
+    </p>
+
+    <h2>Advertising</h2>
+    {
+      ADSENSE_CLIENT ? (
+        <>
+          <p>Ads are provided by Google AdSense. With your consent, Google and its partners use cookies to show, measure and personalise ads. Among them:</p>
+          <ul>
+            <li><code>FCCDCF</code>, <code>FCNEC</code>: store your consent choices (Google's consent platform).</li>
+            <li><code>__gads</code>, <code>__gpi</code>, <code>__eoi</code>: ad delivery and measurement on this site.</li>
+            <li><code>IDE</code>, <code>DSID</code> (doubleclick.net): ad personalisation and measurement across sites.</li>
+          </ul>
+          <p>
+            The exact list changes over time and depends on your choices. Visitors in the European Economic Area, the United
+            Kingdom and Switzerland are asked before any non-essential cookie is used, and can change their choices with
+            the <strong>Privacy settings</strong> link at the bottom of every page. More details in{' '}
+            <a href="https://business.safety.google/adscookies/">Google's list of advertising cookies</a>.
+          </p>
+        </>
+      ) : (
+        <p>The site does not show advertising at the moment, so no advertising cookies are used.</p>
+      )
+    }
+
+    <h2>Managing cookies</h2>
+    <p>
+      You can also block or delete cookies in your browser settings. Blocking local storage only stops the read marks from
+      being remembered; the rest of the site works normally.
+    </p>
+
+    <p>See also the <a href="/privacy/">privacy policy</a>.</p>
+  </article>
+</Base>

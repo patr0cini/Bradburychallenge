@@ -74,3 +74,28 @@ Registado no Cloudflare Registrar a 20 de outubro de 2026, por dois anos (até 2
 - O GitHub pode atrasar execuções agendadas em alturas de muito tráfego. Se a seleção de hoje ainda não estiver publicada, a página Hoje mostra a de ontem com um aviso, e a reserva das 01:35 UTC volta a tentar.
 - Num repositório público, o GitHub desativa os workflows agendados ao fim de 60 dias sem atividade. Os commits diários evitam isso.
 - Para gerar à mão a seleção até um dia (nunca futuro): `npm run schedule -- --date AAAA-MM-DD`.
+
+## Anúncios, consentimento e páginas legais
+
+O site tem as páginas `/about/`, `/privacy/`, `/cookies/` e `/contact/` (em inglês), ligadas no rodapé de todas as páginas. Os anúncios e a análise de tráfego configuram-se por variáveis de ambiente **no projeto do Cloudflare Pages** (*Settings → Environment variables*), lidas no build:
+
+| Variável | Para quê |
+|---|---|
+| `BRADBURY_CONTACT_EMAIL` | Endereço mostrado no site. Por omissão `contact@bradburychallenge.org` (criar com o Cloudflare Email Routing). |
+| `BRADBURY_OPERATOR_NAME` | Nome de quem gere o site, que a política de privacidade indica como responsável pelo tratamento (RGPD). **Recomendado.** Sem ele, a política diz "its editor". |
+| `BRADBURY_CF_ANALYTICS_TOKEN` | Token do Cloudflare Web Analytics (sem cookies). Em alternativa, ativar a análise no próprio projeto do Pages, sem token. |
+| `BRADBURY_ADSENSE_CLIENT` | ID de publisher do AdSense (`ca-pub-…`). Sem ele não há anúncios, scripts do Google nem botão "Privacy settings", e o `ads.txt` fica vazio. |
+| `BRADBURY_AD_SLOT_DAY_MIDDLE` | Espaço entre o segundo e o terceiro cartão (Today e páginas de dia). |
+| `BRADBURY_AD_SLOT_DAY_END` | Espaço no fim das páginas de dia. |
+| `BRADBURY_AD_SLOT_ARCHIVE` | Espaço no Arquivo, no máximo um a cada 10 dias. |
+
+Os espaços têm altura reservada (sem saltos de layout) e nenhum fica no topo do ecrã. As políticas de privacidade e de cookies mudam sozinhas: sem ID de publisher dizem que não há anúncios; com ele, descrevem o AdSense e o consentimento.
+
+### Passos para ativar os anúncios
+
+1. Com o site no ar no domínio e algumas semanas de leituras publicadas, pedir a adesão em adsense.google.com com o endereço `bradburychallenge.org`.
+2. No AdSense, em *Privacy & messaging*, criar e publicar a mensagem de consentimento para a Europa (*European regulations*). É a plataforma de consentimento do próprio Google, certificada no TCF v2.2: aparece aos visitantes da UE, do Reino Unido e da Suíça antes de qualquer cookie de publicidade.
+3. Com a conta aprovada, criar três blocos de anúncios de *display* responsivos e copiar os IDs (`data-ad-slot`).
+4. Definir `BRADBURY_ADSENSE_CLIENT` e as três variáveis dos espaços no Cloudflare Pages e fazer um novo deploy. O `ads.txt` passa a ter a linha da Google, que o AdSense verifica.
+
+O AdSense também precisa da verificação do site: o próprio script com o ID de publisher serve para isso, por isso basta definir `BRADBURY_ADSENSE_CLIENT` antes de pedir a revisão (as variáveis dos espaços podem ficar vazias até lá).

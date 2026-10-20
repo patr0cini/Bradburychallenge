@@ -1,5 +1,6 @@
 ---
 import ReadingCard from './ReadingCard.astro';
+import AdSlot from './AdSlot.astro';
 import type { SiteDay } from '../site/data.js';
 import { STRINGS as t, formatLongDate } from '../site/strings.js';
 
@@ -14,6 +15,14 @@ const { day } = Astro.props;
 <p class="day-context">{t.dayNumber(day.number)}</p>
 <slot name="notice" />
 <ol class="readings" aria-label={t.readingsOfDay}>
-  {day.readings.map((r) => <ReadingCard reading={r} date={day.date} />)}
+  {
+    day.readings.map((r, i) => (
+      <>
+        {i === 2 && <AdSlot name="dayMiddle" as="li" />}
+        <ReadingCard reading={r} date={day.date} />
+      </>
+    ))
+  }
 </ol>
+<AdSlot name="dayEnd" />
 <slot />

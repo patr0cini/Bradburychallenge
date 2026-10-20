@@ -1,0 +1,76 @@
+---
+import Base from '../layouts/Base.astro';
+import { CONTACT_EMAIL } from '../site/settings.js';
+---
+
+<Base title="About" description="What the Bradbury Challenge is, where the readings come from and how they are chosen.">
+  <article class="prose">
+    <h1 class="page-title">About</h1>
+
+    <p>
+      Ray Bradbury liked to give young writers a simple piece of advice: for a thousand nights, before going to sleep,
+      read one short story, one poem and one essay. Do that, he said, and you will have filled your head with other
+      people's ideas, images and ways of putting a sentence together, which is where your own will come from. He gave
+      the advice in talks to students for years, most famously at a writers' symposium in 2001, and it has been
+      passed around ever since by readers who simply wanted a good reading habit.
+    </p>
+    <p>
+      Bradbury Challenge makes that habit easy to keep. Every day at midnight, Lisbon time, there is a new poem, a new
+      essay and a new short story. You do not need an account. You read the
+      texts where their publishers put them, and you can tick each one off as you go; your progress stays in your own
+      browser.
+    </p>
+
+    <h2>Where the texts come from</h2>
+    <p>
+      Every reading is free to read in full, with no paywall and no subscription. We do not copy texts onto this site:
+      each reading is a link to the page where it was published, so the writers and editors who made it get the
+      reader. The sources are:
+    </p>
+    <ul>
+      <li>
+        <strong>Poems:</strong> Representative Poetry Online, the anthology edited at the University of Toronto; the
+        Poetry Archive, which records poets reading their own work; Poetry International in Rotterdam; the poems
+        published in The New York Review of Books; and Literary Hub.
+      </li>
+      <li>
+        <strong>Essays:</strong> the literary essays of the Los Angeles Review of Books; classic essays in the public
+        domain on Wikisource, from Montaigne and Bacon to Hazlitt, Emerson, Woolf and Chesterton; and the essays of The
+        New York Review of Books that are free to read.
+      </li>
+      <li>
+        <strong>Short stories:</strong> the Library of Short Stories, a collection of classic stories in the public
+        domain, and the stories published by Literary Hub.
+      </li>
+    </ul>
+    <p>
+      Some of the classic texts were written in other languages; they appear here in English translations, with the
+      translator named.
+    </p>
+
+    <h2>How the readings are chosen</h2>
+    <p>
+      The catalogue holds thousands of texts, and a new day's selection is drawn from it automatically. The order is
+      pseudo-random but fixed: once a day has its three readings, they never change, so the page for any past day
+      always shows what was read that day. No text comes back while there are texts that have not yet appeared, and
+      when a category has been read through, nothing returns that appeared in the previous twelve months. The draw also
+      takes turns between sources, so that a single magazine does not fill a week.
+    </p>
+    <p>
+      Days are not revealed in advance. If today's readings are not up yet, which can happen for a few minutes after
+      midnight, the home page shows yesterday's and says so.
+    </p>
+
+    <h2>Rights holders</h2>
+    <p>
+      If you publish one of the texts we link to and would rather we did not, write to{' '}
+      <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a> and we will remove the link.
+    </p>
+
+    <h2>Not affiliated</h2>
+    <p>
+      Bradbury Challenge is an independent project. It is named after Ray Bradbury's advice, but it is not connected to
+      Ray Bradbury's estate or to any of the publications it links to.
+    </p>
+  </article>
+</Base>
