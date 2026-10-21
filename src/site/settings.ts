@@ -35,10 +35,9 @@ export const AMAZON_TAG = env('BRADBURY_AMAZON_TAG');
 /** Loja da Amazon das ligações de afiliado (o código tem de ser dessa loja). */
 export const AMAZON_DOMAIN = env('BRADBURY_AMAZON_DOMAIN') ?? 'www.amazon.com';
 
-/** Ligação de afiliado: pesquisa na Amazon (evita depender de códigos de produto que mudam). */
-export function amazonLink(query: string): string {
-  const url = new URL(`https://${AMAZON_DOMAIN}/s`);
-  url.searchParams.set('k', query);
+/** Ligação de afiliado para a página de um produto, pelo seu código Amazon (ASIN ou ISBN-10). */
+export function amazonLink(asin: string): string {
+  const url = new URL(`https://${AMAZON_DOMAIN}/dp/${encodeURIComponent(asin)}`);
   if (AMAZON_TAG) url.searchParams.set('tag', AMAZON_TAG);
   return url.toString();
 }

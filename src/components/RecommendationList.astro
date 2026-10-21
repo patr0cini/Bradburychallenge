@@ -25,7 +25,7 @@ const { groups } = Astro.props;
         {g.items.map((item) => (
           <li class="rec-item">
             <h3 class="rec-title">
-              <a href={amazonLink(item.query)} target="_blank" rel="sponsored noopener">
+              <a href={amazonLink(item.asin)} target="_blank" rel="sponsored noopener">
                 {item.title}
                 <span class="visually-hidden"> (opens Amazon in a new tab)</span>
               </a>
