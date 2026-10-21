@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import DayView from '../components/DayView.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
 import { START_DATE } from '../config.js';
 import { addDays } from '../lib/dates.js';
 import { loadSiteData } from '../site/data.js';
@@ -15,7 +16,7 @@ const olderText = day ? t.staleOlder(formatLongDate(day.date)) : '';
 const staticText = day && day.date === addDays(today, -1) ? t.staleYesterday : olderText;
 ---
 
-<Base tab="today" description={t.homeDescription}>
+<Base tab="today" description={t.homeDescription} image={day ? `/og/${day.date}.png` : undefined}>
   {
     day ? (
       <DayView day={day} showNumber={false}>
@@ -36,8 +37,10 @@ const staticText = day && day.date === addDays(today, -1) ? t.staleYesterday : o
               <a href={dayPath(previous.date)}>{t.yesterdayLink}</a> ·{' '}
             </>
           )}
-          <a href={archivePath()}>{t.archive}</a>
+          <a href={archivePath()}>{t.archive}</a> ·{' '}
+          <a href="/bradbury-challenge/">What is the Bradbury Challenge?</a>
         </p>
+        <NewsletterForm />
       </DayView>
     ) : (
       <>

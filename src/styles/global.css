@@ -702,3 +702,68 @@ main.wrap {
   }
 }
 
+/* Partilha das leituras do dia */
+.share {
+  margin: 24px 0 0;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+button.button {
+  font: inherit;
+  cursor: pointer;
+}
+
+button.button:not(.button--primary) {
+  color: inherit;
+}
+
+.share-status {
+  margin-left: 10px;
+  color: var(--muted);
+  overflow-wrap: anywhere;
+}
+
+/* Newsletter */
+.newsletter {
+  margin: 36px 0 0;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.newsletter-title {
+  margin: 0;
+  font-size: 1.125rem;
+}
+
+.newsletter-intro,
+.newsletter-note {
+  margin: 6px 0 0;
+  color: var(--muted);
+}
+
+.newsletter-note {
+  font-size: 0.875rem;
+}
+
+.newsletter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.newsletter input[type='email'] {
+  flex: 1 1 220px;
+  min-width: 0;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}

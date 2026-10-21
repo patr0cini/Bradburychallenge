@@ -3,6 +3,7 @@ import ReadingCard from './ReadingCard.astro';
 import AdSlot from './AdSlot.astro';
 import type { SiteDay } from '../site/data.js';
 import { STRINGS as t, formatLongDate } from '../site/strings.js';
+import { dayUrl } from '../site/digest.js';
 
 interface Props {
   day: SiteDay;
@@ -11,6 +12,8 @@ interface Props {
 }
 
 const { day, showNumber = true } = Astro.props;
+// A ligação partilhada é sempre a página do dia, para continuar a mostrar estas leituras amanhã.
+const shareText = `${day.readings.map((r) => `${t.category[r.category]}: ${r.title} (${r.author})`).join('\n')}`;
 ---
 
 <h1 class="day-title">{formatLongDate(day.date)}</h1>
@@ -26,5 +29,33 @@ const { day, showNumber = true } = Astro.props;
     ))
   }
 </ol>
+<p class="share">
+  <button type="button" class="button" data-share data-url={dayUrl(day.date)} data-title={`Readings for ${formatLongDate(day.date)}`} data-text={shareText}>
+    {showNumber ? t.shareDay : t.shareToday}
+  </button>
+  <span class="share-status" role="status" aria-live="polite"></span>
+</p>
 <AdSlot name="dayEnd" />
 <slot />
+
+<script>
+  // Partilha pelo menu do sistema (telemóveis e alguns browsers); sem ele, copia a ligação.
+  for (const button of document.querySelectorAll<HTMLButtonElement>('[data-share]')) {
+    const status = button.nextElementSibling as HTMLElement | null;
+    button.addEventListener('click', async () => {
+      const { url = '', title = '', text = '' } = button.dataset;
+      try {
+        if (navigator.share) {
+          await navigator.share({ title, text, url });
+          return;
+        }
+        await navigator.clipboard.writeText(url);
+        if (status) status.textContent = 'Link copied.';
+      } catch (err) {
+        // Fechar o menu de partilha não é um erro.
+        if ((err as DOMException)?.name === 'AbortError') return;
+        if (status) status.textContent = url;
+      }
+    });
+  }
+</script>

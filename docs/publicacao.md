@@ -105,3 +105,34 @@ O AdSense também precisa da verificação do site: o próprio script com o ID d
 O build gera `sitemap.xml` (página inicial, Arquivo, cada dia publicado e páginas fixas) e `robots.txt` (tudo aberto, com a indicação do sitemap). Cada página tem `canonical` e metadados Open Graph; as páginas de dia são do tipo `article`, com a data e os três títulos na descrição, para as pré-visualizações em redes sociais.
 
 Depois do lançamento, vale a pena registar o domínio no Google Search Console (verificação por DNS, que o Cloudflare facilita) e submeter `https://bradburychallenge.org/sitemap.xml`. Ajuda a indexação e o pedido ao AdSense.
+
+## Divulgação diária: Bluesky, Mastodon e newsletter
+
+O workflow `Divulgação diária` (`.github/workflows/divulgacao.yml`) corre todas as manhãs (07:30 em
+Lisboa no verão, 06:30 no inverno) e corre `npm run outreach`. Cada canal só é usado se as suas
+credenciais existirem, e nenhum envia o mesmo dia duas vezes (`data/state/outreach.json`). Para
+experimentar sem enviar nada: `npm run outreach -- --dry-run`.
+
+**Bluesky**
+1. Crie a conta (por exemplo `bradburychallenge.bsky.social`).
+2. Em Settings → Privacy and security → App passwords, crie uma palavra-passe de aplicação.
+3. No GitHub (Settings → Secrets and variables → Actions → Secrets), crie `BLUESKY_HANDLE` com o
+   nome da conta e `BLUESKY_APP_PASSWORD` com a palavra-passe de aplicação. Nunca a palavra-passe
+   principal da conta.
+
+**Mastodon**
+1. Crie a conta numa instância que aceite contas automáticas (marque-a como bot no perfil).
+2. Em Preferences → Development → New application, com a permissão `write:statuses`, copie o
+   "access token".
+3. No GitHub, crie a variável `MASTODON_INSTANCE` (por exemplo `https://mastodon.social`) e o
+   secret `MASTODON_TOKEN`.
+
+**Newsletter (Buttondown)**
+1. Crie a conta no Buttondown e escolha o nome de utilizador (aparece no endereço
+   `buttondown.com/<nome>`). Confirme no plano escolhido que o envio por API está incluído.
+2. No Cloudflare Pages, crie `BRADBURY_BUTTONDOWN_USERNAME` com esse nome e volte a construir o
+   site: aparece o formulário de subscrição e a política de privacidade passa a falar da newsletter.
+3. Em Settings → API do Buttondown, copie a chave e crie no GitHub o secret `BUTTONDOWN_API_KEY`.
+
+**Feed RSS e imagens de partilha** não precisam de configuração: o feed está em `/feed.xml` e cada
+dia tem a sua imagem em `/og/AAAA-MM-DD.png`, gerada na construção do site.

@@ -13,7 +13,7 @@ export const GET: APIRoute = ({ site }) => {
     { loc: abs('/'), lastmod: latest },
     ...Array.from({ length: archivePages }, (_, i) => ({ loc: abs(archivePath(i + 1)), lastmod: i === 0 ? latest : undefined })),
     ...days.map((d) => ({ loc: abs(dayPath(d.date)), lastmod: d.date })),
-    ...['/read/', '/write/', '/support/', '/about/', '/privacy/', '/cookies/', '/contact/'].map((p) => ({ loc: abs(p) })),
+    ...['/bradbury-challenge/', '/read/', '/write/', '/support/', '/about/', '/privacy/', '/cookies/', '/contact/'].map((p) => ({ loc: abs(p) })),
   ];
   const body =
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

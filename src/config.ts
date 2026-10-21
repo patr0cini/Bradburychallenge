@@ -5,6 +5,9 @@
 
 export const SITE_NAME = 'Bradbury Challenge';
 
+/** Endereço público do site, sem barra final (o mesmo do astro.config.mjs). */
+export const SITE_URL = (process.env.BRADBURY_SITE_URL || 'https://bradburychallenge.org').replace(/\/+$/, '');
+
 /** Primeiro dia de leituras (data ISO, fuso Europe/Lisbon). A definir pelo dono do projeto. */
 export const START_DATE = process.env.BRADBURY_START_DATE || '2026-11-01';
 

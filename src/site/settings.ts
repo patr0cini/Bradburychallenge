@@ -45,5 +45,8 @@ export function amazonLink(asin: string): string {
 /** Página de doações (Ko-fi). Pode ser trocada pela variável BRADBURY_SUPPORT_URL. */
 export const SUPPORT_URL = env('BRADBURY_SUPPORT_URL') ?? 'https://ko-fi.com/bradburychallenge';
 
+/** Nome de utilizador no Buttondown (newsletter). Sem ele, o formulário de subscrição não aparece. */
+export const BUTTONDOWN_USERNAME = env('BRADBURY_BUTTONDOWN_USERNAME');
+
 /** Frase de divulgação que o programa Amazon Associates exige. */
 export const AMAZON_DISCLOSURE = 'As an Amazon Associate I earn from qualifying purchases.';

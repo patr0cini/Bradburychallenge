@@ -1,0 +1,103 @@
+---
+import Base from '../../layouts/Base.astro';
+import NewsletterForm from '../../components/NewsletterForm.astro';
+import { SITE_URL } from '../../config.js';
+
+const TITLE = 'What is the Bradbury Challenge?';
+const DESCRIPTION =
+  "The Bradbury Challenge is Ray Bradbury's advice to writers: for a thousand nights, read one short story, one poem and one essay. How it works, why it helps and how to start today.";
+
+// Perguntas frequentes, também em dados estruturados (FAQPage) para os motores de busca.
+const FAQ = [
+  {
+    q: 'What is the Bradbury Challenge?',
+    a: "A reading habit based on Ray Bradbury's advice to writers: every night for a thousand nights, read one short story, one poem and one essay.",
+  },
+  {
+    q: 'How long does the Bradbury Challenge take?',
+    a: 'A thousand nights is a little under three years. Most people take it one day at a time and do not worry about the total.',
+  },
+  {
+    q: 'Do I have to be a writer?',
+    a: 'No. Bradbury gave the advice to writers, but it works for anyone who wants to read more widely and more often.',
+  },
+  {
+    q: 'What if I miss a day?',
+    a: 'Pick up again the next day. Every past day stays in the archive, so you can catch up if you want to, but there is no penalty for a gap.',
+  },
+  {
+    q: 'Where do I find a poem, an essay and a short story every day?',
+    a: 'Bradbury Challenge chooses three free texts every day, from established literary publishers and archives, and links to them on its home page.',
+  },
+];
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQ.map(({ q, a }) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })),
+};
+---
+
+<Base title={TITLE} description={DESCRIPTION}>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <article class="prose">
+    <h1 class="page-title">{TITLE}</h1>
+
+    <p class="page-lead">
+      For a thousand nights, read one short story, one poem and one essay. That is the whole challenge.
+    </p>
+
+    <h2>Where it comes from</h2>
+    <p>
+      Ray Bradbury, the author of <em>Fahrenheit 451</em> and <em>The Martian Chronicles</em>, gave this advice to young
+      writers for decades, most famously in a talk at a writers' symposium in 2001. His point was simple: a writer's
+      head has to be stocked before anything good can come out of it. Short stories teach you how much can happen in a
+      few pages. Poems teach you to listen to words and to notice. Essays give you ideas, arguments and other people's
+      ways of thinking. Read all three, every night, and after a thousand nights you will have a head full of them.
+    </p>
+    <p>
+      In the same talks he paired it with a second piece of advice: write one short story a week, for a year. His reasoning was
+      that nobody can write fifty-two bad stories in a row.
+    </p>
+
+    <h2>Why it works</h2>
+    <ul>
+      <li><strong>It is small.</strong> A poem takes a minute or two, a story perhaps twenty, an essay a little more. It fits into an evening.</li>
+      <li><strong>It is varied.</strong> Three forms, every day, keep you out of a reading rut.</li>
+      <li><strong>It adds up.</strong> A thousand days is three thousand texts: more than most people read in a lifetime of good intentions.</li>
+    </ul>
+
+    <h2>How to do it</h2>
+    <ol>
+      <li>Open <a href="/">today's readings</a>. There is a new poem, essay and short story every day at midnight, Lisbon time.</li>
+      <li>Read them in any order, in one sitting or across the day. Each one opens on the site that published it, free to read in full.</li>
+      <li>Tick each one as you finish it. Your progress is kept in your own browser, with no account.</li>
+      <li>Missed a day? The <a href="/archive/">archive</a> keeps every past day.</li>
+    </ol>
+
+    <h2>Tips</h2>
+    <ul>
+      <li>Read poems twice, and at least once out loud.</li>
+      <li>Keep a notebook for lines, ideas and names you want to come back to. A few <a href="/write/">notebooks and pens</a> we like.</li>
+      <li>If you write, notice how each text begins and ends: openings and endings are where writers reveal their craft.</li>
+      <li>Read with someone else. A friend, a partner or a class doing the same three texts gives you something to talk about.</li>
+    </ul>
+
+    <h2>Questions</h2>
+    {
+      FAQ.map(({ q, a }) => (
+        <>
+          <h3>{q}</h3>
+          <p>{a}</p>
+        </>
+      ))
+    }
+
+    <p><a class="button button--primary" href="/">Start with today's readings</a></p>
+    <NewsletterForm />
+    <p class="updated">
+      More about this site and its sources on the <a href="/about/">About</a> page. Follow the daily readings by{' '}
+      <a href="/feed.xml">RSS</a>.
+    </p>
+  </article>
+</Base>

@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, CF_ANALYTICS_TOKEN, CONTACT_EMAIL, OPERATOR_NAME } from '../site/settings.js';
+import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, BUTTONDOWN_USERNAME, CF_ANALYTICS_TOKEN, CONTACT_EMAIL, OPERATOR_NAME } from '../site/settings.js';
 
-const UPDATED = '20 October 2026';
+const UPDATED = '21 October 2026';
 ---
 
 <Base title="Privacy policy" description="What personal data Bradbury Challenge processes and your rights.">
@@ -18,10 +18,34 @@ const UPDATED = '20 October 2026';
     </p>
 
     <h2>What we do not collect</h2>
-    <p>
-      There are no accounts, no forms and no newsletter. We do not ask for your name or email address, and we do not
-      sell or share personal data.
-    </p>
+    {
+      BUTTONDOWN_USERNAME ? (
+        <p>
+          There are no accounts. The only personal data we ask for is your email address, and only if you choose to
+          subscribe to the newsletter (see below). We do not sell or share personal data.
+        </p>
+      ) : (
+        <p>
+          There are no accounts, no forms and no newsletter. We do not ask for your name or email address, and we do
+          not sell or share personal data.
+        </p>
+      )
+    }
+
+    {
+      BUTTONDOWN_USERNAME && (
+        <>
+          <h2>Newsletter</h2>
+          <p>
+            If you subscribe to the daily email, your address is stored by Buttondown, the service that sends it, and
+            used only to send you the readings. You will be asked to confirm your subscription by email, and every email
+            has a link to unsubscribe at once. We process your address because you asked for the newsletter (consent,
+            Article 6(1)(a) GDPR), and we keep it until you unsubscribe. Buttondown may record whether emails are opened
+            and which links are clicked; see <a href="https://buttondown.com/legal/privacy">Buttondown's privacy policy</a>.
+          </p>
+        </>
+      )
+    }
 
     <h2>Your reading marks</h2>
     <p>

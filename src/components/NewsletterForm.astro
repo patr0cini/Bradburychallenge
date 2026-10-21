@@ -1,0 +1,25 @@
+---
+import { BUTTONDOWN_USERNAME } from '../site/settings.js';
+
+// Subscrição da newsletter diária (Buttondown). O Buttondown pede confirmação por email.
+const action = BUTTONDOWN_USERNAME
+  ? `https://buttondown.com/api/emails/embed-subscribe/${encodeURIComponent(BUTTONDOWN_USERNAME)}`
+  : undefined;
+---
+
+{
+  action && (
+    <form class="newsletter" action={action} method="post" target="_blank">
+      <h2 class="newsletter-title">Get the readings by email</h2>
+      <p class="newsletter-intro">One short email every morning with the day's poem, essay and story. Free, and you can leave at any time.</p>
+      <div class="newsletter-row">
+        <label class="visually-hidden" for="newsletter-email">Email address</label>
+        <input id="newsletter-email" type="email" name="email" required autocomplete="email" placeholder="you@example.com" />
+        <button type="submit" class="button button--primary">Subscribe</button>
+      </div>
+      <p class="newsletter-note">
+        Sent with Buttondown. See the <a href="/privacy/">privacy policy</a>.
+      </p>
+    </form>
+  )
+}

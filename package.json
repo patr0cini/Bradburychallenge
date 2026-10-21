@@ -20,9 +20,11 @@
     "sample": "tsx scripts/sample-data.ts",
     "dev:sample": "BRADBURY_DATA_SET=sample ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build:sample": "BRADBURY_DATA_SET=sample ASTRO_TELEMETRY_DISABLED=1 astro build",
-    "check-access": "tsx scripts/check-access.ts"
+    "check-access": "tsx scripts/check-access.ts",
+    "outreach": "tsx scripts/outreach.ts"
   },
   "dependencies": {
+    "@resvg/resvg-js": "2.6.2",
     "astro": "^7.3.5",
     "cheerio": "^1.2.0",
     "robots-parser": "^3.0.1"

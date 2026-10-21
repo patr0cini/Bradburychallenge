@@ -17,6 +17,8 @@ export const STRINGS = {
   category: { poem: 'Poem', essay: 'Essay', story: 'Story' } satisfies Record<Category, string>,
   dayNumber: (n: number) => `Day ${n} of readings`,
   readingsOfDay: "The day's readings",
+  shareToday: "Share today's readings",
+  shareDay: 'Share these readings',
   opensNewTab: ' (opens in a new tab)',
   translatedBy: (t: string) => `, trans. ${t}`,
   unavailable: 'This text is no longer listed by its source. The link may no longer work.',
