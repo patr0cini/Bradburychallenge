@@ -1,0 +1,51 @@
+# Divulgação das leituras de hoje: Bluesky, Mastodon e newsletter (Buttondown).
+# Corre de manhã, quando o site já tem as leituras do dia publicadas. Cada canal só é usado se as
+# suas credenciais estiverem nos GitHub Secrets, e nunca envia o mesmo dia duas vezes.
+name: Divulgação diária
+
+on:
+  schedule:
+    # 07:30 em Lisboa no verão (06:30 UTC) e 06:30 no inverno; a segunda é reserva.
+    - cron: '30 6 * * *'
+    - cron: '30 8 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: divulgacao
+  cancel-in-progress: false
+
+jobs:
+  divulgar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      BRADBURY_START_DATE: ${{ vars.BRADBURY_START_DATE }}
+      BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+      BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+      MASTODON_INSTANCE: ${{ vars.MASTODON_INSTANCE }}
+      MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
+      BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - run: npm ci
+
+      - name: Publicar e enviar
+        run: npm run outreach
+
+      # Grava o que já foi enviado, mesmo que um dos canais tenha falhado.
+      # "[skip ci]" evita uma nova construção do site só por causa deste ficheiro.
+      - name: Gravar o estado
+        if: always()
+        run: |
+          if [ -f data/state/outreach.json ]; then
+            bash scripts/commit-data.sh "Divulgação de $(TZ=Europe/Lisbon date +%F) [skip ci]" data/state/outreach.json
+          fi
