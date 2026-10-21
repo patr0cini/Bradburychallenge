@@ -34,5 +34,37 @@
   "wikisource": {
     "lastAttempt": "2026-10-19T23:02:48.025Z",
     "lastRun": "2026-10-19T23:02:48.025Z"
+  },
+  "americanliterature": {
+    "lastAttempt": "2026-10-21T08:36:57.626Z",
+    "lastRun": "2026-10-21T08:36:57.626Z"
+  },
+  "granta": {
+    "lastAttempt": "2026-10-21T08:36:57.626Z",
+    "lastRun": "2026-10-21T08:36:57.626Z"
+  },
+  "newyorker": {
+    "lastAttempt": "2026-10-21T08:36:57.626Z",
+    "lastRun": "2026-10-21T08:36:57.626Z"
+  },
+  "nplusone": {
+    "lastAttempt": "2026-10-21T08:36:57.626Z",
+    "lastRun": "2026-10-21T08:36:57.626Z"
+  },
+  "parisreview": {
+    "lastAttempt": "2026-10-21T08:36:57.626Z",
+    "lastRun": "2026-10-21T08:36:57.626Z"
+  },
+  "poetryfoundation": {
+    "lastAttempt": "2026-10-21T08:36:57.626Z",
+    "lastRun": "2026-10-21T08:36:57.626Z"
+  },
+  "publicbooks": {
+    "lastAttempt": "2026-10-21T08:36:57.626Z",
+    "lastRun": "2026-10-21T08:36:57.626Z"
+  },
+  "publicdomainreview": {
+    "lastAttempt": "2026-10-21T08:36:57.626Z",
+    "lastRun": "2026-10-21T08:36:57.626Z"
   }
 }
