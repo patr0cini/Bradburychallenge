@@ -767,3 +767,18 @@ button.button:not(.button--primary) {
   color: var(--text);
   font: inherit;
 }
+
+/* Página do feed RSS */
+.feed-url,
+.feed-readers {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.feed-url code {
+  overflow-wrap: anywhere;
+}

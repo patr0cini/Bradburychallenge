@@ -1,0 +1,57 @@
+---
+import Base from '../../layouts/Base.astro';
+import { SITE_URL } from '../../config.js';
+
+// Página para pessoas: o feed em si (/feed.xml) é para leitores de feeds e o browser mostra-o em bruto.
+const FEED_URL = `${SITE_URL}/feed.xml`;
+const readers = [
+  { name: 'Feedly', href: `https://feedly.com/i/subscription/feed/${encodeURIComponent(FEED_URL)}` },
+  { name: 'Inoreader', href: `https://www.inoreader.com/?add_feed=${encodeURIComponent(FEED_URL)}` },
+];
+---
+
+<Base title="Follow by RSS" description="Get the daily poem, essay and short story in your feed reader.">
+  <article class="prose">
+    <h1 class="page-title">Follow by RSS</h1>
+    <p class="page-lead">Get each day's poem, essay and short story in your feed reader, as soon as they are chosen.</p>
+
+    <p>
+      A feed reader is an app that collects new posts from the sites you follow in one place, without an account on
+      each site and without an algorithm deciding what you see. Popular ones include Feedly, Inoreader, NetNewsWire and
+      Feeder.
+    </p>
+
+    <h2>Add the feed</h2>
+    <p>Copy this address into your feed reader:</p>
+    <p class="feed-url">
+      <code id="feed-url">{FEED_URL}</code>
+      <button type="button" class="button" data-copy-feed>Copy</button>
+      <span class="share-status" role="status" aria-live="polite"></span>
+    </p>
+    <p>Or open it directly in:</p>
+    <p class="feed-readers">
+      {
+        readers.map((r) => (
+          <a class="button" href={r.href} target="_blank" rel="noopener">
+            {r.name}
+          </a>
+        ))
+      }
+    </p>
+    <p>Each day appears as one item, with the three readings and their links.</p>
+  </article>
+</Base>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>('[data-copy-feed]');
+  button?.addEventListener('click', async () => {
+    const status = button.nextElementSibling as HTMLElement | null;
+    const url = document.getElementById('feed-url')?.textContent ?? '';
+    try {
+      await navigator.clipboard.writeText(url);
+      if (status) status.textContent = 'Copied.';
+    } catch {
+      if (status) status.textContent = 'Select the address above and copy it.';
+    }
+  });
+</script>
