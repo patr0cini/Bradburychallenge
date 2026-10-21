@@ -42,8 +42,8 @@ export function amazonLink(asin: string): string {
   return url.toString();
 }
 
-/** Página de doações (por exemplo https://buymeacoffee.com/utilizador). Sem ela, o separador não aparece. */
-export const SUPPORT_URL = env('BRADBURY_SUPPORT_URL');
+/** Página de doações (Ko-fi). Pode ser trocada pela variável BRADBURY_SUPPORT_URL. */
+export const SUPPORT_URL = env('BRADBURY_SUPPORT_URL') ?? 'https://ko-fi.com/bradburychallenge';
 
 /** Frase de divulgação que o programa Amazon Associates exige. */
 export const AMAZON_DISCLOSURE = 'As an Amazon Associate I earn from qualifying purchases.';
