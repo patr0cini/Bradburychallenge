@@ -6,13 +6,15 @@ import { STRINGS as t, formatLongDate } from '../site/strings.js';
 
 interface Props {
   day: SiteDay;
+  /** Mostra "Day N of readings" (não na página inicial, onde o visitante pode estar a começar). */
+  showNumber?: boolean;
 }
 
-const { day } = Astro.props;
+const { day, showNumber = true } = Astro.props;
 ---
 
 <h1 class="day-title">{formatLongDate(day.date)}</h1>
-<p class="day-context">{t.dayNumber(day.number)}</p>
+{showNumber && <p class="day-context">{t.dayNumber(day.number)}</p>}
 <slot name="notice" />
 <ol class="readings" aria-label={t.readingsOfDay}>
   {

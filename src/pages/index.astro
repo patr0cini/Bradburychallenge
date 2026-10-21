@@ -18,7 +18,7 @@ const staticText = day && day.date === addDays(today, -1) ? t.staleYesterday : o
 <Base tab="today" description={t.homeDescription}>
   {
     day ? (
-      <DayView day={day}>
+      <DayView day={day} showNumber={false}>
         <p
           slot="notice"
           class="notice"

@@ -10,13 +10,6 @@ const { groups } = Astro.props;
 ---
 
 {
-  AMAZON_TAG && (
-    <p class="notice affiliate-notice">
-      The links below go to Amazon. {AMAZON_DISCLOSURE} It costs you nothing extra and helps keep this site free.
-    </p>
-  )
-}
-{
   groups.map((g) => (
     <section class="rec-group">
       <h2>{g.heading}</h2>
@@ -37,4 +30,11 @@ const { groups } = Astro.props;
       </ul>
     </section>
   ))
+}
+{
+  AMAZON_TAG && (
+    <p class="notice affiliate-notice">
+      The links on this page go to Amazon. {AMAZON_DISCLOSURE} It costs you nothing extra and helps keep this site free.
+    </p>
+  )
 }
