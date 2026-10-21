@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { PAUSED_SOURCES } from '../src/config.js';
 import { addDays, dateRange, daysBetween, isoDateInLisbon } from '../src/lib/dates.js';
 import { selectDay, type Catalogs, type Schedule } from '../src/lib/selection.js';
 import type { CatalogItem, Category } from '../src/lib/types.js';
@@ -191,5 +192,16 @@ describe('datas em Lisboa', () => {
     expect(addDays('2026-12-31', 1)).toBe('2027-01-01');
     expect(daysBetween('2026-11-01', '2027-11-01')).toBe(365);
     expect(dateRange('2026-02-27', '2026-03-01')).toEqual(['2026-02-27', '2026-02-28', '2026-03-01']);
+  });
+});
+
+describe('fontes em pausa', () => {
+  it('nunca escolhe textos de uma fonte em pausa', () => {
+    const paused = [...PAUSED_SOURCES][0];
+    if (!paused) return;
+    const schedule = simulate(catalogs({ [paused]: 50, outra: 5, mais: 5 }), 20);
+    for (const day of Object.values(schedule)) {
+      for (const c of ['poem', 'essay', 'story'] as const) expect(day[c].source).not.toBe(paused);
+    }
   });
 });

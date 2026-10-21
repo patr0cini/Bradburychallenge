@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { REUSE_MIN_DAYS } from '../config.js';
+import { PAUSED_SOURCES, REUSE_MIN_DAYS } from '../config.js';
 import { addDays, daysBetween } from './dates.js';
 import { CATEGORIES, type CatalogItem, type Category } from './types.js';
 
@@ -57,9 +57,10 @@ function usageByItem(schedule: Schedule, category: Category, before: string): Ma
 /**
  * Só entram na seleção textos ativos e confirmados como de acesso livre. Os que são só para
  * assinantes, ou cujo acesso não se conseguiu confirmar, ficam no catálogo mas nunca saem.
+ * Os textos de fontes em pausa (PAUSED_SOURCES) também não saem enquanto a pausa durar.
  */
 export function isSelectable(i: CatalogItem): boolean {
-  return i.active && i.paywalled === false;
+  return i.active && i.paywalled === false && !PAUSED_SOURCES.has(i.source);
 }
 
 /**

@@ -1,4 +1,5 @@
 import { join } from 'node:path';
+import { PAUSED_SOURCES } from '../config.js';
 import { PoliteClient } from './http.js';
 import { DATA_DIR, loadCatalog, mergeIntoCatalog, readJson, saveCatalog, writeJson } from './catalog.js';
 import { log } from './log.js';
@@ -110,6 +111,7 @@ export async function runCollection(opts: CollectOptions = {}): Promise<{ added:
 
   const selected = allSources().filter(
     ({ source }) =>
+      !PAUSED_SOURCES.has(source.id) &&
       (!opts.sources || opts.sources.includes(source.id)) && (!opts.category || source.categories.includes(opts.category)),
   );
   await Promise.all(selected.map(runSource));

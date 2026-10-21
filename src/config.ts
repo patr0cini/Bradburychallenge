@@ -27,5 +27,14 @@ export const DEFAULT_CRAWL_DELAY_MS = 3000;
 /** Cada fonte é atualizada no máximo uma vez a cada N dias. */
 export const SOURCE_REFRESH_DAYS = 7;
 
+/**
+ * Fontes em pausa: não são visitadas pela recolha e os seus textos não são escolhidos, mas ficam no
+ * catálogo e voltam quando a fonte sair desta lista.
+ */
+export const PAUSED_SOURCES: ReadonlySet<string> = new Set([
+  // Site inteiro em manutenção por causa de uma falha de segurança (21 de outubro de 2026).
+  'poetryinternational',
+]);
+
 /** Um texto usado não volta a aparecer antes de passarem N dias. */
 export const REUSE_MIN_DAYS = 365;

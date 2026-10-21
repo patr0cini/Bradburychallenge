@@ -4,6 +4,9 @@
 //   npm run schedule -- --date 2026-11-03    até esse dia (gera também os anteriores em falta)
 //   npm run schedule -- --dry-run            mostra a seleção sem gravar
 //   npm run schedule -- --no-refresh         não tenta atualizar catálogos esgotados
+//   npm run schedule -- --date 2026-10-21 --replace poem
+//                                            troca a leitura dessa categoria num dia já gravado, quando a
+//                                            ligação deixou de funcionar (as outras duas ficam iguais)
 import { parseArgs } from 'node:util';
 import { SELECTION_SEED, START_DATE } from '../src/config.js';
 import { loadCatalog } from '../src/lib/catalog.js';
@@ -12,13 +15,14 @@ import { dateRange, isoDateInLisbon, isValidIsoDate } from '../src/lib/dates.js'
 import { log } from '../src/lib/log.js';
 import { loadSchedule, saveSchedule } from '../src/lib/schedule.js';
 import { isExhausted, selectDay, type Catalogs } from '../src/lib/selection.js';
-import { CATEGORIES } from '../src/lib/types.js';
+import { CATEGORIES, type Category } from '../src/lib/types.js';
 
 const { values } = parseArgs({
   options: {
     date: { type: 'string' },
     'dry-run': { type: 'boolean', default: false },
     'no-refresh': { type: 'boolean', default: false },
+    replace: { type: 'string' },
   },
 });
 
@@ -37,6 +41,23 @@ if (target < START_DATE) {
 const loadCatalogs = (): Catalogs => Object.fromEntries(CATEGORIES.map((c) => [c, loadCatalog(c)])) as Catalogs;
 let catalogs = loadCatalogs();
 const schedule = loadSchedule();
+
+if (values.replace) {
+  const category = values.replace as Category;
+  if (!CATEGORIES.includes(category)) throw new Error(`Categoria inválida: ${values.replace} (${CATEGORIES.join(', ')})`);
+  if (!values.date) throw new Error('--replace precisa de --date');
+  const day = schedule[target];
+  if (!day) throw new Error(`${target} ainda não tem seleção gravada`);
+  const old = day[category];
+  // Escolhe como se fosse um dia novo, mas sem o texto que está a ser trocado.
+  const without = { ...catalogs, [category]: catalogs[category].filter((i) => i.id !== old.id) };
+  const { day: fresh, warnings } = selectDay(target, without, schedule, SELECTION_SEED);
+  for (const w of warnings) log('warn', 'schedule', `${target} ${w}`);
+  schedule[target] = { ...day, [category]: fresh[category] };
+  log('info', 'schedule', `${target} ${category}: ${old.title} (${old.author}) → ${fresh[category].title} (${fresh[category].author})`);
+  if (!values['dry-run']) saveSchedule(schedule);
+  process.exit(0);
+}
 const refreshed = new Set<string>();
 
 for (const date of dateRange(START_DATE, target)) {
