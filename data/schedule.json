@@ -28,5 +28,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-20T13:42:29.362Z"
+  },
+  "2026-10-21": {
+    "poem": {
+      "id": "poetryinternational:poetryinternational.com/en/poets-poems/poems/poem/103-28097_Poppy",
+      "title": "Poppy",
+      "author": "Zaffar Kunial",
+      "url": "https://www.poetryinternational.com/en/poets-poems/poems/poem/103-28097_Poppy",
+      "source": "poetryinternational",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "wikisource:en.wikisource.org/wiki/The_Essays_of_Francis_Bacon/XXVI_Of_Seeming_Wise",
+      "title": "Of Seeming Wise",
+      "author": "Francis Bacon",
+      "url": "https://en.wikisource.org/wiki/The_Essays_of_Francis_Bacon/XXVI_Of_Seeming_Wise",
+      "source": "wikisource",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/savage",
+      "title": "Savage",
+      "author": "Kamila Shamsie",
+      "url": "https://lithub.com/savage/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-21T01:28:46.096Z"
   }
 }
