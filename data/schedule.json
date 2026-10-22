@@ -58,5 +58,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-21T01:28:46.096Z"
+  },
+  "2026-10-22": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/prayer-soldier-france",
+      "title": "Prayer of a Soldier in France",
+      "author": "Joyce Kilmer",
+      "url": "https://rpo.library.utoronto.ca/content/prayer-soldier-france",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/down-dog-by-anonymous",
+      "title": "Down Dog by Anonymous",
+      "author": "Ellen Collett",
+      "url": "https://lareviewofbooks.org/article/down-dog-by-anonymous/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/co-ordination",
+      "title": "Co-ordination",
+      "author": "E. M. Forster",
+      "url": "https://www.libraryofshortstories.com/onlinereader/co-ordination",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-22T01:26:38.005Z"
   }
 }
