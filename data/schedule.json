@@ -88,5 +88,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-22T01:26:38.005Z"
+  },
+  "2026-10-23": {
+    "poem": {
+      "id": "nybooks:nybooks.com/articles/2012/07/12/immigration-and-naturalization",
+      "title": "Immigration and Naturalization",
+      "author": "Amit Majmudar",
+      "url": "https://www.nybooks.com/articles/2012/07/12/immigration-and-naturalization/",
+      "source": "nybooks",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "wikisource:en.wikisource.org/wiki/Intentions/The_Decay_of_Lying",
+      "title": "The Decay of Lying",
+      "author": "Oscar Wilde",
+      "url": "https://en.wikisource.org/wiki/Intentions/The_Decay_of_Lying",
+      "source": "wikisource",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/altogether-elsewhere-vast-herds-of-reindeer",
+      "title": "Altogether Elsewhere, Vast Herds of Reindeer",
+      "author": "Ken Liu",
+      "url": "https://lithub.com/altogether-elsewhere-vast-herds-of-reindeer/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-23T01:26:00.760Z"
   }
 }
