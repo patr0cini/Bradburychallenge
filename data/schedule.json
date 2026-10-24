@@ -118,5 +118,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-23T01:26:00.760Z"
+  },
+  "2026-10-24": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/independent",
+      "title": "The Independent",
+      "author": "Charles Bruce",
+      "url": "https://rpo.library.utoronto.ca/content/independent",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/forms-cosmopolitanism",
+      "title": "Forms of Cosmopolitanism",
+      "author": "Karen Van Dyck",
+      "url": "https://lareviewofbooks.org/article/forms-cosmopolitanism/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/a-tooth-for-paul-revere",
+      "title": "A Tooth for Paul Revere",
+      "author": "Stephen Vincent Benét",
+      "url": "https://www.libraryofshortstories.com/onlinereader/a-tooth-for-paul-revere",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-24T01:29:44.128Z"
   }
 }
