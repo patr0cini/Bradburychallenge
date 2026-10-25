@@ -302,6 +302,18 @@
   },
   {
     "category": "poem",
+    "title": "At the Dinner Table at Night",
+    "author": "Allen Guy Wilcox",
+    "url": "https://lithub.com/at-the-dinner-table-at-night-a-poem-by-allen-guy-wilcox/",
+    "paywalled": false,
+    "id": "lithub:lithub.com/at-the-dinner-table-at-night-a-poem-by-allen-guy-wilcox",
+    "source": "lithub",
+    "firstSeen": "2026-10-25",
+    "lastSeen": "2026-10-25",
+    "active": true
+  },
+  {
+    "category": "poem",
     "title": "Aubade, as the Addressee",
     "author": "Julian Gewirtz",
     "url": "https://lithub.com/aubade-as-the-addressee-a-poem-by-julian-gewirtz/",
@@ -971,6 +983,18 @@
     "source": "lithub",
     "firstSeen": "2026-10-17",
     "lastSeen": "2026-10-17",
+    "active": true
+  },
+  {
+    "category": "poem",
+    "title": "Elevation",
+    "author": "Lindsay Turner",
+    "url": "https://lithub.com/elevation-a-poem-by-lindsay-turner/",
+    "paywalled": false,
+    "id": "lithub:lithub.com/elevation-a-poem-by-lindsay-turner",
+    "source": "lithub",
+    "firstSeen": "2026-10-25",
+    "lastSeen": "2026-10-25",
     "active": true
   },
   {
@@ -2702,7 +2726,7 @@
     "id": "lithub:lithub.com/read-cruise-control-a-new-poem-by-eric-amling",
     "source": "lithub",
     "firstSeen": "2026-10-17",
-    "lastSeen": "2026-10-17",
+    "lastSeen": "2026-10-25",
     "active": true
   },
   {
@@ -2955,7 +2979,7 @@
     "id": "lithub:lithub.com/sensual-songs-for-eight-year-olds-a-poem-by-patricia-lockwood",
     "source": "lithub",
     "firstSeen": "2026-10-17",
-    "lastSeen": "2026-10-17",
+    "lastSeen": "2026-10-25",
     "active": true
   },
   {
@@ -14846,7 +14870,7 @@
     "id": "nybooks:nybooks.com/articles/2026/11/05/march-13-2020-shane-mccrae",
     "source": "nybooks",
     "firstSeen": "2026-10-17",
-    "lastSeen": "2026-10-17",
+    "lastSeen": "2026-10-25",
     "active": true
   },
   {
@@ -14858,7 +14882,7 @@
     "id": "nybooks:nybooks.com/articles/2026/11/05/poem-david-plante",
     "source": "nybooks",
     "firstSeen": "2026-10-17",
-    "lastSeen": "2026-10-17",
+    "lastSeen": "2026-10-25",
     "active": true
   },
   {
@@ -14870,7 +14894,7 @@
     "id": "nybooks:nybooks.com/articles/2026/11/05/work-poem-claire-devoogd",
     "source": "nybooks",
     "firstSeen": "2026-10-17",
-    "lastSeen": "2026-10-17",
+    "lastSeen": "2026-10-25",
     "active": true
   },
   {
