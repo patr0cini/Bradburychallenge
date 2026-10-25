@@ -148,5 +148,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-24T01:29:44.128Z"
+  },
+  "2026-10-25": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/tell-me-not-here-it-needs-not-saying",
+      "title": "Tell Me Not Here, It Needs Not Saying",
+      "author": "A E Housman",
+      "url": "https://poetryarchive.org/poem/tell-me-not-here-it-needs-not-saying/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "nybooks:nybooks.com/articles/1981/10/08/what-the-doctor-ordered",
+      "title": "What the Doctor Ordered",
+      "author": "Jules Geller & Robert Darnton",
+      "url": "https://www.nybooks.com/articles/1981/10/08/what-the-doctor-ordered/",
+      "source": "nybooks",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/at-last-the-escalade",
+      "title": "At Last the Escalade",
+      "author": "Noy Holland",
+      "url": "https://lithub.com/at-last-the-escalade/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-25T01:02:14.732Z"
   }
 }
