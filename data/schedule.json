@@ -178,5 +178,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-25T01:02:14.732Z"
+  },
+  "2026-10-26": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/divina-commedia",
+      "title": "Divina Commedia",
+      "author": "Henry Wadsworth Longfellow",
+      "url": "https://rpo.library.utoronto.ca/content/divina-commedia",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/elena-ferrante-the-mad-adventures-of-serious-ladies",
+      "title": "Elena Ferrante: The Mad Adventures of Serious Ladies",
+      "author": "GD Dess",
+      "url": "https://lareviewofbooks.org/article/elena-ferrante-the-mad-adventures-of-serious-ladies/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/two-gallants",
+      "title": "Two Gallants",
+      "author": "James Joyce",
+      "url": "https://www.libraryofshortstories.com/onlinereader/two-gallants",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-26T01:06:01.260Z"
   }
 }
