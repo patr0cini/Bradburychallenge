@@ -2701,6 +2701,18 @@
   },
   {
     "category": "essay",
+    "title": "Out There in the Dark and Cold",
+    "author": "Penn Newell",
+    "url": "https://lareviewofbooks.org/article/franz-kafka-castle-trial-cold-snow-weather-borders/",
+    "paywalled": false,
+    "id": "larb:lareviewofbooks.org/article/franz-kafka-castle-trial-cold-snow-weather-borders",
+    "source": "larb",
+    "firstSeen": "2026-10-27",
+    "lastSeen": "2026-10-27",
+    "active": true
+  },
+  {
+    "category": "essay",
     "title": "Poetry at the Barricades: On the Imprisonment of Ahmed Douma",
     "author": "Abdelrahman ElGendy",
     "url": "https://lareviewofbooks.org/article/free-ahmed-douma-egypt-2011-revolution-political-prisoner/",
@@ -2865,6 +2877,18 @@
     "source": "larb",
     "firstSeen": "2026-10-19",
     "lastSeen": "2026-10-19",
+    "active": true
+  },
+  {
+    "category": "essay",
+    "title": "On Ghassan Kanafani",
+    "author": "Fady Joudah & Mahmoud Darwish & Ghassan Kanafani",
+    "url": "https://lareviewofbooks.org/article/ghassan-kanafani-palestine-mahmoud-darwish-fady-joudah/",
+    "paywalled": false,
+    "id": "larb:lareviewofbooks.org/article/ghassan-kanafani-palestine-mahmoud-darwish-fady-joudah",
+    "source": "larb",
+    "firstSeen": "2026-10-27",
+    "lastSeen": "2026-10-27",
     "active": true
   },
   {
@@ -3764,7 +3788,7 @@
     "id": "larb:lareviewofbooks.org/article/jennifer-lunden-european-heat-wave-2026-climate-change",
     "source": "larb",
     "firstSeen": "2026-10-19",
-    "lastSeen": "2026-10-19",
+    "lastSeen": "2026-10-27",
     "active": true
   },
   {
@@ -4652,7 +4676,7 @@
     "id": "larb:lareviewofbooks.org/article/mesha-maren-reissues-women-publishing-conglomerates-independent-presses",
     "source": "larb",
     "firstSeen": "2026-10-19",
-    "lastSeen": "2026-10-19",
+    "lastSeen": "2026-10-27",
     "active": true
   },
   {
@@ -6704,7 +6728,7 @@
     "id": "larb:lareviewofbooks.org/article/samuel-chu-hong-kong-dissidents-umbrella-movement-yellowbird",
     "source": "larb",
     "firstSeen": "2026-10-19",
-    "lastSeen": "2026-10-19",
+    "lastSeen": "2026-10-27",
     "active": true
   },
   {
