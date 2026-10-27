@@ -208,5 +208,36 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-26T01:06:01.260Z"
+  },
+  "2026-10-27": {
+    "poem": {
+      "id": "lithub:lithub.com/psalm-under-seige",
+      "title": "Psalm Under Seige",
+      "author": "Khaled Mattawa",
+      "url": "https://lithub.com/psalm-under-seige/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "wikisource:en.wikisource.org/wiki/The_Essays_of_Montaigne/Book_I/Chapter_LI",
+      "title": "Of the vanity of words",
+      "author": "Michel de Montaigne",
+      "url": "https://en.wikisource.org/wiki/The_Essays_of_Montaigne/Book_I/Chapter_LI",
+      "source": "wikisource",
+      "paywalled": false,
+      "translator": "Charles Cotton",
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/maheov",
+      "title": "Maheov",
+      "author": "Tommy Orange",
+      "url": "https://lithub.com/maheov/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-27T01:59:55.920Z"
   }
 }
