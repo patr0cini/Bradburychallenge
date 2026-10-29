@@ -269,5 +269,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-28T02:07:31.386Z"
+  },
+  "2026-10-29": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/your-generous-hours",
+      "title": "In your generous hours",
+      "author": "Richard Price",
+      "url": "https://poetryarchive.org/poem/your-generous-hours/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "wikisource:en.wikisource.org/wiki/Table-Talk/Volume_1/Essay_13",
+      "title": "On certain Inconsistencies in Sir Joshua Reynolds’s Discourses",
+      "author": "William Hazlitt",
+      "url": "https://en.wikisource.org/wiki/Table-Talk/Volume_1/Essay_13",
+      "source": "wikisource",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/animal-crackers",
+      "title": "Animal Crackers",
+      "author": "Sam Savage",
+      "url": "https://lithub.com/animal-crackers/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-29T02:20:52.396Z"
   }
 }
