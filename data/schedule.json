@@ -299,5 +299,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-29T02:20:52.396Z"
+  },
+  "2026-10-30": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/recipe",
+      "title": "Recipe",
+      "author": "Thomas William Hodgson Crosland",
+      "url": "https://rpo.library.utoronto.ca/content/recipe",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/rescued-from-the-footnotes-of-history-lal-bihari-sharmas-holi-songs-of-demerara",
+      "title": "Rescued from the Footnotes of History: Lal Bihari Sharma’s “Holi Songs of Demerara”",
+      "author": "Gaiutra Bahadur",
+      "url": "https://lareviewofbooks.org/article/rescued-from-the-footnotes-of-history-lal-bihari-sharmas-holi-songs-of-demerara/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/the-princess-and-the-puma",
+      "title": "The Princess and the Puma",
+      "author": "O. Henry",
+      "url": "https://www.libraryofshortstories.com/onlinereader/the-princess-and-the-puma",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-30T02:32:48.654Z"
   }
 }
