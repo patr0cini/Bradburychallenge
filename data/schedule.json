@@ -329,5 +329,36 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-30T02:32:48.654Z"
+  },
+  "2026-10-31": {
+    "poem": {
+      "id": "nybooks:nybooks.com/articles/1994/12/22/elegy-for-a-park",
+      "title": "Elegy for a Park",
+      "author": "Jorge Luis Borges",
+      "url": "https://www.nybooks.com/articles/1994/12/22/elegy-for-a-park/",
+      "source": "nybooks",
+      "paywalled": false,
+      "translator": "Robert Mezey",
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "wikisource:en.wikisource.org/wiki/The_Essays_of_Francis_Bacon/XVI_Of_Atheism",
+      "title": "Of Atheism",
+      "author": "Francis Bacon",
+      "url": "https://en.wikisource.org/wiki/The_Essays_of_Francis_Bacon/XVI_Of_Atheism",
+      "source": "wikisource",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/stick-season",
+      "title": "Stick Season",
+      "author": "Jenny Xie",
+      "url": "https://lithub.com/stick-season/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-10-31T02:16:13.031Z"
   }
 }
