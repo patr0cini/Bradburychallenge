@@ -360,5 +360,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-10-31T02:16:13.031Z"
+  },
+  "2026-11-01": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/ode-evening",
+      "title": "Ode to Evening",
+      "author": "William Collins",
+      "url": "https://rpo.library.utoronto.ca/content/ode-evening",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/the-last-iraqi-communist-saadi-youssef-1934-2021",
+      "title": "The Last Iraqi Communist: Saadi Youssef (1934–2021)",
+      "author": "Sinan Antoon",
+      "url": "https://lareviewofbooks.org/article/the-last-iraqi-communist-saadi-youssef-1934-2021/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/the-naval-treaty",
+      "title": "The Naval Treaty",
+      "author": "Arthur Conan Doyle",
+      "url": "https://www.libraryofshortstories.com/onlinereader/the-naval-treaty",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-01T02:06:43.812Z"
   }
 }
