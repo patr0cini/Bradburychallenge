@@ -390,5 +390,36 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-01T02:06:43.812Z"
+  },
+  "2026-11-02": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/colonial-girls-school",
+      "title": "Colonial Girls’ School",
+      "author": "Olive Senior",
+      "url": "https://poetryarchive.org/poem/colonial-girls-school/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "nybooks:nybooks.com/articles/1999/12/02/american-sermons",
+      "title": "American Sermons",
+      "author": "Edmund S. Morgan & Michael Warner",
+      "url": "https://www.nybooks.com/articles/1999/12/02/american-sermons/",
+      "source": "nybooks",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/the-nightingale-that-speaks",
+      "title": "The Nightingale That Speaks",
+      "author": "Najla Jraissaty Khoury",
+      "url": "https://lithub.com/the-nightingale-that-speaks/",
+      "source": "lithub",
+      "paywalled": false,
+      "translator": "Inea Bushnaq",
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-02T02:22:10.759Z"
   }
 }
