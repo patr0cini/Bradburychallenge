@@ -421,5 +421,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-02T02:22:10.759Z"
+  },
+  "2026-11-03": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/night-cometh",
+      "title": "The Night Cometh",
+      "author": "Annie Louisa Walker",
+      "url": "https://rpo.library.utoronto.ca/content/night-cometh",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/speaking-memory-nabokovs-folded-fabric",
+      "title": "Speaking of Memory: Nabokov’s Folded Fabric",
+      "author": "Peter Birkenhead",
+      "url": "https://lareviewofbooks.org/article/speaking-memory-nabokovs-folded-fabric/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/the-duel-of-dr-hirsch",
+      "title": "The Duel of Dr Hirsch",
+      "author": "G. K. Chesterton",
+      "url": "https://www.libraryofshortstories.com/onlinereader/the-duel-of-dr-hirsch",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-03T03:54:15.127Z"
   }
 }
