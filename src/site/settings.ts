@@ -1,10 +1,10 @@
 // Definições do site lidas no build (variáveis de ambiente do Cloudflare Pages).
-// Uma variável vazia conta como não definida. Sem ID de publisher, não há anúncios nem scripts do Google.
+// Uma variável vazia conta como não definida. Os espaços de anúncio só aparecem com o ID de cada espaço.
 
 const env = (name: string) => process.env[name]?.trim() || undefined;
 
-/** ID de publisher do AdSense, por exemplo "ca-pub-1234567890123456". */
-export const ADSENSE_CLIENT = env('BRADBURY_ADSENSE_CLIENT');
+/** ID de publisher do AdSense (público: aparece no código de qualquer página com anúncios). */
+export const ADSENSE_CLIENT = env('BRADBURY_ADSENSE_CLIENT') ?? 'ca-pub-3993373635690776';
 
 /** IDs dos espaços de anúncio, criados no AdSense. Cada espaço sem ID não aparece. */
 export const AD_SLOTS = {

@@ -84,7 +84,7 @@ O site tem as páginas `/about/`, `/privacy/`, `/cookies/` e `/contact/` (em ing
 | `BRADBURY_CONTACT_EMAIL` | Endereço mostrado no site. Por omissão `contact@bradburychallenge.org` (criar com o Cloudflare Email Routing). |
 | `BRADBURY_OPERATOR_NAME` | Nome de quem gere o site, que a política de privacidade indica como responsável pelo tratamento (RGPD). **Recomendado.** Sem ele, a política diz "its editor". |
 | `BRADBURY_CF_ANALYTICS_TOKEN` | Token do Cloudflare Web Analytics (sem cookies). Em alternativa, ativar a análise no próprio projeto do Pages, sem token. |
-| `BRADBURY_ADSENSE_CLIENT` | ID de publisher do AdSense (`ca-pub-…`). Sem ele não há anúncios, scripts do Google nem botão "Privacy settings", e o `ads.txt` fica vazio. |
+| `BRADBURY_ADSENSE_CLIENT` | ID de publisher do AdSense. Por omissão `ca-pub-3993373635690776` (definido em `src/site/settings.ts`, a 4 de novembro de 2026); a variável só serve para o trocar. |
 | `BRADBURY_AD_SLOT_DAY_MIDDLE` | Espaço entre o segundo e o terceiro cartão (Today e páginas de dia). |
 | `BRADBURY_AD_SLOT_DAY_END` | Espaço no fim das páginas de dia. |
 | `BRADBURY_AD_SLOT_ARCHIVE` | Espaço no Arquivo, no máximo um a cada 10 dias. |
