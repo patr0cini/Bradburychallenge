@@ -5,7 +5,7 @@ type Marks = Record<string, string[]>; // { "2026-10-17": ["poem", "story"] }
 
 const KEY = 'bradbury:lidos';
 
-function load(): Marks {
+export function loadMarks(): Marks {
   try {
     const raw = window.localStorage.getItem(KEY);
     const parsed = raw ? JSON.parse(raw) : {};
@@ -31,13 +31,13 @@ export function lisbonToday(): string {
 }
 
 export function initReadMarks() {
-  let marks = load();
+  let marks = loadMarks();
 
   for (const box of document.querySelectorAll<HTMLInputElement>('input[data-read-date]')) {
     const { readDate: date = '', readCategory: category = '' } = box.dataset;
     box.checked = (marks[date] ?? []).includes(category);
     box.addEventListener('change', () => {
-      marks = load(); // outro separador pode ter mudado entretanto
+      marks = loadMarks(); // outro separador pode ter mudado entretanto
       const set = new Set(marks[date] ?? []);
       if (box.checked) set.add(category);
       else set.delete(category);

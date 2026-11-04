@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import { ADSENSE_CLIENT } from '../site/settings.js';
 
-const UPDATED = '20 October 2026';
+const UPDATED = '4 November 2026';
 ---
 
 <Base title="Cookie policy" description="Which cookies and similar technologies Bradbury Challenge uses.">
@@ -12,9 +12,10 @@ const UPDATED = '20 October 2026';
 
     <h2>Our own site</h2>
     <p>
-      Bradbury Challenge itself sets no cookies. It keeps one item in your browser's local storage,{' '}
-      <code>bradbury:lidos</code>, which records the readings you have ticked as read. It is strictly necessary for that
-      feature, stays on your device and is never sent to us.
+      Bradbury Challenge itself sets no cookies. It keeps up to two items in your browser's local storage:{' '}
+      <code>bradbury:lidos</code>, which records the readings you have ticked as read, and <code>bradbury:inicio</code>,
+      the date you started your challenge, if you chose one. They are strictly necessary for those features, stay on your
+      device and are never sent to us.
     </p>
 
     <h2>Advertising</h2>
@@ -41,8 +42,8 @@ const UPDATED = '20 October 2026';
 
     <h2>Managing cookies</h2>
     <p>
-      You can also block or delete cookies in your browser settings. Blocking local storage only stops the read marks from
-      being remembered; the rest of the site works normally.
+      You can also block or delete cookies in your browser settings. Blocking local storage only stops the read marks and your
+      start date from being remembered; the rest of the site works normally.
     </p>
 
     <p>See also the <a href="/privacy/">privacy policy</a>.</p>

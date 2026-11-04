@@ -105,7 +105,9 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     </footer>
     <script>
       import { initReadMarks } from '../site/read-marks.ts';
+      import { initProgress } from '../site/progress.ts';
       initReadMarks();
+      initProgress();
       // Reabre a mensagem de consentimento do Google (plataforma de consentimento do AdSense).
       document.querySelector('[data-privacy-settings]')?.addEventListener('click', () => {
         const w = window as unknown as { googlefc?: { callbackQueue?: unknown[]; showRevocationMessage?: () => void } };

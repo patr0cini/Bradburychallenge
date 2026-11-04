@@ -19,7 +19,7 @@ const staticText = day && day.date === addDays(today, -1) ? t.staleYesterday : o
 <Base tab="today" description={t.homeDescription} image={day ? `/og/${day.date}.png` : undefined}>
   {
     day ? (
-      <DayView day={day} showNumber={false}>
+      <DayView day={day} home>
         <p
           slot="notice"
           class="notice"

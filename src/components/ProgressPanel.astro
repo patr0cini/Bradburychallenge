@@ -1,0 +1,38 @@
+---
+import { loadSiteData } from '../site/data.js';
+
+// Contagem pessoal do desafio (src/site/progress.ts). Só aparece com JavaScript, porque a data de
+// início vive no browser de cada leitor.
+const { days } = loadSiteData();
+const firstDay = days[0]?.date;
+const lastDay = days.at(-1)?.date;
+---
+
+<section class="progress" data-progress data-first-day={firstDay} data-last-day={lastDay} aria-label="Your challenge" hidden>
+  <div data-progress-none>
+    <p class="progress-title">Doing the challenge?</p>
+    <p class="progress-text">Start counting your 1,000 days. The count is kept in this browser only.</p>
+    <p class="progress-actions">
+      <button type="button" class="button button--primary" data-progress-start>Start my challenge today</button>
+    </p>
+    <details class="progress-change">
+      <summary>Started on an earlier day?</summary>
+      <form data-progress-form>
+        <label>Start date <input type="date" name="start" required /></label>
+        <button type="submit" class="button">Save</button>
+      </form>
+    </details>
+  </div>
+  <div data-progress-active hidden>
+    <p class="progress-title" data-progress-day></p>
+    <p class="progress-text" data-progress-summary></p>
+    <details class="progress-change">
+      <summary>Change start date</summary>
+      <form data-progress-form>
+        <label>Start date <input type="date" name="start" required /></label>
+        <button type="submit" class="button">Save</button>
+      </form>
+      <p><button type="button" class="link-button" data-progress-reset>Stop counting</button></p>
+    </details>
+  </div>
+</section>

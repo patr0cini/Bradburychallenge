@@ -1,24 +1,25 @@
 ---
 import ReadingCard from './ReadingCard.astro';
 import AdSlot from './AdSlot.astro';
+import ProgressPanel from './ProgressPanel.astro';
 import type { SiteDay } from '../site/data.js';
 import { STRINGS as t, formatLongDate } from '../site/strings.js';
 import { dayUrl } from '../site/digest.js';
 
 interface Props {
   day: SiteDay;
-  /** Mostra "Day N of readings" (não na página inicial, onde o visitante pode estar a começar). */
-  showNumber?: boolean;
+  /** Página inicial: mostra o painel da contagem pessoal em vez do dia do desafio. */
+  home?: boolean;
 }
 
-const { day, showNumber = true } = Astro.props;
+const { day, home = false } = Astro.props;
 // A ligação partilhada é sempre a página do dia, para continuar a mostrar estas leituras amanhã.
 const shareText = `${day.readings.map((r) => `${t.category[r.category]}: ${r.title} (${r.author})`).join('\n')}`;
 ---
 
 <h1 class="day-title">{formatLongDate(day.date)}</h1>
-{showNumber && <p class="day-context">{t.dayNumber(day.number)}</p>}
 <slot name="notice" />
+{home ? <ProgressPanel /> : <p class="day-context" data-personal-day={day.date} hidden />}
 <ol class="readings" aria-label={t.readingsOfDay}>
   {
     day.readings.map((r, i) => (
@@ -31,7 +32,7 @@ const shareText = `${day.readings.map((r) => `${t.category[r.category]}: ${r.tit
 </ol>
 <p class="share">
   <button type="button" class="button" data-share data-url={dayUrl(day.date)} data-title={`Readings for ${formatLongDate(day.date)}`} data-text={shareText}>
-    {showNumber ? t.shareDay : t.shareToday}
+    {home ? t.shareToday : t.shareDay}
   </button>
   <span class="share-status" role="status" aria-live="polite"></span>
 </p>

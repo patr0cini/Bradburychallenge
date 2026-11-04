@@ -15,7 +15,6 @@ export const STRINGS = {
   today: 'Today',
   archive: 'Archive',
   category: { poem: 'Poem', essay: 'Essay', story: 'Story' } satisfies Record<Category, string>,
-  dayNumber: (n: number) => `Day ${n} of readings`,
   readingsOfDay: "The day's readings",
   shareToday: "Share today's readings",
   shareDay: 'Share these readings',
