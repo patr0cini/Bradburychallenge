@@ -451,5 +451,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-03T03:54:15.127Z"
+  },
+  "2026-11-04": {
+    "poem": {
+      "id": "nybooks:nybooks.com/articles/1998/10/22/prologue-for-a-stage-presentation-of-the-inferno",
+      "title": "Prologue: for a Stage Presentation of the Inferno",
+      "author": "Robert Pinsky",
+      "url": "https://www.nybooks.com/articles/1998/10/22/prologue-for-a-stage-presentation-of-the-inferno/",
+      "source": "nybooks",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "wikisource:en.wikisource.org/wiki/Table-Talk/Volume_1/Essay_1",
+      "title": "On the Pleasure of Painting",
+      "author": "William Hazlitt",
+      "url": "https://en.wikisource.org/wiki/Table-Talk/Volume_1/Essay_1",
+      "source": "wikisource",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/floor-plans",
+      "title": "Floor Plans",
+      "author": "Danielle Lazarin",
+      "url": "https://lithub.com/floor-plans/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-04T02:58:45.865Z"
   }
 }
