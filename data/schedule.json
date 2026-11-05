@@ -481,5 +481,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-04T02:58:45.865Z"
+  },
+  "2026-11-05": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/aphasia-1",
+      "title": "Aphasia",
+      "author": "David Dale Zieroth",
+      "url": "https://rpo.library.utoronto.ca/content/aphasia-1",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/imagine-more-for-women",
+      "title": "Imagine More for Women",
+      "author": "Caroline Reilly",
+      "url": "https://lareviewofbooks.org/article/imagine-more-for-women/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/the-temptation-of-harringay",
+      "title": "The Temptation of Harringay",
+      "author": "H. G. Wells",
+      "url": "https://www.libraryofshortstories.com/onlinereader/the-temptation-of-harringay",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-05T03:26:25.948Z"
   }
 }
