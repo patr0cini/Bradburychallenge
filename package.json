@@ -21,7 +21,8 @@
     "dev:sample": "BRADBURY_DATA_SET=sample ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build:sample": "BRADBURY_DATA_SET=sample ASTRO_TELEMETRY_DISABLED=1 astro build",
     "check-access": "tsx scripts/check-access.ts",
-    "outreach": "tsx scripts/outreach.ts"
+    "outreach": "tsx scripts/outreach.ts",
+    "on-this-day": "tsx scripts/on-this-day.ts"
   },
   "dependencies": {
     "@resvg/resvg-js": "2.6.2",

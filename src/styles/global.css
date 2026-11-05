@@ -311,6 +311,59 @@ main.wrap {
   cursor: pointer;
 }
 
+/* "On this day": escritores nascidos ou mortos neste dia, por baixo das leituras. */
+.on-this-day {
+  margin: 8px 0 0;
+  padding: 16px 18px 12px;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius);
+}
+
+.on-this-day-title {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.on-this-day-list {
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.on-this-day-list li {
+  margin: 0 0 8px;
+  line-height: 1.5;
+}
+
+.on-this-day-when {
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.on-this-day-name {
+  font-weight: 600;
+}
+
+.on-this-day-books {
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.on-this-day-credit {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+}
+
 /* Navegação entre dias */
 .day-nav {
   margin: 28px 0 0;

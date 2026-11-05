@@ -2,6 +2,7 @@
 import ReadingCard from './ReadingCard.astro';
 import AdSlot from './AdSlot.astro';
 import ProgressPanel from './ProgressPanel.astro';
+import OnThisDay from './OnThisDay.astro';
 import type { SiteDay } from '../site/data.js';
 import { STRINGS as t, formatLongDate } from '../site/strings.js';
 import { dayUrl } from '../site/digest.js';
@@ -30,6 +31,7 @@ const shareText = `${day.readings.map((r) => `${t.category[r.category]}: ${r.tit
     ))
   }
 </ol>
+<OnThisDay date={day.date} />
 <p class="share">
   <button type="button" class="button" data-share data-url={dayUrl(day.date)} data-title={`Readings for ${formatLongDate(day.date)}`} data-text={shareText}>
     {home ? t.shareToday : t.shareDay}

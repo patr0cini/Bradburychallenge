@@ -1,0 +1,41 @@
+---
+import { onThisDay, shortDescription } from '../site/on-this-day.js';
+import { STRINGS as t } from '../site/strings.js';
+
+interface Props {
+  date: string;
+}
+
+const { date } = Astro.props;
+const events = onThisDay(date);
+const id = `otd-${date}`;
+---
+
+{
+  events.length > 0 && (
+    <section class="on-this-day" aria-labelledby={id}>
+      <h2 class="on-this-day-title" id={id}>{t.onThisDay}</h2>
+      <ul class="on-this-day-list">
+        {events.map((e) => (
+          <li>
+            <span class="on-this-day-when">{t.onThisDayEvent(e.event, e.year)}</span>{' '}
+            {e.wikipedia ? (
+              <a href={e.wikipedia} target="_blank" rel="noopener" class="on-this-day-name">
+                {e.name}
+                <span class="visually-hidden">{t.opensNewTab}</span>
+              </a>
+            ) : (
+              <span class="on-this-day-name">{e.name}</span>
+            )}
+            {e.description && <>, {shortDescription(e.description)}</>}.{' '}
+            <a href={e.gutenberg} target="_blank" rel="noopener" class="on-this-day-books">
+              {t.freeBooks}
+              <span class="visually-hidden">{t.freeBooksBy(e.name)}{t.opensNewTab}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="on-this-day-credit">{t.onThisDayCredit}</p>
+    </section>
+  )
+}

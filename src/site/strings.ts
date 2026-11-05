@@ -38,6 +38,11 @@ export const STRINGS = {
   archivePages: 'Archive pages',
   newer: '← Newer',
   more: 'More →',
+  onThisDay: 'On this day',
+  onThisDayEvent: (event: 'born' | 'died', year: number) => `${event === 'born' ? 'Born' : 'Died'} ${year}`,
+  freeBooks: 'Free books',
+  freeBooksBy: (name: string) => ` by ${name} on Project Gutenberg`,
+  onThisDayCredit: 'Writers from Wikidata; free books on Project Gutenberg.',
 } as const;
 
 // As datas ISO são dias de calendário; meio-dia UTC fica no mesmo dia em Lisboa todo o ano.
