@@ -1,6 +1,7 @@
 // Contagem pessoal do desafio ("Day 3 of your 1,000"), guardada só neste browser (localStorage).
 // Cada leitor escolhe o dia em que começou; o site não guarda nada no servidor.
 import { lisbonToday, loadMarks } from './read-marks.ts';
+import { plural, readingStats } from './stats.ts';
 
 const KEY = 'bradbury:inicio';
 const GOAL = 1000;
@@ -83,7 +84,27 @@ function render() {
     if (summary)
       summary.textContent = `Started on ${longDate(start)}. ${ticked} of ${total} readings ticked since then.`;
   }
+  renderStats(panel, today);
   panel.hidden = false;
+}
+
+/** Sequência e totais, só depois da primeira leitura marcada. */
+function renderStats(panel: HTMLElement, today: string) {
+  const box = panel.querySelector<HTMLElement>('[data-progress-stats]');
+  if (!box) return;
+  const s = readingStats(loadMarks(), today, panel.dataset.firstDay ?? today, panel.dataset.lastDay ?? today);
+  const any = s.totals.poem + s.totals.essay + s.totals.story > 0;
+  box.hidden = !any;
+  if (!any) return;
+  const streak = box.querySelector('[data-stat-streak]');
+  const best = box.querySelector('[data-stat-best]');
+  if (streak) streak.textContent = s.streak > 0 ? `${plural(s.streak, 'day')} in a row` : 'No streak yet';
+  if (best)
+    best.textContent = [s.best > s.streak ? `Best: ${plural(s.best, 'day')}.` : '', s.resting ? 'Rest day used this week.' : '']
+      .filter(Boolean)
+      .join(' ');
+  const values: Record<string, number> = { ...s.totals, full: s.fullDays };
+  for (const dd of box.querySelectorAll<HTMLElement>('[data-stat]')) dd.textContent = (values[dd.dataset.stat ?? ''] ?? 0).toLocaleString('en-GB');
 }
 
 export function initProgress() {

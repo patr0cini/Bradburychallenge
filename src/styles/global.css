@@ -1052,3 +1052,56 @@ button.button:not(.button--primary) {
 .progress-change p {
   margin: 10px 0 0;
 }
+
+.progress-stats {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.progress-streak {
+  margin: 0;
+}
+
+.progress-streak span {
+  color: var(--muted);
+}
+
+.progress-totals {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 10px 0 0;
+}
+
+.progress-totals div {
+  margin: 0;
+}
+
+.progress-totals dt {
+  color: var(--muted);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.progress-totals dd {
+  margin: 2px 0 0;
+  font-family: var(--font-text);
+  font-size: 1.5rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.progress-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+@media (max-width: 420px) {
+  .progress-totals {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

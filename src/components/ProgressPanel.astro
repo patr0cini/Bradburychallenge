@@ -1,7 +1,7 @@
 ---
 import { loadSiteData } from '../site/data.js';
 
-// Contagem pessoal do desafio (src/site/progress.ts). Só aparece com JavaScript, porque a data de
+// Contagem pessoal do desafio e estatísticas de leitura (src/site/progress.ts, src/site/stats.ts). Só aparece com JavaScript, porque a data de
 // início vive no browser de cada leitor.
 const { days } = loadSiteData();
 const firstDay = days[0]?.date;
@@ -34,5 +34,15 @@ const lastDay = days.at(-1)?.date;
       </form>
       <p><button type="button" class="link-button" data-progress-reset>Stop counting</button></p>
     </details>
+  </div>
+  <div class="progress-stats" data-progress-stats hidden>
+    <p class="progress-streak"><strong data-stat-streak></strong> <span data-stat-best></span></p>
+    <dl class="progress-totals">
+      <div><dt>Poems</dt><dd data-stat="poem"></dd></div>
+      <div><dt>Essays</dt><dd data-stat="essay"></dd></div>
+      <div><dt>Stories</dt><dd data-stat="story"></dd></div>
+      <div><dt>Full days</dt><dd data-stat="full"></dd></div>
+    </dl>
+    <p class="progress-note">A day counts when all three readings are ticked. Miss one day a week and your streak holds.</p>
   </div>
 </section>
