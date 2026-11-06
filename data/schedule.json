@@ -511,5 +511,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-05T03:26:25.948Z"
+  },
+  "2026-11-06": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/talking-water-blues",
+      "title": "Talking Water Blues",
+      "author": "W N Herbert",
+      "url": "https://poetryarchive.org/poem/talking-water-blues/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "wikisource:en.wikisource.org/wiki/Table-Talk/Volume_1/Essay_4",
+      "title": "On Genius and Common Sense",
+      "author": "William Hazlitt",
+      "url": "https://en.wikisource.org/wiki/Table-Talk/Volume_1/Essay_4",
+      "source": "wikisource",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/cocoon",
+      "title": "Cocoon",
+      "author": "Maurice Carlos Ruffin",
+      "url": "https://lithub.com/cocoon/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-06T03:21:57.684Z"
   }
 }
