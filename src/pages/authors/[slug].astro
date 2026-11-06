@@ -1,0 +1,45 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Base from '../../layouts/Base.astro';
+import { loadSiteData } from '../../site/data.js';
+import { AUTHORS_PATH, authorsOf, type Author } from '../../site/authors.js';
+import { STRINGS as t, dayPath, formatLongDate } from '../../site/strings.js';
+
+export const getStaticPaths = (() =>
+  authorsOf(loadSiteData().days).map((author) => ({ params: { slug: author.slug }, props: { author } }))) satisfies GetStaticPaths;
+
+interface Props {
+  author: Author;
+}
+
+const { author } = Astro.props;
+const n = author.readings.length;
+---
+
+<Base tab="archive" title={author.name} description={t.authorDescription(author.name, n)}>
+  <p class="back"><a href={AUTHORS_PATH}>{t.allAuthors}</a></p>
+  <h1 class="page-title">{author.name}</h1>
+  <p class="page-intro">{t.authorIntro(n)}</p>
+  <ol class="author-readings">
+    {
+      author.readings.map(({ date, reading: r }) => (
+        <li class="reading">
+          <span class={`tag tag--${r.category}`}>{t.category[r.category]}</span>
+          <h2 class="reading-title">
+            <a href={r.url} target="_blank" rel="noopener">
+              {r.title}
+              <span class="visually-hidden">{t.opensNewTab}</span>
+            </a>
+          </h2>
+          <p class="reading-meta">
+            {r.author !== author.name && <>{r.author} · </>}
+            {r.translator && <>{t.translatedBy(r.translator).slice(2)} · </>}
+            {r.siteName} · <a href={dayPath(date)}>{formatLongDate(date)}</a>
+          </p>
+          {r.note && <p class="reading-note">{r.note}</p>}
+          {r.unavailable && <p class="notice">{t.unavailable}</p>}
+        </li>
+      ))
+    }
+  </ol>
+</Base>

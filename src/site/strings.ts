@@ -43,6 +43,17 @@ export const STRINGS = {
   freeBooks: 'Free books',
   freeBooksBy: (name: string) => ` by ${name} on Project Gutenberg`,
   onThisDayCredit: 'Writers from Wikidata; free books on Project Gutenberg.',
+  authors: 'Authors',
+  authorsDescription: 'Every writer whose poems, essays and short stories have been among the daily readings, A to Z.',
+  browseAuthors: 'Browse by author',
+  searchAuthors: 'Search authors and titles',
+  searchPlaceholder: 'Name or title',
+  searchNone: 'No authors or titles match.',
+  readingsCount: (n: number) => `${n} ${n === 1 ? 'reading' : 'readings'}`,
+  authorDescription: (name: string, n: number) =>
+    `${n === 1 ? 'The reading' : `All ${n} readings`} by ${name} on Bradbury Challenge, free to read online.`,
+  authorIntro: (n: number) => `${n === 1 ? 'One reading' : `${n} readings`} in the Bradbury Challenge, newest first.`,
+  allAuthors: '← All authors',
 } as const;
 
 // As datas ISO são dias de calendário; meio-dia UTC fica no mesmo dia em Lisboa todo o ano.

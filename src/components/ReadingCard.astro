@@ -1,6 +1,7 @@
 ---
 import type { Reading } from '../site/data.js';
 import { STRINGS as t } from '../site/strings.js';
+import { authorPath, splitAuthors } from '../site/authors.js';
 
 interface Props {
   reading: Reading;
@@ -17,7 +18,7 @@ const id = `${date}-${r.category}`;
     <a href={r.url} target="_blank" rel="noopener">{r.title}<span class="visually-hidden">{t.opensNewTab}</span></a>
   </h2>
   <p class="reading-meta">
-    {r.author}{r.translator ? t.translatedBy(r.translator) : ''} · {r.siteName}
+    {splitAuthors(r.author).map((name, i) => <>{i > 0 && ' & '}<a href={authorPath(name)}>{name}</a></>)}{r.translator ? t.translatedBy(r.translator) : ''} · {r.siteName}
   </p>
   {r.note && <p class="reading-note">{r.note}</p>}
   {r.unavailable && <p class="notice">{t.unavailable}</p>}

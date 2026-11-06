@@ -2,8 +2,9 @@ import type { APIRoute } from 'astro';
 import { loadSiteData } from '../site/data.js';
 import { DAYS_PER_PAGE, pastDays } from '../site/paths.js';
 import { archivePath, dayPath } from '../site/strings.js';
+import { AUTHORS_PATH, authorPath, authorsOf } from '../site/authors.js';
 
-// sitemap.xml: página inicial, páginas de cada dia publicado, Arquivo e páginas fixas.
+// sitemap.xml: página inicial, páginas de cada dia publicado, Arquivo, autores e páginas fixas.
 export const GET: APIRoute = ({ site }) => {
   const { days } = loadSiteData();
   const abs = (path: string) => new URL(path, site).href;
@@ -13,6 +14,8 @@ export const GET: APIRoute = ({ site }) => {
     { loc: abs('/'), lastmod: latest },
     ...Array.from({ length: archivePages }, (_, i) => ({ loc: abs(archivePath(i + 1)), lastmod: i === 0 ? latest : undefined })),
     ...days.map((d) => ({ loc: abs(dayPath(d.date)), lastmod: d.date })),
+    { loc: abs(AUTHORS_PATH), lastmod: latest },
+    ...authorsOf(days).map((a) => ({ loc: abs(authorPath(a.name)), lastmod: a.readings[0]!.date })),
     ...['/bradbury-challenge/', '/rss/', '/read/', '/write/', '/support/', '/about/', '/privacy/', '/cookies/', '/contact/'].map((p) => ({ loc: abs(p) })),
   ];
   const body =

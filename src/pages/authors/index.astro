@@ -1,0 +1,71 @@
+---
+import Base from '../../layouts/Base.astro';
+import { loadSiteData } from '../../site/data.js';
+import { authorLetter, authorPath, authorsOf, type Author } from '../../site/authors.js';
+import { STRINGS as t } from '../../site/strings.js';
+
+const authors = authorsOf(loadSiteData().days);
+
+// Agrupa pela primeira letra do apelido, mantendo a ordem alfabética.
+const letters: { letter: string; authors: Author[] }[] = [];
+for (const a of authors) {
+  const letter = authorLetter(a);
+  if (letters.at(-1)?.letter !== letter) letters.push({ letter, authors: [] });
+  letters.at(-1)!.authors.push(a);
+}
+
+// Texto em que a pesquisa procura: nome e títulos, sem acentos e em minúsculas.
+const haystack = (a: Author) =>
+  [a.name, ...a.readings.map((r) => r.reading.title)].join(' ').normalize('NFD').replace(/\p{M}/gu, '').toLowerCase();
+---
+
+<Base tab="archive" title={t.authors} description={t.authorsDescription}>
+  <h1 class="page-title">{t.authors}</h1>
+  <p class="page-intro">{t.authorsDescription}</p>
+  {authors.length === 0 && <p class="empty">{t.noPastDays}</p>}
+  {
+    authors.length > 0 && (
+      <form class="author-search" role="search" data-author-search hidden>
+        <label for="author-q">{t.searchAuthors}</label>
+        <input id="author-q" type="search" name="q" placeholder={t.searchPlaceholder} autocomplete="off" />
+        <p class="author-search-status" aria-live="polite" data-author-status />
+      </form>
+    )
+  }
+  <nav class="letters" aria-label="Letters">
+    {letters.map((l) => <a href={`#l-${l.letter}`} data-letter-link={l.letter}>{l.letter}</a>)}
+  </nav>
+  {
+    letters.map((l) => (
+      <section aria-labelledby={`l-${l.letter}`} data-letter={l.letter}>
+        <h2 class="month" id={`l-${l.letter}`}>
+          {l.letter}
+        </h2>
+        <ul class="author-list">
+          {l.authors.map((a) => (
+            <li data-search={haystack(a)}>
+              <a class="author-name" href={authorPath(a.name)}>
+                {a.name}
+              </a>
+              <span class="author-count">{t.readingsCount(a.readings.length)}</span>
+              <ul class="archive-titles">
+                {a.readings.map(({ reading: r }) => (
+                  <li>
+                    <span class={`tag tag--${r.category}`}>{t.category[r.category]}</span>
+                    <span>{r.title}</span>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))
+  }
+  <p class="empty" data-author-none hidden>{t.searchNone}</p>
+</Base>
+
+<script>
+  import { initAuthorSearch } from '../../site/author-search.ts';
+  initAuthorSearch();
+</script>

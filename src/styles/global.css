@@ -695,6 +695,10 @@ main.wrap {
   line-height: 1.5;
 }
 
+.archive-author {
+  color: var(--muted);
+}
+
 .archive-titles .tag {
   margin-right: 6px;
 }
@@ -739,6 +743,129 @@ main.wrap {
 .empty {
   margin: 20px 0 0;
   color: var(--muted);
+}
+
+/* Autores */
+.page-intro {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.archive-links {
+  margin: 10px 0 0;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.back {
+  margin: 0 0 12px;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+}
+
+.author-search {
+  margin: 24px 0 0;
+  font-family: var(--font-ui);
+}
+
+.author-search label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.author-search input {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 420px;
+  padding: 10px 12px;
+  border: 1px solid var(--muted);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 1rem;
+}
+
+.author-search input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 1px;
+}
+
+.author-search-status {
+  min-height: 1.5em;
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.letters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 12px;
+  margin: 16px 0 0;
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.letters a {
+  padding: 4px 2px;
+  text-decoration: none;
+}
+
+.letters a[hidden] {
+  display: none;
+}
+
+.author-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 2px solid var(--rule);
+}
+
+.author-list > li {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.author-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.author-name:hover,
+.author-name:focus-visible {
+  color: var(--accent);
+}
+
+.author-count {
+  margin-left: 8px;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+}
+
+.author-readings {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  border-top: 2px solid var(--rule);
+}
+
+.reading-meta a {
+  color: inherit;
+}
+
+.reading-meta a:hover,
+.reading-meta a:focus-visible {
+  color: var(--accent);
 }
 
 @media (max-width: 640px) {

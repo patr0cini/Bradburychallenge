@@ -5,6 +5,7 @@ import AdSlot from '../../components/AdSlot.astro';
 import type { SiteDay } from '../../site/data.js';
 import { DAYS_PER_PAGE, pastDays } from '../../site/paths.js';
 import { STRINGS as t, dayPath, formatDayMonth, formatMonthYear } from '../../site/strings.js';
+import { AUTHORS_PATH } from '../../site/authors.js';
 
 export const getStaticPaths = (({ paginate }) => paginate(pastDays(), { pageSize: DAYS_PER_PAGE })) satisfies GetStaticPaths;
 
@@ -30,6 +31,7 @@ for (const day of page.data) {
 
 <Base tab="archive" title={page.currentPage > 1 ? t.archivePage(page.currentPage) : t.archive} description={t.archiveDescription}>
   <h1 class="page-title">{t.archive}</h1>
+  <p class="archive-links"><a href={AUTHORS_PATH}>{t.browseAuthors} →</a></p>
   {page.total === 0 && <p class="empty">{t.noPastDays}</p>}
   {
     months.map((month) => (
@@ -57,6 +59,7 @@ for (const day of page.data) {
                   <li>
                     <span class={`tag tag--${r.category}`}>{t.category[r.category]}</span>
                     <span>{r.title}</span>
+                    <span class="archive-author"> · {r.author}</span>
                   </li>
                 ))}
               </ul>
