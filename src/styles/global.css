@@ -408,6 +408,90 @@ main.wrap {
   font-size: 0.8125rem;
 }
 
+/* Figura literária do dia, por baixo das leituras, e glossário (/literary-devices/). */
+.device {
+  margin: 32px 0 0;
+  padding: 14px 0 0;
+  border-top: 3px double var(--rule);
+}
+
+.device-label {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.device-name {
+  margin: 8px 0 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.device-definition {
+  margin: 6px 0 0;
+  line-height: 1.55;
+}
+
+.device-example {
+  margin: 10px 0 0;
+  padding: 0 0 0 14px;
+  border-left: 2px solid var(--border);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.device-example p {
+  margin: 0;
+}
+
+.device-example footer {
+  margin-top: 4px;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+  font-style: normal;
+}
+
+.device-more {
+  margin: 10px 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+}
+
+.glossary {
+  margin: 0;
+  border-top: 2px solid var(--rule);
+}
+
+.glossary-entry {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  scroll-margin-top: 16px;
+}
+
+.glossary-entry:target {
+  background: color-mix(in srgb, var(--accent) 7%, var(--bg));
+}
+
+.glossary dt {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.glossary dd {
+  margin: 4px 0 0;
+}
+
+.glossary dd > p {
+  margin: 0;
+  line-height: 1.55;
+}
+
 /* Navegação entre dias */
 .day-nav {
   margin: 28px 0 0;

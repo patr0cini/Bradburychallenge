@@ -43,6 +43,11 @@ export const STRINGS = {
   freeBooks: 'Free books',
   freeBooksBy: (name: string) => ` by ${name} on Project Gutenberg`,
   onThisDayCredit: 'Writers from Wikidata; free books on Project Gutenberg.',
+  deviceOfTheDay: 'Literary device of the day',
+  allDevices: 'All literary devices →',
+  devicesTitle: 'Literary devices',
+  devicesDescription:
+    'A glossary of literary devices: figures of speech, sound, repetition, narrative and style, each with a short definition and an example.',
   authors: 'Authors',
   authorsDescription: 'Every writer whose poems, essays and short stories have been among the daily readings, A to Z.',
   browseAuthors: 'Browse by author',

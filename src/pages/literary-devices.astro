@@ -1,0 +1,45 @@
+---
+import Base from '../layouts/Base.astro';
+import { DEVICE_GROUPS, deviceSlug, loadDevices, type DeviceGroup } from '../site/devices.js';
+import { STRINGS as t } from '../site/strings.js';
+
+// Glossário: todas as figuras, por grupo e por ordem alfabética. A figura do dia liga para aqui.
+const devices = loadDevices();
+const groups = (Object.keys(DEVICE_GROUPS) as DeviceGroup[]).map((group) => ({
+  group,
+  devices: devices.filter((d) => d.group === group).sort((a, b) => a.name.localeCompare(b.name)),
+}));
+---
+
+<Base title={t.devicesTitle} description={t.devicesDescription}>
+  <h1 class="page-title">{t.devicesTitle}</h1>
+  <p class="page-intro">
+    {t.devicesDescription} One of them appears every day under the readings. Quoted examples come from works in the public domain.
+  </p>
+  <nav class="letters" aria-label="Groups">
+    {groups.map((g) => <a href={`#g-${g.group}`}>{DEVICE_GROUPS[g.group]}</a>)}
+  </nav>
+  {
+    groups.map((g) => (
+      <section aria-labelledby={`g-${g.group}`}>
+        <h2 class="month" id={`g-${g.group}`}>
+          {DEVICE_GROUPS[g.group]}
+        </h2>
+        <dl class="glossary">
+          {g.devices.map((d) => (
+            <div class="glossary-entry" id={deviceSlug(d.name)}>
+              <dt>{d.name}</dt>
+              <dd>
+                <p>{d.definition}</p>
+                <blockquote class="device-example">
+                  <p>{d.example}</p>
+                  {d.source && <footer>— {d.source}</footer>}
+                </blockquote>
+              </dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+    ))
+  }
+</Base>

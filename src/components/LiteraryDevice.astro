@@ -1,0 +1,29 @@
+---
+import { deviceForDay, devicePath } from '../site/devices.js';
+import { STRINGS as t } from '../site/strings.js';
+
+interface Props {
+  /** Número do dia de leituras (SiteDay.number). */
+  day: number;
+}
+
+const device = deviceForDay(Astro.props.day);
+const id = `device-${Astro.props.day}`;
+---
+
+{
+  device && (
+    <section class="device" aria-labelledby={id}>
+      <h2 class="device-label">{t.deviceOfTheDay}</h2>
+      <p class="device-name" id={id}>{device.name}</p>
+      <p class="device-definition">{device.definition}</p>
+      <blockquote class="device-example">
+        <p>{device.example}</p>
+        {device.source && <footer>— {device.source}</footer>}
+      </blockquote>
+      <p class="device-more">
+        <a href={devicePath(device.name)}>{t.allDevices}</a>
+      </p>
+    </section>
+  )
+}

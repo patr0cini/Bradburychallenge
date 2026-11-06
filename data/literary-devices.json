@@ -1,0 +1,920 @@
+[
+ {
+  "name": "Metaphor",
+  "group": "figurative",
+  "definition": "Describing one thing as if it were another, without “like” or “as”, so that the qualities of the second carry over to the first.",
+  "example": "All the world’s a stage, / And all the men and women merely players.",
+  "source": "William Shakespeare, As You Like It"
+ },
+ {
+  "name": "Simile",
+  "group": "figurative",
+  "definition": "An open comparison between two unlike things, usually made with “like” or “as”.",
+  "example": "I wandered lonely as a cloud",
+  "source": "William Wordsworth"
+ },
+ {
+  "name": "Extended metaphor",
+  "group": "figurative",
+  "definition": "A single metaphor carried through several lines, a whole poem or a long passage, developed point by point.",
+  "example": "Shakespeare’s “All the world’s a stage” speech keeps the comparison going through the seven ages of a life, each one a role played on the same stage."
+ },
+ {
+  "name": "Conceit",
+  "group": "figurative",
+  "definition": "An ingenious, often surprising comparison between two very different things, worked out at length. The metaphysical poets made it their signature.",
+  "example": "In “A Valediction: Forbidding Mourning”, John Donne compares two parted lovers to the two legs of a drawing compass: one stays fixed while the other travels, and they stay joined."
+ },
+ {
+  "name": "Analogy",
+  "group": "figurative",
+  "definition": "A comparison that explains something unfamiliar by setting out how it works like something familiar. It argues as well as decorates.",
+  "example": "Memory is less a filing cabinet than a riverbed: what is stored there is always being reshaped by what flows through."
+ },
+ {
+  "name": "Symbolism",
+  "group": "figurative",
+  "definition": "Using an object, person or event to stand for an idea larger than itself, so that it carries meaning beyond its literal place in the story.",
+  "example": "The scarlet letter that Hester Prynne must wear in Hawthorne’s novel stands for shame at first, and gradually for something closer to strength."
+ },
+ {
+  "name": "Allegory",
+  "group": "figurative",
+  "definition": "A whole story in which characters, places and events stand for ideas, so that it can be read on a second, usually moral or political, level.",
+  "example": "In John Bunyan’s The Pilgrim’s Progress, a man called Christian travels through the Slough of Despond and Vanity Fair on his way to the Celestial City."
+ },
+ {
+  "name": "Personification",
+  "group": "figurative",
+  "definition": "Giving human feelings, actions or speech to something that is not human: an object, an animal, an idea or a force of nature.",
+  "example": "Because I could not stop for Death – / He kindly stopped for me –",
+  "source": "Emily Dickinson"
+ },
+ {
+  "name": "Anthropomorphism",
+  "group": "figurative",
+  "definition": "Presenting animals, gods or objects as actually behaving like people: talking, dressing, reasoning. It goes further than personification, which is a figure of speech.",
+  "example": "In The Wind in the Willows, Mole, Rat and Toad keep houses, row boats and argue over lunch."
+ },
+ {
+  "name": "Zoomorphism",
+  "group": "figurative",
+  "definition": "Describing people, or things, with the qualities of animals.",
+  "example": "He wolfed down his dinner and slunk off to bed, growling at anyone who spoke to him."
+ },
+ {
+  "name": "Hyperbole",
+  "group": "figurative",
+  "definition": "Deliberate, obvious exaggeration, used for emphasis, feeling or comedy rather than to be believed.",
+  "example": "Will all great Neptune’s ocean wash this blood / Clean from my hand?",
+  "source": "William Shakespeare, Macbeth"
+ },
+ {
+  "name": "Litotes",
+  "group": "figurative",
+  "definition": "Understatement that affirms something by denying its opposite.",
+  "example": "It was not the worst meal I have ever eaten (meaning: it was rather good)."
+ },
+ {
+  "name": "Understatement",
+  "group": "figurative",
+  "definition": "Presenting something as smaller, milder or less important than it really is, often for irony or dry humour.",
+  "example": "Mercutio, fatally wounded, calls his injury “a scratch, a scratch”.",
+  "source": "William Shakespeare, Romeo and Juliet"
+ },
+ {
+  "name": "Paradox",
+  "group": "figurative",
+  "definition": "A statement that seems to contradict itself but turns out, on reflection, to hold a truth.",
+  "example": "I must be cruel only to be kind.",
+  "source": "William Shakespeare, Hamlet"
+ },
+ {
+  "name": "Oxymoron",
+  "group": "figurative",
+  "definition": "Two contradictory words placed side by side to create a compressed, striking effect.",
+  "example": "O brawling love! O loving hate! … / Feather of lead, bright smoke, cold fire, sick health!",
+  "source": "William Shakespeare, Romeo and Juliet"
+ },
+ {
+  "name": "Idiom",
+  "group": "figurative",
+  "definition": "A fixed expression whose meaning cannot be worked out from its individual words.",
+  "example": "“Break a leg”, “spill the beans”, “under the weather”."
+ },
+ {
+  "name": "Euphemism",
+  "group": "figurative",
+  "definition": "A mild or indirect word used in place of one that seems too blunt, harsh or embarrassing.",
+  "example": "Saying someone has “passed away” rather than “died”, or that a company is “letting people go” rather than firing them."
+ },
+ {
+  "name": "Dysphemism",
+  "group": "figurative",
+  "definition": "The opposite of a euphemism: a deliberately harsh or crude word used in place of a neutral one.",
+  "example": "Calling a car a “death trap”, or a doctor a “sawbones”."
+ },
+ {
+  "name": "Metonymy",
+  "group": "figurative",
+  "definition": "Referring to something by the name of a thing closely associated with it.",
+  "example": "The pen is mightier than the sword (writing is more powerful than military force)."
+ },
+ {
+  "name": "Synecdoche",
+  "group": "figurative",
+  "definition": "Using a part to stand for the whole, or the whole for a part.",
+  "example": "“All hands on deck” (hands for sailors); “England won the match” (the country for its team)."
+ },
+ {
+  "name": "Kenning",
+  "group": "figurative",
+  "definition": "A compound phrase that names something by describing it, common in Old English and Norse poetry.",
+  "example": "“Whale-road” for the sea, “bone-house” for the body, as in Beowulf."
+ },
+ {
+  "name": "Circumlocution",
+  "group": "figurative",
+  "definition": "Talking around a subject in many words instead of naming it directly, whether to be tactful, evasive or comic.",
+  "example": "Dickens’s Circumlocution Office in Little Dorrit exists to perfect the art of “how not to do it”."
+ },
+ {
+  "name": "Periphrasis",
+  "group": "figurative",
+  "definition": "Replacing a simple word with a longer descriptive phrase, often for elevation or variety.",
+  "example": "Calling birds “the feathered tribe”, or the sun “the lamp of day”."
+ },
+ {
+  "name": "Transferred epithet",
+  "group": "figurative",
+  "definition": "An adjective moved from the person it describes to a thing connected with them. Also called hypallage.",
+  "example": "He spent a sleepless night (it is the man, not the night, who does not sleep)."
+ },
+ {
+  "name": "Epithet",
+  "group": "figurative",
+  "definition": "A descriptive word or phrase attached to a name that becomes almost part of it.",
+  "example": "Homer’s “rosy-fingered Dawn”, “swift-footed Achilles”, “the wine-dark sea”."
+ },
+ {
+  "name": "Apostrophe",
+  "group": "figurative",
+  "definition": "Addressing someone absent or dead, or something not human, as if it could hear and answer.",
+  "example": "Death, be not proud, though some have called thee / Mighty and dreadful",
+  "source": "John Donne"
+ },
+ {
+  "name": "Allusion",
+  "group": "figurative",
+  "definition": "A brief, unexplained reference to a person, place, event or text the reader is expected to recognise.",
+  "example": "Calling a tempting offer “a poisoned apple”, or a long journey home “an odyssey”."
+ },
+ {
+  "name": "Imagery",
+  "group": "figurative",
+  "definition": "Language that appeals to the senses (sight, sound, smell, taste, touch) so that the reader experiences a scene rather than being told about it.",
+  "example": "The apparition of these faces in the crowd; / Petals on a wet, black bough.",
+  "source": "Ezra Pound, “In a Station of the Metro”"
+ },
+ {
+  "name": "Motif",
+  "group": "figurative",
+  "definition": "An image, object, phrase or idea that recurs through a work and gathers meaning with each return.",
+  "example": "Blood in Macbeth: on daggers, on hands, in Lady Macbeth’s sleepwalking, always growing harder to wash away."
+ },
+ {
+  "name": "Pathetic fallacy",
+  "group": "figurative",
+  "definition": "Giving human emotions to nature or the weather, usually so the setting mirrors the mood of the characters.",
+  "example": "A storm breaks over the moor on the night Heathcliff leaves Wuthering Heights."
+ },
+ {
+  "name": "Synesthesia",
+  "group": "figurative",
+  "definition": "Describing one sense in terms of another: a sound that has a colour, a colour that has a taste.",
+  "example": "a loud shirt; a sweet melody; a velvety voice; a bitter wind"
+ },
+ {
+  "name": "Antithesis",
+  "group": "figurative",
+  "definition": "Setting opposed ideas against each other in balanced, parallel phrases, so that each sharpens the other.",
+  "example": "It was the best of times, it was the worst of times",
+  "source": "Charles Dickens, A Tale of Two Cities"
+ },
+ {
+  "name": "Juxtaposition",
+  "group": "figurative",
+  "definition": "Placing two things side by side, without comment, so that the contrast or connection between them makes its own point.",
+  "example": "A banquet scene cut straight against a beggar shivering outside the palace gate."
+ },
+ {
+  "name": "Anastrophe",
+  "group": "figurative",
+  "definition": "Inverting the normal order of words, for emphasis, rhythm or rhyme. Also called inversion.",
+  "example": "Whose woods these are I think I know.",
+  "source": "Robert Frost, “Stopping by Woods on a Snowy Evening”"
+ },
+ {
+  "name": "Connotation",
+  "group": "figurative",
+  "definition": "The feelings and associations a word carries beyond its dictionary meaning.",
+  "example": "“Home” and “house” can name the same building, but only one suggests warmth and belonging."
+ },
+ {
+  "name": "Denotation",
+  "group": "figurative",
+  "definition": "The literal, dictionary meaning of a word, apart from the feelings it may suggest.",
+  "example": "The denotation of “snake” is a legless reptile; its connotations may include danger and betrayal."
+ },
+ {
+  "name": "Zeugma",
+  "group": "figurative",
+  "definition": "One word, usually a verb, governing two others in different senses at once, often for wit.",
+  "example": "Or stain her honour, or her new brocade",
+  "source": "Alexander Pope, The Rape of the Lock"
+ },
+ {
+  "name": "Pun",
+  "group": "figurative",
+  "definition": "Play on words that exploits a word with two meanings, or two words that sound alike.",
+  "example": "Ask for me tomorrow, and you shall find me a grave man.",
+  "source": "William Shakespeare, Romeo and Juliet (Mercutio, dying)"
+ },
+ {
+  "name": "Bathos",
+  "group": "figurative",
+  "definition": "A sudden, unintended or comic drop from the elevated to the trivial.",
+  "example": "He gave his life for his country, his family and his collection of spoons."
+ },
+ {
+  "name": "Pathos",
+  "group": "figurative",
+  "definition": "The quality in writing that stirs pity, sorrow or tenderness in the reader.",
+  "example": "The death of Little Nell in Dickens’s The Old Curiosity Shop was written to move readers to tears, and it did."
+ },
+ {
+  "name": "Aphorism",
+  "group": "figurative",
+  "definition": "A short, memorable statement of a general truth or opinion.",
+  "example": "Reading maketh a full man; conference a ready man; and writing an exact man.",
+  "source": "Francis Bacon, “Of Studies”"
+ },
+ {
+  "name": "Rhetorical question",
+  "group": "figurative",
+  "definition": "A question asked for effect, to make a point, with no answer expected.",
+  "example": "If you prick us, do we not bleed?",
+  "source": "William Shakespeare, The Merchant of Venice"
+ },
+ {
+  "name": "Hypophora",
+  "group": "figurative",
+  "definition": "Raising a question and then answering it yourself, to guide the reader’s thinking.",
+  "example": "What, then, is the purpose of a library? It is to keep the conversation of the dead open to the living."
+ },
+ {
+  "name": "Syllogism",
+  "group": "figurative",
+  "definition": "An argument in which a conclusion follows from two premises. Writers use it straight, or twist it for comedy.",
+  "example": "All men are mortal; Socrates is a man; therefore Socrates is mortal."
+ },
+ {
+  "name": "Anachronism",
+  "group": "figurative",
+  "definition": "Something placed in a time where it does not belong, whether by mistake or on purpose for effect.",
+  "example": "A clock strikes in Shakespeare’s Julius Caesar, set in ancient Rome, centuries before striking clocks existed."
+ },
+ {
+  "name": "Ubi sunt",
+  "group": "figurative",
+  "definition": "Latin for “where are they?”: a lament that asks where the people and glories of the past have gone.",
+  "example": "But where are the snows of yester-year?",
+  "source": "François Villon, trans. Dante Gabriel Rossetti"
+ },
+ {
+  "name": "Verisimilitude",
+  "group": "figurative",
+  "definition": "The appearance of truth or reality in fiction, built from convincing detail, so that the reader believes in the world of the story.",
+  "example": "Defoe gives Robinson Crusoe lists of salvaged tools, daily journal entries and careful accounts, so the island feels documented rather than invented."
+ },
+ {
+  "name": "Alliteration",
+  "group": "sound",
+  "definition": "Repeating the same consonant sound at the start of words close together.",
+  "example": "Peter Piper picked a peck of pickled peppers."
+ },
+ {
+  "name": "Assonance",
+  "group": "sound",
+  "definition": "Repeating the same vowel sound in nearby words, even when the consonants around it differ.",
+  "example": "Hear the mellow wedding bells",
+  "source": "Edgar Allan Poe, “The Bells”"
+ },
+ {
+  "name": "Consonance",
+  "group": "sound",
+  "definition": "Repeating consonant sounds within or at the end of nearby words, not only at the start.",
+  "example": "pitter-patter; “And all is seared with trade; bleared, smeared with toil”, from Hopkins’s “God’s Grandeur”."
+ },
+ {
+  "name": "Onomatopoeia",
+  "group": "sound",
+  "definition": "A word that imitates the sound it names.",
+  "example": "buzz, hiss, crackle, thud, murmur"
+ },
+ {
+  "name": "Euphony",
+  "group": "sound",
+  "definition": "A pleasing, smooth combination of sounds, often from soft consonants and long vowels.",
+  "example": "Season of mists and mellow fruitfulness",
+  "source": "John Keats, “To Autumn”"
+ },
+ {
+  "name": "Cacophony",
+  "group": "sound",
+  "definition": "A harsh, jarring mix of sounds, often from hard consonants, used to suggest violence, disorder or ugliness.",
+  "example": "The Jabberwock, “with eyes of flame, / Came whiffling through the tulgey wood, / And burbled as it came!”, from Lewis Carroll."
+ },
+ {
+  "name": "Sibilance",
+  "group": "sound",
+  "definition": "Repeated hissing “s”, “sh” and soft “c” sounds, which can suggest whispering, the sea or menace.",
+  "example": "And the silken, sad, uncertain rustling of each purple curtain",
+  "source": "Edgar Allan Poe, “The Raven”"
+ },
+ {
+  "name": "Internal rhyme",
+  "group": "sound",
+  "definition": "A rhyme within a single line, rather than only at the ends of lines.",
+  "example": "Once upon a midnight dreary, while I pondered, weak and weary",
+  "source": "Edgar Allan Poe, “The Raven”"
+ },
+ {
+  "name": "End rhyme",
+  "group": "sound",
+  "definition": "Rhyme that falls on the last words of lines, the most familiar kind of rhyme in poetry.",
+  "example": "Tyger Tyger, burning bright, / In the forests of the night",
+  "source": "William Blake"
+ },
+ {
+  "name": "Slant rhyme",
+  "group": "sound",
+  "definition": "An imperfect rhyme in which sounds are close but not identical. Also called half rhyme or near rhyme.",
+  "example": "Emily Dickinson often pairs words like “soul” and “all”, or “room” and “storm”."
+ },
+ {
+  "name": "Eye rhyme",
+  "group": "sound",
+  "definition": "Words that look as if they rhyme because they are spelled alike, but are pronounced differently.",
+  "example": "love / move; cough / bough; heard / beard"
+ },
+ {
+  "name": "Rhythm",
+  "group": "sound",
+  "definition": "The pattern of stressed and unstressed syllables in language, the beat a reader feels in prose or verse.",
+  "example": "The steady gallop of “I sprang to the stirrup, and Joris, and he” imitates riders at speed (Robert Browning)."
+ },
+ {
+  "name": "Meter",
+  "group": "sound",
+  "definition": "A regular, countable pattern of stressed and unstressed syllables in a line of verse.",
+  "example": "Shall I compare thee to a summer’s day? — ten syllables of iambic pentameter: da-DUM five times.",
+  "source": "William Shakespeare, Sonnet 18"
+ },
+ {
+  "name": "Cadence",
+  "group": "sound",
+  "definition": "The rise and fall of a voice in a sentence, especially the way a phrase comes to rest at its end.",
+  "example": "The King James Bible is famous for its cadences: “And God said, Let there be light: and there was light.”"
+ },
+ {
+  "name": "Refrain",
+  "group": "sound",
+  "definition": "A line or phrase repeated at intervals in a poem or song, usually at the end of a stanza.",
+  "example": "“Quoth the Raven, ‘Nevermore.’” closes stanza after stanza of Poe’s poem."
+ },
+ {
+  "name": "Caesura",
+  "group": "sound",
+  "definition": "A pause or break in the middle of a line of verse, often marked by punctuation.",
+  "example": "To err is human; to forgive, divine.",
+  "source": "Alexander Pope, An Essay on Criticism"
+ },
+ {
+  "name": "Homophone",
+  "group": "sound",
+  "definition": "Words that sound the same but differ in meaning or spelling, a favourite raw material for puns.",
+  "example": "right / write / rite; sun / son"
+ },
+ {
+  "name": "Anagram",
+  "group": "sound",
+  "definition": "A word or phrase made by rearranging the letters of another.",
+  "example": "“listen” and “silent”; Samuel Butler’s novel Erewhon spells “nowhere” almost backwards."
+ },
+ {
+  "name": "Palindrome",
+  "group": "sound",
+  "definition": "A word, phrase or sentence that reads the same backwards as forwards.",
+  "example": "A man, a plan, a canal: Panama."
+ },
+ {
+  "name": "Portmanteau",
+  "group": "sound",
+  "definition": "A new word made by blending the sounds and meanings of two others.",
+  "example": "Lewis Carroll’s “slithy” (lithe and slimy) and “chortle” (chuckle and snort)."
+ },
+ {
+  "name": "Neologism",
+  "group": "sound",
+  "definition": "A newly coined word or expression, or an old word given a new meaning.",
+  "example": "Shakespeare is credited with the first recorded uses of “bedroom”, “lonely” and “eyeball”."
+ },
+ {
+  "name": "Malapropism",
+  "group": "sound",
+  "definition": "The comic misuse of a word in place of a similar-sounding one.",
+  "example": "Mrs Malaprop, in Sheridan’s The Rivals, calls someone “the very pineapple of politeness” (pinnacle)."
+ },
+ {
+  "name": "Anaphora",
+  "group": "repetition",
+  "definition": "Repeating the same word or phrase at the start of successive clauses or lines.",
+  "example": "In every cry of every Man, / In every Infants cry of fear",
+  "source": "William Blake, “London”"
+ },
+ {
+  "name": "Epistrophe",
+  "group": "repetition",
+  "definition": "Repeating the same word or phrase at the end of successive clauses or lines.",
+  "example": "government of the people, by the people, for the people",
+  "source": "Abraham Lincoln, Gettysburg Address"
+ },
+ {
+  "name": "Anadiplosis",
+  "group": "repetition",
+  "definition": "Starting a clause with the word or phrase that ended the one before, building a chain.",
+  "example": "tribulation worketh patience; and patience, experience; and experience, hope",
+  "source": "Romans 5, King James Bible"
+ },
+ {
+  "name": "Epizeuxis",
+  "group": "repetition",
+  "definition": "Repeating a word immediately, with nothing in between, for intensity.",
+  "example": "Words, words, words.",
+  "source": "William Shakespeare, Hamlet"
+ },
+ {
+  "name": "Diacope",
+  "group": "repetition",
+  "definition": "Repeating a word or phrase with one or a few words in between.",
+  "example": "To be, or not to be",
+  "source": "William Shakespeare, Hamlet"
+ },
+ {
+  "name": "Polysyndeton",
+  "group": "repetition",
+  "definition": "Using more conjunctions than needed (“and … and … and”) to slow the pace or pile up effect.",
+  "example": "And the rain descended, and the floods came, and the winds blew, and beat upon that house",
+  "source": "Matthew 7, King James Bible"
+ },
+ {
+  "name": "Asyndeton",
+  "group": "repetition",
+  "definition": "Leaving out the conjunctions between words or clauses, for speed and force.",
+  "example": "Veni, vidi, vici — I came, I saw, I conquered.",
+  "source": "Julius Caesar"
+ },
+ {
+  "name": "Parallelism",
+  "group": "repetition",
+  "definition": "Giving related ideas the same grammatical structure, so that the form itself shows they belong together.",
+  "example": "Some books are to be tasted, others to be swallowed, and some few to be chewed and digested",
+  "source": "Francis Bacon, “Of Studies”"
+ },
+ {
+  "name": "Isocolon",
+  "group": "repetition",
+  "definition": "A run of phrases of the same length and structure, a strict kind of parallelism.",
+  "example": "Veni, vidi, vici: three verbs, two syllables each, the same shape."
+ },
+ {
+  "name": "Chiasmus",
+  "group": "repetition",
+  "definition": "Reversing the structure of a phrase in the next one, so the two mirror each other (A–B, B–A).",
+  "example": "Fair is foul, and foul is fair",
+  "source": "William Shakespeare, Macbeth"
+ },
+ {
+  "name": "Antimetabole",
+  "group": "repetition",
+  "definition": "A kind of chiasmus that repeats the same words in reverse order.",
+  "example": "Eat to live, and not live to eat."
+ },
+ {
+  "name": "Polyptoton",
+  "group": "repetition",
+  "definition": "Repeating a word in different grammatical forms within a sentence.",
+  "example": "Love is not love / Which alters when it alteration finds",
+  "source": "William Shakespeare, Sonnet 116"
+ },
+ {
+  "name": "Tricolon",
+  "group": "repetition",
+  "definition": "A series of three parallel words, phrases or clauses, the “rule of three” that makes lists feel complete.",
+  "example": "Friends, Romans, countrymen, lend me your ears",
+  "source": "William Shakespeare, Julius Caesar"
+ },
+ {
+  "name": "Climax",
+  "group": "repetition",
+  "definition": "As a figure of speech: arranging words or ideas in order of rising importance. (In plot, the word means the turning point of highest tension.)",
+  "example": "Some are born great, some achieve greatness, and some have greatness thrust upon ’em.",
+  "source": "William Shakespeare, Twelfth Night"
+ },
+ {
+  "name": "Anticlimax",
+  "group": "repetition",
+  "definition": "A list or build-up that ends on something unexpectedly trivial, usually for comic effect.",
+  "example": "Here thou, great Anna! whom three realms obey, / Dost sometimes counsel take — and sometimes tea.",
+  "source": "Alexander Pope, The Rape of the Lock"
+ },
+ {
+  "name": "Incremental repetition",
+  "group": "repetition",
+  "definition": "Repeating a line or stanza with a small change each time, so the story advances through the variations. Common in ballads.",
+  "example": "In the ballad “Lord Randal”, the mother asks the same questions stanza by stanza, and each answer brings the poisoning closer to light."
+ },
+ {
+  "name": "Enumeration",
+  "group": "repetition",
+  "definition": "Listing the parts, causes or details of a subject one by one.",
+  "example": "Whitman’s catalogues in “Song of Myself” enumerate carpenters, pilots, spinning-girls and farmers until the list becomes a nation."
+ },
+ {
+  "name": "Accumulation",
+  "group": "repetition",
+  "definition": "Piling up words or phrases that say similar things, to build pressure or sum up an argument.",
+  "example": "He was a liar, a cheat, a schemer, a fraud from first to last."
+ },
+ {
+  "name": "Amplification",
+  "group": "repetition",
+  "definition": "Repeating a word or idea and adding detail to it, to stress and expand what might otherwise pass unnoticed.",
+  "example": "It was a cold night — cold enough to freeze the ink in the well and the breath on the glass."
+ },
+ {
+  "name": "Tautology",
+  "group": "repetition",
+  "definition": "Saying the same thing twice in different words, often as a fault, sometimes for emphasis.",
+  "example": "“free gift”, “new innovation”, “at this moment in time”."
+ },
+ {
+  "name": "Pleonasm",
+  "group": "repetition",
+  "definition": "Using more words than are needed to express an idea, sometimes clumsily, sometimes for emphasis.",
+  "example": "“I saw it with my own eyes.”"
+ },
+ {
+  "name": "Ellipsis",
+  "group": "repetition",
+  "definition": "Leaving out words that the reader can supply, or trailing off into silence (often marked with three dots).",
+  "example": "Some people prefer tea; others, coffee (the verb “prefer” is understood the second time)."
+ },
+ {
+  "name": "Foreshadowing",
+  "group": "narrative",
+  "definition": "Hints early in a story of what is to come, which prepare the reader and build suspense.",
+  "example": "Romeo, before the party, fears “some consequence yet hanging in the stars” that will end in “untimely death”."
+ },
+ {
+  "name": "Flashback",
+  "group": "narrative",
+  "definition": "A scene that interrupts the present action to show events from earlier.",
+  "example": "Wuthering Heights is told mostly as a long look back, as Nelly Dean recalls the history of the two families."
+ },
+ {
+  "name": "Flashforward",
+  "group": "narrative",
+  "definition": "A scene that jumps ahead to show what will happen later, before the story returns to the present.",
+  "example": "In A Christmas Carol, the Ghost of Christmas Yet to Come shows Scrooge his own neglected grave."
+ },
+ {
+  "name": "In medias res",
+  "group": "narrative",
+  "definition": "Latin for “into the middle of things”: beginning a story in the midst of the action, filling in the background later.",
+  "example": "The Odyssey opens with Odysseus already stranded, ten years after Troy; his earlier wanderings are told later."
+ },
+ {
+  "name": "Frame story",
+  "group": "narrative",
+  "definition": "A story that contains other stories, often told by characters within it.",
+  "example": "In The Canterbury Tales, pilgrims riding to Canterbury tell one another tales to pass the time."
+ },
+ {
+  "name": "Nonlinear narrative",
+  "group": "narrative",
+  "definition": "Telling events out of chronological order, so that meaning comes from how the pieces are arranged.",
+  "example": "Emily Brontë moves back and forth across thirty years in Wuthering Heights, so the reader learns the past and the present in pieces."
+ },
+ {
+  "name": "Circular narrative",
+  "group": "narrative",
+  "definition": "A story that ends where it began, in the same place, situation or words, often changed by what happened in between.",
+  "example": "The Hobbit is subtitled “There and Back Again”: Bilbo leaves his hole at Bag End and returns to it, altered."
+ },
+ {
+  "name": "Cliffhanger",
+  "group": "narrative",
+  "definition": "Ending a chapter or episode at a moment of high suspense, so the reader has to go on.",
+  "example": "Dickens’s novels came out in monthly parts, and many parts ended mid-crisis to sell the next one."
+ },
+ {
+  "name": "Red herring",
+  "group": "narrative",
+  "definition": "A false clue that leads the reader, and often the characters, away from the truth.",
+  "example": "Detective stories are built on them: the suspicious butler who turns out to be innocent."
+ },
+ {
+  "name": "Chekhov’s gun",
+  "group": "narrative",
+  "definition": "The principle that every element in a story should matter: if a gun appears in the first act, it should be fired by the last.",
+  "example": "Chekhov advised writers to cut a rifle on the wall if no one was ever going to fire it."
+ },
+ {
+  "name": "MacGuffin",
+  "group": "narrative",
+  "definition": "An object or goal that drives the plot because the characters want it, though what it is matters little.",
+  "example": "The jewel-encrusted falcon in Dashiell Hammett’s The Maltese Falcon, which everyone chases."
+ },
+ {
+  "name": "Plot twist",
+  "group": "narrative",
+  "definition": "A sudden turn that overturns what the reader expected, ideally surprising yet, looking back, inevitable.",
+  "example": "In Dickens’s Great Expectations, Pip’s secret benefactor is not the wealthy Miss Havisham, as he assumed, but the convict Magwitch."
+ },
+ {
+  "name": "Unreliable narrator",
+  "group": "narrative",
+  "definition": "A narrator whose account cannot be fully trusted, through madness, self-deception, ignorance or lies.",
+  "example": "True! — nervous — very, very dreadfully nervous I had been and am; but why will you say that I am mad?",
+  "source": "Edgar Allan Poe, “The Tell-Tale Heart”"
+ },
+ {
+  "name": "Dramatic irony",
+  "group": "narrative",
+  "definition": "When the audience knows something a character does not, so their words and actions carry a meaning they cannot see.",
+  "example": "We know Juliet is only drugged, so Romeo’s grief and suicide in the tomb are unbearable to watch."
+ },
+ {
+  "name": "Verbal irony",
+  "group": "narrative",
+  "definition": "Saying one thing while meaning something different, often the opposite.",
+  "example": "Mark Antony repeats that “Brutus is an honourable man” until the phrase means its opposite.",
+  "source": "William Shakespeare, Julius Caesar"
+ },
+ {
+  "name": "Situational irony",
+  "group": "narrative",
+  "definition": "When the outcome of events is the opposite of what was intended or expected.",
+  "example": "In O. Henry’s “The Gift of the Magi”, a wife sells her hair to buy her husband a watch chain, while he sells his watch to buy her combs."
+ },
+ {
+  "name": "Cosmic irony",
+  "group": "narrative",
+  "definition": "Irony in which fate, the gods or the universe seem to toy with human hopes. Also called the irony of fate.",
+  "example": "Thomas Hardy’s novels often turn on it: a letter slipped under a door that slides beneath the carpet and is never read, in Tess of the d’Urbervilles."
+ },
+ {
+  "name": "Deus ex machina",
+  "group": "narrative",
+  "definition": "Latin for “god from the machine”: an unexpected, improbable event that suddenly resolves a plot.",
+  "example": "In Greek drama a god was lowered by crane to settle the plot; in later fiction, a long-lost rich uncle dies at just the right moment."
+ },
+ {
+  "name": "False protagonist",
+  "group": "narrative",
+  "definition": "A character presented as the hero who is removed, often killed, partway through, shifting the story to someone else.",
+  "example": "Marion Crane in Robert Bloch’s Psycho, gone before the story is half over."
+ },
+ {
+  "name": "Backstory",
+  "group": "narrative",
+  "definition": "The history of characters or setting before the story begins, revealed as needed to explain the present.",
+  "example": "Miss Havisham’s jilting on her wedding day, years before Pip meets her, explains the stopped clocks and the rotting cake."
+ },
+ {
+  "name": "Exposition",
+  "group": "narrative",
+  "definition": "Information the reader needs about characters, setting and situation, given at the start or woven in as the story goes.",
+  "example": "Emma Woodhouse, handsome, clever, and rich, with a comfortable home and happy disposition, seemed to unite some of the best blessings of existence",
+  "source": "Jane Austen, Emma"
+ },
+ {
+  "name": "Subplot",
+  "group": "narrative",
+  "definition": "A secondary line of story that runs alongside the main plot, echoing, contrasting or complicating it.",
+  "example": "Gloucester and his two sons in King Lear mirror Lear and his daughters."
+ },
+ {
+  "name": "Callback",
+  "group": "narrative",
+  "definition": "A later reference to an earlier line, image or moment, which gains new meaning through repetition.",
+  "example": "A phrase spoken lightly in the first chapter returns at the end, now heavy with everything that has happened."
+ },
+ {
+  "name": "Point of view",
+  "group": "narrative",
+  "definition": "The position from which a story is told: first person (“I”), second (“you”), or third (“he”, “she”, “they”), limited or all-knowing.",
+  "example": "Call me Ishmael (first person).",
+  "source": "Herman Melville, Moby-Dick"
+ },
+ {
+  "name": "Stream of consciousness",
+  "group": "narrative",
+  "definition": "Writing that follows the flow of a character’s thoughts, feelings and memories as they come, often without ordinary logic or punctuation.",
+  "example": "Virginia Woolf’s Mrs Dalloway drifts from the flowers Clarissa is buying to her girlhood at Bourton within a single paragraph."
+ },
+ {
+  "name": "Epiphany",
+  "group": "narrative",
+  "definition": "A sudden moment of insight in which a character, or the reader, sees something essential.",
+  "example": "James Joyce built the stories of Dubliners around such moments, as at the end of “Araby”."
+ },
+ {
+  "name": "Soliloquy",
+  "group": "narrative",
+  "definition": "A speech in which a character alone on stage speaks their thoughts aloud, for the audience only.",
+  "example": "Hamlet’s “To be, or not to be” is the most famous soliloquy in English."
+ },
+ {
+  "name": "Prologue",
+  "group": "narrative",
+  "definition": "An introductory section before the main story, which sets the scene or frames what follows.",
+  "example": "The Chorus opens Romeo and Juliet by telling us the “star-cross’d lovers” will die."
+ },
+ {
+  "name": "Epigraph",
+  "group": "narrative",
+  "definition": "A quotation placed at the start of a book, chapter or poem, hinting at its theme.",
+  "example": "Mary Shelley opens Frankenstein with Adam’s complaint from Paradise Lost: “Did I request thee, Maker, from my clay / To mould me man?”"
+ },
+ {
+  "name": "Anecdote",
+  "group": "narrative",
+  "definition": "A short account of a real incident, used to illustrate a point or bring an idea to life.",
+  "example": "Essayists often open with one: a chance remark overheard on a train, which the essay then unfolds."
+ },
+ {
+  "name": "Vignette",
+  "group": "narrative",
+  "definition": "A brief, evocative scene or sketch that captures a moment, mood or character rather than telling a full story.",
+  "example": "Many of the short pieces in Sherwood Anderson’s Winesburg, Ohio work as vignettes of a single small-town life."
+ },
+ {
+  "name": "Archetype",
+  "group": "character",
+  "definition": "A character, situation or image so recurrent across literature that it feels universal: the trickster, the mentor, the journey home.",
+  "example": "The wise old guide who appears to the young hero, from Virgil leading Dante to Merlin advising Arthur."
+ },
+ {
+  "name": "Foil",
+  "group": "character",
+  "definition": "A character whose contrast with another brings out the other’s qualities.",
+  "example": "Laertes, quick to avenge his father, is a foil to the hesitating Hamlet."
+ },
+ {
+  "name": "Dynamic character",
+  "group": "character",
+  "definition": "A character who changes in an important way over the course of the story.",
+  "example": "Ebenezer Scrooge, a miser at the start of A Christmas Carol and generous by the end."
+ },
+ {
+  "name": "Static character",
+  "group": "character",
+  "definition": "A character who stays essentially the same throughout the story.",
+  "example": "Mr Micawber in David Copperfield is forever certain that “something will turn up”."
+ },
+ {
+  "name": "Flat character",
+  "group": "character",
+  "definition": "A character built around a single idea or trait, easy to sum up in a sentence. E. M. Forster named the type.",
+  "example": "Mrs Micawber, who will “never desert Mr Micawber”, is Forster’s own example."
+ },
+ {
+  "name": "Round character",
+  "group": "character",
+  "definition": "A complex character with contradictions and depth, capable of surprising the reader convincingly.",
+  "example": "Elizabeth Bennet in Pride and Prejudice, whose judgement, pride and wit all turn out to be more complicated than they first seem."
+ },
+ {
+  "name": "Antihero",
+  "group": "character",
+  "definition": "A central character who lacks conventional heroic qualities: courage, honesty, decency.",
+  "example": "Becky Sharp in Thackeray’s Vanity Fair, charming, ambitious and entirely unscrupulous."
+ },
+ {
+  "name": "Protagonist",
+  "group": "character",
+  "definition": "The main character of a story, whose desires and choices drive the plot.",
+  "example": "Jane Eyre is the protagonist of her own story, told in her own voice."
+ },
+ {
+  "name": "Antagonist",
+  "group": "character",
+  "definition": "The character or force that opposes the protagonist and creates the central conflict.",
+  "example": "Iago, whose schemes destroy Othello."
+ },
+ {
+  "name": "Hamartia",
+  "group": "character",
+  "definition": "From Aristotle: the error or flaw in a tragic hero that leads to their downfall. Often called the tragic flaw.",
+  "example": "Macbeth’s ambition, which drives him from one murder to the next."
+ },
+ {
+  "name": "Hubris",
+  "group": "character",
+  "definition": "Excessive pride or self-confidence that defies the gods or the limits of what is human, and invites punishment.",
+  "example": "Victor Frankenstein’s belief that he can create life, and his ruin when he does."
+ },
+ {
+  "name": "Catharsis",
+  "group": "character",
+  "definition": "From Aristotle: the release of pity and fear an audience feels at the end of a tragedy.",
+  "example": "Watching Oedipus discover the truth and blind himself, the audience is purged of the dread the play has built."
+ },
+ {
+  "name": "Diction",
+  "group": "character",
+  "definition": "A writer’s choice of words: formal or plain, abstract or concrete, old or new. It shapes tone and character.",
+  "example": "Hemingway’s short, plain words and Henry James’s long, qualified ones produce utterly different worlds."
+ },
+ {
+  "name": "Syntax",
+  "group": "character",
+  "definition": "The arrangement of words into sentences: their order, length and structure.",
+  "example": "Short sentences hurry. Long sentences, with their clauses and qualifications and pauses, slow the reader down and let thought unfold."
+ },
+ {
+  "name": "Tone",
+  "group": "character",
+  "definition": "The attitude the writer takes toward the subject or the reader: ironic, tender, angry, solemn, playful.",
+  "example": "It is a truth universally acknowledged, that a single man in possession of a good fortune, must be in want of a wife (gently ironic).",
+  "source": "Jane Austen, Pride and Prejudice"
+ },
+ {
+  "name": "Mood",
+  "group": "character",
+  "definition": "The emotional atmosphere a work creates in the reader.",
+  "example": "The opening of Poe’s “The Fall of the House of Usher”, a “dull, dark, and soundless day”, sets a mood of dread before anything happens."
+ },
+ {
+  "name": "Colloquialism",
+  "group": "character",
+  "definition": "Informal, everyday language, used to make dialogue or narration sound natural.",
+  "example": "You don’t know about me without you have read a book by the name of The Adventures of Tom Sawyer",
+  "source": "Mark Twain, Adventures of Huckleberry Finn"
+ },
+ {
+  "name": "Dialect",
+  "group": "character",
+  "definition": "The particular vocabulary, grammar and pronunciation of a region or group, written to give characters a real voice.",
+  "example": "Joseph, the old servant in Wuthering Heights, speaks in thick Yorkshire dialect."
+ },
+ {
+  "name": "Vernacular",
+  "group": "character",
+  "definition": "The ordinary spoken language of a people, as opposed to a literary or learned one.",
+  "example": "Dante wrote The Divine Comedy in Italian, the vernacular, rather than in Latin."
+ },
+ {
+  "name": "Cliché",
+  "group": "character",
+  "definition": "A phrase or idea used so often that it has lost its force. Writers avoid them, or use them knowingly.",
+  "example": "“at the end of the day”, “as old as the hills”, “a dark and stormy night”."
+ },
+ {
+  "name": "Didacticism",
+  "group": "character",
+  "definition": "Writing that sets out to teach or give moral instruction.",
+  "example": "Aesop’s fables end with their lesson stated outright: “Slow and steady wins the race.”"
+ },
+ {
+  "name": "Satire",
+  "group": "character",
+  "definition": "Using humour, irony and exaggeration to expose and criticise folly or vice, often in politics and society.",
+  "example": "Jonathan Swift’s A Modest Proposal calmly suggests the Irish poor sell their children as food."
+ },
+ {
+  "name": "Parody",
+  "group": "character",
+  "definition": "An imitation of a style, genre or work, exaggerated for comic or critical effect.",
+  "example": "Jane Austen’s Northanger Abbey parodies the Gothic novels its heroine devours."
+ },
+ {
+  "name": "Theme",
+  "group": "character",
+  "definition": "A central idea or insight about life that a work explores, as opposed to its subject.",
+  "example": "The subject of Frankenstein is a scientist who makes a creature; its themes include ambition, responsibility and what makes us human."
+ }
+]
