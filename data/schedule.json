@@ -541,5 +541,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-06T03:21:57.684Z"
+  },
+  "2026-11-07": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/fall-wall",
+      "title": "Fall of a Wall",
+      "author": "John Donne",
+      "url": "https://rpo.library.utoronto.ca/content/fall-wall",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/magic-floating-mountains-notes-alaskan-cruise",
+      "title": "The Magic — Floating — Mountain: Notes on an Alaskan Cruise",
+      "author": "Karan Mahajan",
+      "url": "https://lareviewofbooks.org/article/magic-floating-mountains-notes-alaskan-cruise/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/macquaries-mate",
+      "title": "Macquarie’s Mate",
+      "author": "Henry Lawson",
+      "url": "https://www.libraryofshortstories.com/onlinereader/macquaries-mate",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-07T02:42:11.877Z"
   }
 }
