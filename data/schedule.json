@@ -571,5 +571,36 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-07T02:42:11.877Z"
+  },
+  "2026-11-08": {
+    "poem": {
+      "id": "lithub:lithub.com/the-echo-a-poem-by-mary-jo-bang",
+      "title": "The Echo",
+      "author": "Mary Jo Bang",
+      "url": "https://lithub.com/the-echo-a-poem-by-mary-jo-bang/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "wikisource:en.wikisource.org/wiki/The_Essays_of_Montaigne/Book_I/Chapter_XXXII",
+      "title": "That we are to avoid pleasures, even at the expense of life",
+      "author": "Michel de Montaigne",
+      "url": "https://en.wikisource.org/wiki/The_Essays_of_Montaigne/Book_I/Chapter_XXXII",
+      "source": "wikisource",
+      "paywalled": false,
+      "translator": "Charles Cotton",
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/cambridge-people",
+      "title": "Cambridge People",
+      "author": "Laura van den Berg",
+      "url": "https://lithub.com/cambridge-people/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-08T02:20:19.542Z"
   }
 }
