@@ -602,5 +602,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-08T02:20:19.542Z"
+  },
+  "2026-11-09": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/psalm-life",
+      "title": "A Psalm of Life",
+      "author": "Henry Wadsworth Longfellow",
+      "url": "https://rpo.library.utoronto.ca/content/psalm-life",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/2nd-eden",
+      "title": "Second Eden",
+      "author": "Max Ross",
+      "url": "https://lareviewofbooks.org/article/2nd-eden/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/told-under-oath",
+      "title": "Told Under Oath",
+      "author": "Lord Dunsany",
+      "url": "https://www.libraryofshortstories.com/onlinereader/told-under-oath",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-09T02:34:56.456Z"
   }
 }
