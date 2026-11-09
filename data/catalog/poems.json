@@ -309,7 +309,7 @@
     "id": "lithub:lithub.com/at-the-dinner-table-at-night-a-poem-by-allen-guy-wilcox",
     "source": "lithub",
     "firstSeen": "2026-10-25",
-    "lastSeen": "2026-11-01",
+    "lastSeen": "2026-11-09",
     "active": true
   },
   {
@@ -994,7 +994,7 @@
     "id": "lithub:lithub.com/elevation-a-poem-by-lindsay-turner",
     "source": "lithub",
     "firstSeen": "2026-10-25",
-    "lastSeen": "2026-11-01",
+    "lastSeen": "2026-11-09",
     "active": true
   },
   {
@@ -1970,6 +1970,18 @@
     "source": "lithub",
     "firstSeen": "2026-10-17",
     "lastSeen": "2026-10-17",
+    "active": true
+  },
+  {
+    "category": "poem",
+    "title": "Mirror",
+    "author": "Jana Prikryl",
+    "url": "https://lithub.com/mirror-a-poem-by-jana-prikryl/",
+    "paywalled": false,
+    "id": "lithub:lithub.com/mirror-a-poem-by-jana-prikryl",
+    "source": "lithub",
+    "firstSeen": "2026-11-09",
+    "lastSeen": "2026-11-09",
     "active": true
   },
   {
@@ -14906,7 +14918,7 @@
     "id": "nybooks:nybooks.com/articles/2026/11/19/deer-woman-in-the-dining-room-jenny-grassl",
     "source": "nybooks",
     "firstSeen": "2026-11-01",
-    "lastSeen": "2026-11-01",
+    "lastSeen": "2026-11-09",
     "active": true
   },
   {
