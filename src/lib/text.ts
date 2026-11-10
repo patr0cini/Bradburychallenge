@@ -42,11 +42,17 @@ export function dedupeKey(title: string, author: string): string {
   return `${norm(title)}|${norm(author)}`;
 }
 
-/** URL canónico: https, sem query string nem fragmento, sem barra final. */
+/**
+ * Sites em que o fragmento distingue textos: no Project Gutenberg um livro é uma só página e cada
+ * ensaio é uma âncora dela (#chap03, ou um fragmento de texto #:~:text=…).
+ */
+const FRAGMENT_HOSTS = new Set(['www.gutenberg.org']);
+
+/** URL canónico: https, sem query string nem fragmento (exceto em FRAGMENT_HOSTS), sem barra final. */
 export function canonicalUrl(url: string): string {
   const u = new URL(url);
   u.protocol = 'https:';
-  u.hash = '';
+  if (!FRAGMENT_HOSTS.has(u.hostname)) u.hash = '';
   u.search = '';
   return u.toString().replace(/\/$/, '');
 }

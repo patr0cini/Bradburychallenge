@@ -37,7 +37,7 @@ export function saveCatalog(category: Category, items: CatalogItem[], dataDir = 
 
 export function itemId(source: string, url: string) {
   const u = new URL(canonicalUrl(url));
-  return `${source}:${u.hostname.replace(/^www\./, '')}${u.pathname}`;
+  return `${source}:${u.hostname.replace(/^www\./, '')}${u.pathname}${u.hash}`;
 }
 
 /** Acima disto, desativações numa só recolha são tratadas como suspeitas. */

@@ -41,3 +41,9 @@ export const PAUSED_SOURCES: ReadonlySet<string> = new Set([
 
 /** Um texto usado não volta a aparecer antes de passarem N dias. */
 export const REUSE_MIN_DAYS = 365;
+
+/**
+ * Um autor não volta a aparecer na mesma categoria antes de passarem N dias, se houver
+ * alternativa (um leitor queixou-se de três ensaios de Hazlitt em oito dias, novembro de 2026).
+ */
+export const AUTHOR_MIN_DAYS = 30;

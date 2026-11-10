@@ -8,6 +8,7 @@ import { nybooks } from './nybooks.js';
 // import { lrb } from './lrb.js';
 import { larb } from './larb.js';
 import { wikisource } from './wikisource.js';
+import { gutenberg } from './gutenberg.js';
 import { manualSources } from './manual.js';
 
 export interface RegisteredSource {
@@ -28,6 +29,7 @@ export function allSources(): RegisteredSource[] {
     // { source: lrb, refreshDays: 7 },
     // Antologias e listas que mudam pouco e exigem muitos pedidos: uma vez por mês chega.
     { source: wikisource, refreshDays: 28 },
+    { source: gutenberg, refreshDays: 28 },
     { source: rpo, refreshDays: 28 },
     { source: poetryArchive, refreshDays: 28 },
     ...manualSources().map((source) => ({ source, refreshDays: 0 })),

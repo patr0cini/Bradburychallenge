@@ -1,5 +1,5 @@
 import { createHash } from 'node:crypto';
-import { PAUSED_SOURCES, REUSE_MIN_DAYS } from '../config.js';
+import { AUTHOR_MIN_DAYS, PAUSED_SOURCES, REUSE_MIN_DAYS } from '../config.js';
 import { addDays, daysBetween } from './dates.js';
 import { CATEGORIES, type CatalogItem, type Category } from './types.js';
 
@@ -103,6 +103,25 @@ export function chooseSource(
   return pool.sort((a, b) => deficit(b) - deficit(a) || stableHash(`${tieKey}|${a}`) - stableHash(`${tieKey}|${b}`))[0]!;
 }
 
+/** Autores de um texto, em minúsculas ("A & B" conta para os dois). */
+const authorsOf = (author: string) => author.split(/\s+&\s+/).map((a) => a.trim().toLowerCase()).filter(Boolean);
+
+/** Autores escolhidos nesta categoria nos N dias antes de `date`. */
+export function recentAuthors(schedule: Schedule, category: Category, date: string, days = AUTHOR_MIN_DAYS): Set<string> {
+  const recent = new Set<string>();
+  for (let n = 1; n <= days; n++) {
+    const day = schedule[addDays(date, -n)];
+    if (day) for (const a of authorsOf(day[category].author)) recent.add(a);
+  }
+  return recent;
+}
+
+/** Tira os textos de autores recentes, a não ser que não sobre nenhum. */
+export function withoutRecentAuthors(candidates: CatalogItem[], recent: Set<string>): CatalogItem[] {
+  const fresh = candidates.filter((i) => !authorsOf(i.author).some((a) => recent.has(a)));
+  return fresh.length ? fresh : candidates;
+}
+
 function snapshot(item: CatalogItem, previousUses: number): ScheduledReading {
   return {
     id: item.id,
@@ -158,8 +177,11 @@ export function selectDay(date: string, catalogs: Catalogs, schedule: Schedule, 
       yesterday?.[category].source,
       `${seed}|${category}|${date}`,
     );
-    const item = candidates
-      .filter((i) => i.source === source)
+    // Dentro da fonte escolhida, evita autores dos últimos AUTHOR_MIN_DAYS dias.
+    const item = withoutRecentAuthors(
+      candidates.filter((i) => i.source === source),
+      recentAuthors(schedule, category, date),
+    )
       .sort((a, b) => stableHash(`${seed}|${category}|${round}|${a.id}`) - stableHash(`${seed}|${category}|${round}|${b.id}`))[0]!;
     picked[category] = snapshot(item, usage.get(item.id)?.count ?? 0);
   }

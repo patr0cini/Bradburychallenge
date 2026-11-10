@@ -82,7 +82,7 @@ Aeon ("use any robot… to retrieve"; a Psyche é da mesma editora e deve ter os
 - **The Threepenny Review**: o site não distingue poemas, ensaios e contos de forma fiável (nem na API, nem nas páginas). Seguindo a regra "na dúvida, excluir", fica de fora por agora.
 - **Lit Hub, Craft and Advice**: avaliado e posto de parte para os ensaios. São sobretudo textos promocionais de autores sobre os próprios livros e páginas de podcast, abaixo do critério de qualidade. O Lit Hub fica só para poemas e contos.
 - **NYRB**: além dos ensaios, publica poemas (forma `article-form-poem`), que entram no catálogo de poemas.
-- **Wikisource e Project Gutenberg**: ainda não implementados.
+- **Wikisource e Project Gutenberg**: implementados para ensaios clássicos (listas curadas em `src/sources/`).
 - **London Review of Books**: acrescentada como segunda fonte de ensaios. Cruza a lista "Literature & Criticism" com o índice de cada número (que mostra se o texto é uma recensão) e confirma na página de cada artigo que é um ensaio (`type--essay`). Ficam de fora recensões, poemas, cartas, Short Cuts, contos e textos sobre exposições.
 - **Traduções**: mantêm-se os textos traduzidos para inglês, com o tradutor registado no campo `translator` quando a fonte o indica (NYRB, Lit Hub). A Library of Short Stories não indica o tradutor (Chekhov, Maupassant, Kuprin...), por isso, se se decidir aceitar só textos escritos originalmente em inglês, será preciso também uma lista de autores que não escrevem em inglês. A Poetry International já só fornece poemas escritos originalmente em inglês.
 
@@ -107,6 +107,11 @@ fontes de ensaios gratuitas antes do lançamento.**
 Candidatas verificadas:
 - **Los Angeles Review of Books**: gratuita, `robots.txt` permite, sem termos de utilização publicados. Recolha automática possível.
 - **JSTOR Daily**: gratuita, mas os termos proíbem programas que descarreguem conteúdo automaticamente. Só com autorização ou curadoria manual.
+- **Ensaios clássicos em domínio público no Project Gutenberg** (Lamb, Thoreau, Addison, Meynell, Jefferies, Belloc, Lynd e outros; 521 ensaios de 21 autores, novembro de 2026): gratuitos.
+  - Sugestão de um leitor, para variar os autores (Hazlitt tinha saído três vezes em oito dias).
+  - O Gutenberg pede que os robôs não percorram `www.gutenberg.org`: a recolha confirma os livros num espelho oficial (`gutenberg.pglaf.org`), um pedido por livro a cada 28 dias.
+  - Cada ensaio liga para a sua âncora na página HTML do livro; em três livros sem âncoras, para um fragmento de texto.
+  - Só autores mortos há mais de 70 anos, como na Wikisource.
 - **Ensaios clássicos em domínio público na Wikisource** (Montaigne, Bacon, Hazlitt, Lamb, Emerson, Woolf...): gratuitos, recolha automática permitida pela política de robôs da Wikimedia.
 - **Curadoria manual**, para sites gratuitos que não permitem recolha: Aeon, The Public Domain Review, Public Books, ensaios da Poetry Foundation.
 

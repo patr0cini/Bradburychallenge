@@ -205,3 +205,30 @@ describe('fontes em pausa', () => {
     }
   });
 });
+
+describe('autores repetidos', () => {
+  it('não repete o autor de um ensaio durante 30 dias quando há alternativa na fonte', () => {
+    // Uma fonte com 3 autores dominantes (como Montaigne, Bacon e Hazlitt) e 100 autores com um texto.
+    const items = makeItems('essay', { classics: 160 }).map((i, n) => ({ ...i, author: n < 60 ? `Clássico ${n % 3}` : `Outro ${n}` }));
+    const cats = { ...catalogs({ a: 200 }), essay: items };
+    const s = simulate(cats, 60);
+    const dates = Object.keys(s).sort();
+    for (const [i, d] of dates.entries()) {
+      const previous = dates.slice(Math.max(0, i - 30), i).map((p) => s[p]!.essay.author);
+      expect(previous, d).not.toContain(s[d]!.essay.author);
+    }
+  });
+
+  it('se só houver autores recentes, repete em vez de falhar', () => {
+    const items = makeItems('essay', { classics: 40 }).map((i) => ({ ...i, author: 'Michel de Montaigne' }));
+    const s = simulate({ ...catalogs({ a: 50 }), essay: items }, 5);
+    expect(Object.values(s).every((d) => d.essay.author === 'Michel de Montaigne')).toBe(true);
+  });
+
+  it('textos com dois autores contam para cada um', async () => {
+    const { recentAuthors } = await import('../src/lib/selection.js');
+    const s = simulate(catalogs({ a: 10 }), 1);
+    s[START]!.essay.author = 'Jules Geller & Robert Darnton';
+    expect([...recentAuthors(s, 'essay', addDays(START, 1))]).toEqual(['jules geller', 'robert darnton']);
+  });
+});
