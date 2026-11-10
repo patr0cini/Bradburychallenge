@@ -632,5 +632,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-09T02:34:56.456Z"
+  },
+  "2026-11-10": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/puriri",
+      "title": "Puriri",
+      "author": "Jan Kemp",
+      "url": "https://poetryarchive.org/poem/puriri/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "nybooks:nybooks.com/articles/1988/11/10/the-rights-of-the-old",
+      "title": "The Rights of the Old",
+      "author": "Nicholas Palmer & Sidney Hook",
+      "url": "https://www.nybooks.com/articles/1988/11/10/the-rights-of-the-old/",
+      "source": "nybooks",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/the-invisible",
+      "title": "The Invisible",
+      "author": "Jo Lloyd",
+      "url": "https://lithub.com/the-invisible/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-10T04:35:16.148Z"
   }
 }
