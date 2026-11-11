@@ -662,5 +662,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-10T04:35:16.148Z"
+  },
+  "2026-11-11": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/argument-his-book",
+      "title": "The Argument of his Book",
+      "author": "Robert Herrick",
+      "url": "https://rpo.library.utoronto.ca/content/argument-his-book",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "gutenberg:gutenberg.org/cache/epub/26659/pg26659-images.html#ch06fn1text",
+      "title": "The Moral Philosopher and the Moral Life",
+      "author": "William James",
+      "url": "https://www.gutenberg.org/cache/epub/26659/pg26659-images.html#ch06fn1text",
+      "source": "gutenberg",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/the-drum-of-saccharine",
+      "title": "The Drum of Saccharine",
+      "author": "William Hope Hodgson",
+      "url": "https://www.libraryofshortstories.com/onlinereader/the-drum-of-saccharine",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-11T02:42:56.231Z"
   }
 }
