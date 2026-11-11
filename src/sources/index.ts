@@ -9,6 +9,7 @@ import { nybooks } from './nybooks.js';
 import { larb } from './larb.js';
 import { wikisource } from './wikisource.js';
 import { gutenberg } from './gutenberg.js';
+import { publicDomainReview } from './publicdomainreview.js';
 import { manualSources } from './manual.js';
 
 export interface RegisteredSource {
@@ -25,6 +26,8 @@ export function allSources(): RegisteredSource[] {
     { source: nybooks, refreshDays: 7 },
     { source: poetryInternational, refreshDays: 7 },
     { source: larb, refreshDays: 7 },
+    // Com autorização escrita do editor (novembro de 2026); um pedido por recolha.
+    { source: publicDomainReview, refreshDays: 7 },
     // LRB desligada: 0 de 274 ensaios verificados são de acesso livre (18 de outubro de 2026).
     // { source: lrb, refreshDays: 7 },
     // Antologias e listas que mudam pouco e exigem muitos pedidos: uma vez por mês chega.

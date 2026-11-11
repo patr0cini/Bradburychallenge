@@ -11,7 +11,7 @@ Data: 17 de outubro de 2026. Verificado o `robots.txt` e os termos de utilizaç�
 | Poetry Foundation | Permite `/`, mas bloqueia `/search`, `/*/browse` e `/categories/`, que são justamente as páginas de navegação e pesquisa. `crawl-delay: 5` | Proíbem expressamente "bot, crawler, harvester, indexer, robot, spider, scraper or any other automated means" | **Proibida** |
 | TLS | `User-agent: *` → `Disallow: /` (só abre a motores de busca e redes de anúncios com nome) | Proíbem a recolha e também "compile, or create a database… (whether manually or through automated means)" | **Proibida**, e mesmo um catálogo manual tem risco |
 | New Yorker (Condé Nast) | Permite a página de contribuidores | O User Agreement proíbe "bots… scripts… or any other automated process" para aceder ao serviço | **Proibida** |
-| The Public Domain Review | Sem `robots.txt` (404) | Os termos proíbem "spider, crawl, or scrape" | **Proibida** |
+| The Public Domain Review | Sem `robots.txt` (404) | Os termos proíbem "spider, crawl, or scrape" | **Autorizada por escrito** (novembro de 2026, ver abaixo) |
 | American Literature | Permite para `*`, exceto `/library/`, `/accounts/` e afins | A página de copyright proíbe o acesso automático "for the purpose of content extraction, data harvesting". Diz também "Educators may share links to our pages" | **Proibida** (na prática; a recolha de títulos e URLs cabe em "data harvesting") |
 | Granta | O próprio `robots.txt` devolve 403 com verificação anti-bot da Cloudflare, também no browser | Não foi possível ler os termos sem passar a verificação, que não foi contornada | **Bloqueada** |
 
@@ -113,7 +113,8 @@ Candidatas verificadas:
   - Cada ensaio liga para a sua âncora na página HTML do livro; em três livros sem âncoras, para um fragmento de texto.
   - Só autores mortos há mais de 70 anos, como na Wikisource.
 - **Ensaios clássicos em domínio público na Wikisource** (Montaigne, Bacon, Hazlitt, Lamb, Emerson, Woolf...): gratuitos, recolha automática permitida pela política de robôs da Wikimedia.
-- **Curadoria manual**, para sites gratuitos que não permitem recolha: Aeon, The Public Domain Review, Public Books, ensaios da Poetry Foundation.
+- **Curadoria manual**, para sites gratuitos que não permitem recolha: Aeon, Public Books, ensaios da Poetry Foundation.
+- **The Public Domain Review** (`src/sources/publicdomainreview.ts`): recolha automática **com autorização escrita** do editor-chefe e cofundador, Adam Green (email de 11 de novembro de 2026: "Yes please do feel free to use our essays for this, and automating it is fine"). Pedimos autorização porque os termos proíbem "spider, crawl, or scrape". Um só pedido por semana ao JSON da página `/essays/` (347 ensaios, todos gratuitos); não se pedem as páginas dos ensaios nem as imagens. Guarda-se o email.
 
 ## Novas fontes de ensaios (19–20 de outubro de 2026)
 
