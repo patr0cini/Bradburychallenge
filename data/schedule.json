@@ -692,5 +692,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-11T02:42:56.231Z"
+  },
+  "2026-11-12": {
+    "poem": {
+      "id": "nybooks:nybooks.com/articles/1998/10/08/while-you-were-out",
+      "title": "While You Were Out",
+      "author": "Clifford Paul Fetters",
+      "url": "https://www.nybooks.com/articles/1998/10/08/while-you-were-out/",
+      "source": "nybooks",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "publicdomainreview:publicdomainreview.org/essay/when-the-birds-and-the-bees-were-not-enough-aristotle-s-masterpiece",
+      "title": "When the Birds and the Bees Were Not Enough: Aristotle’s Masterpiece",
+      "author": "Mary Fissell",
+      "url": "https://publicdomainreview.org/essay/when-the-birds-and-the-bees-were-not-enough-aristotle-s-masterpiece/",
+      "source": "publicdomainreview",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/stage-13",
+      "title": "Stage 13",
+      "author": "Simon Rich",
+      "url": "https://lithub.com/stage-13/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-12T03:45:43.535Z"
   }
 }
