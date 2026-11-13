@@ -722,5 +722,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-12T03:45:43.535Z"
+  },
+  "2026-11-13": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/astrophel-and-stella-68",
+      "title": "Astrophel and Stella: 68",
+      "author": "Sir Philip Sidney",
+      "url": "https://rpo.library.utoronto.ca/content/astrophel-and-stella-68",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "gutenberg:gutenberg.org/cache/epub/10343/pg10343-images.html#id00430",
+      "title": "A Dissertation upon Roast Pig",
+      "author": "Charles Lamb",
+      "url": "https://www.gutenberg.org/cache/epub/10343/pg10343-images.html#id00430",
+      "source": "gutenberg",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/a-descent-into-the-maelstrom",
+      "title": "A Descent into the Maelstrom",
+      "author": "Edgar Allan Poe",
+      "url": "https://www.libraryofshortstories.com/onlinereader/a-descent-into-the-maelstrom",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-13T03:22:09.260Z"
   }
 }
