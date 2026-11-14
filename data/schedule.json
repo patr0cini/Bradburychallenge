@@ -752,5 +752,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-13T03:22:09.260Z"
+  },
+  "2026-11-14": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/grammar",
+      "title": "Grammar",
+      "author": "Stephen Romer",
+      "url": "https://poetryarchive.org/poem/grammar/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "publicdomainreview:publicdomainreview.org/essay/brief-encounters-with-jean-frederic-maximilien-de-waldeck",
+      "title": "Brief Encounters with Jean-Frédéric Maximilien de Waldeck",
+      "author": "Rhys Griffiths",
+      "url": "https://publicdomainreview.org/essay/brief-encounters-with-jean-frederic-maximilien-de-waldeck/",
+      "source": "publicdomainreview",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/the-elephant",
+      "title": "The Elephant",
+      "author": "Chan Chi Wa trans. by Audrey Heijns",
+      "url": "https://lithub.com/the-elephant/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-14T03:04:13.230Z"
   }
 }
