@@ -782,5 +782,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-14T03:04:13.230Z"
+  },
+  "2026-11-15": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/what-sexton-said",
+      "title": "What the Sexton Said",
+      "author": "Vachel Lindsay",
+      "url": "https://rpo.library.utoronto.ca/content/what-sexton-said",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "gutenberg:gutenberg.org/cache/epub/9846/pg9846-images.html#chap03",
+      "title": "A Walk to Wachusett",
+      "author": "Henry David Thoreau",
+      "url": "https://www.gutenberg.org/cache/epub/9846/pg9846-images.html#chap03",
+      "source": "gutenberg",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/the-sisters-of-albano",
+      "title": "The Sisters of Albano",
+      "author": "Mary Shelley",
+      "url": "https://www.libraryofshortstories.com/onlinereader/the-sisters-of-albano",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-15T02:32:55.001Z"
   }
 }
