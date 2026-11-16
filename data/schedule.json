@@ -812,5 +812,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-15T02:32:55.001Z"
+  },
+  "2026-11-16": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/shake-my-future",
+      "title": "Shake my Future",
+      "author": "Dorothea Smartt",
+      "url": "https://poetryarchive.org/poem/shake-my-future/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "publicdomainreview:publicdomainreview.org/essay/frolicsome-engines-the-long-prehistory-of-artificial-intelligence",
+      "title": "Frolicsome Engines: The Long Prehistory of Artificial Intelligence",
+      "author": "Jessica Riskin",
+      "url": "https://publicdomainreview.org/essay/frolicsome-engines-the-long-prehistory-of-artificial-intelligence/",
+      "source": "publicdomainreview",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/across-the-street",
+      "title": "Across the Street",
+      "author": "Lee Martin",
+      "url": "https://lithub.com/across-the-street/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-16T02:40:56.678Z"
   }
 }
