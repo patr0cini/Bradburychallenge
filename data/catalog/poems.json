@@ -1981,7 +1981,7 @@
     "id": "lithub:lithub.com/mirror-a-poem-by-jana-prikryl",
     "source": "lithub",
     "firstSeen": "2026-11-09",
-    "lastSeen": "2026-11-09",
+    "lastSeen": "2026-11-17",
     "active": true
   },
   {
@@ -14918,7 +14918,31 @@
     "id": "nybooks:nybooks.com/articles/2026/11/19/deer-woman-in-the-dining-room-jenny-grassl",
     "source": "nybooks",
     "firstSeen": "2026-11-01",
-    "lastSeen": "2026-11-09",
+    "lastSeen": "2026-11-17",
+    "active": true
+  },
+  {
+    "category": "poem",
+    "title": "Our Lady of Beverly, TX",
+    "author": "Susana Plotts-Pineda",
+    "url": "https://www.nybooks.com/articles/2026/12/03/our-lady-of-beverly-tx-susana-plotts-pineda/",
+    "paywalled": false,
+    "id": "nybooks:nybooks.com/articles/2026/12/03/our-lady-of-beverly-tx-susana-plotts-pineda",
+    "source": "nybooks",
+    "firstSeen": "2026-11-17",
+    "lastSeen": "2026-11-17",
+    "active": true
+  },
+  {
+    "category": "poem",
+    "title": "Why I Go to the Movies Alone",
+    "author": "Aaron Fagan",
+    "url": "https://www.nybooks.com/articles/2026/12/03/why-i-go-to-the-movies-alone-aaron-fagan/",
+    "paywalled": false,
+    "id": "nybooks:nybooks.com/articles/2026/12/03/why-i-go-to-the-movies-alone-aaron-fagan",
+    "source": "nybooks",
+    "firstSeen": "2026-11-17",
+    "lastSeen": "2026-11-17",
     "active": true
   },
   {
