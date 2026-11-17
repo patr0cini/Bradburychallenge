@@ -21,6 +21,8 @@
     "dev:sample": "BRADBURY_DATA_SET=sample ASTRO_TELEMETRY_DISABLED=1 astro dev",
     "build:sample": "BRADBURY_DATA_SET=sample ASTRO_TELEMETRY_DISABLED=1 astro build",
     "check-access": "tsx scripts/check-access.ts",
+    "notes": "tsx scripts/notes.ts",
+    "review": "tsx scripts/review.ts",
     "outreach": "tsx scripts/outreach.ts",
     "on-this-day": "tsx scripts/on-this-day.ts"
   },
