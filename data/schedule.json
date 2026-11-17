@@ -842,5 +842,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-16T02:40:56.678Z"
+  },
+  "2026-11-17": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/kerry",
+      "title": "Kerry",
+      "author": "Bruce Meyer",
+      "url": "https://rpo.library.utoronto.ca/content/kerry",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "gutenberg:gutenberg.org/cache/epub/2048/pg2048-images.html#id-4375186395298216170",
+      "title": "The Country Church",
+      "author": "Washington Irving",
+      "url": "https://www.gutenberg.org/cache/epub/2048/pg2048-images.html#id-4375186395298216170",
+      "source": "gutenberg",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/black-fog",
+      "title": "Black Fog",
+      "author": "Aleksandr I. Kuprin",
+      "url": "https://www.libraryofshortstories.com/onlinereader/black-fog",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-17T05:02:02.443Z"
   }
 }
