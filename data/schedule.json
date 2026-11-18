@@ -872,5 +872,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-17T05:02:02.443Z"
+  },
+  "2026-11-18": {
+    "poem": {
+      "id": "lithub:lithub.com/entropy-by-arthur-sze",
+      "title": "Entropy",
+      "author": "Arthur Sze",
+      "url": "https://lithub.com/entropy-by-arthur-sze/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "publicdomainreview:publicdomainreview.org/essay/visions-of-algae-in-eighteenth-century-botany",
+      "title": "Visions of Algae in Eighteenth-Century Botany",
+      "author": "Ryan Feigenbaum",
+      "url": "https://publicdomainreview.org/essay/visions-of-algae-in-eighteenth-century-botany/",
+      "source": "publicdomainreview",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/there-he-go",
+      "title": "There He Go",
+      "author": "Ladee Hubbard",
+      "url": "https://lithub.com/there-he-go/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-18T04:10:11.605Z"
   }
 }
