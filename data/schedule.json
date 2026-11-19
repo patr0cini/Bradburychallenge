@@ -902,5 +902,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-18T04:10:11.605Z"
+  },
+  "2026-11-19": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/richard-cory",
+      "title": "Richard Cory",
+      "author": "Edwin Arlington Robinson",
+      "url": "https://rpo.library.utoronto.ca/content/richard-cory",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "gutenberg:gutenberg.org/cache/epub/70/pg70-images.html#chap08",
+      "title": "At the Shrine of St. Wagner",
+      "author": "Mark Twain",
+      "url": "https://www.gutenberg.org/cache/epub/70/pg70-images.html#chap08",
+      "source": "gutenberg",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/work-death-and-sickness",
+      "title": "Work, Death and Sickness",
+      "author": "Leo Tolstoy",
+      "url": "https://www.libraryofshortstories.com/onlinereader/work-death-and-sickness",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-19T04:05:42.939Z"
   }
 }
