@@ -932,5 +932,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-19T04:05:42.939Z"
+  },
+  "2026-11-20": {
+    "poem": {
+      "id": "nybooks:nybooks.com/articles/2019/07/18/trial-for-the-new-aubade",
+      "title": "Trial for the New Aubade",
+      "author": "Zoë Hitzig",
+      "url": "https://www.nybooks.com/articles/2019/07/18/trial-for-the-new-aubade/",
+      "source": "nybooks",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/on-outgrowing-david-foster-wallace",
+      "title": "On Outgrowing David Foster Wallace",
+      "author": "Julius Taranto",
+      "url": "https://lareviewofbooks.org/article/on-outgrowing-david-foster-wallace/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/paradise",
+      "title": "Paradise",
+      "author": "Hannah Lillith Assadi",
+      "url": "https://lithub.com/paradise/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-20T03:56:33.060Z"
   }
 }
