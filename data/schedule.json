@@ -962,5 +962,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-20T03:56:33.060Z"
+  },
+  "2026-11-21": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/sonnets-portuguese-xxviii",
+      "title": "Sonnets from the Portuguese: XXVIII",
+      "author": "Elizabeth Barrett Browning",
+      "url": "https://rpo.library.utoronto.ca/content/sonnets-portuguese-xxviii",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "gutenberg:gutenberg.org/cache/epub/79560/pg79560-images.html#XVIII",
+      "title": "On Versification",
+      "author": "Oliver Goldsmith",
+      "url": "https://www.gutenberg.org/cache/epub/79560/pg79560-images.html#XVIII",
+      "source": "gutenberg",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/the-strange-high-house-in-the-mist",
+      "title": "The Strange High House in the Mist",
+      "author": "H. P. Lovecraft",
+      "url": "https://www.libraryofshortstories.com/onlinereader/the-strange-high-house-in-the-mist",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-21T03:53:53.622Z"
   }
 }
