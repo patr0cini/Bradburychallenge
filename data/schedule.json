@@ -992,5 +992,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-21T03:53:53.622Z"
+  },
+  "2026-11-22": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/portrait",
+      "title": "Portrait",
+      "author": "Ella Duffy",
+      "url": "https://poetryarchive.org/poem/portrait/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/infinite-influence",
+      "title": "Infinite Influence",
+      "author": "Manuel Antonio Córdoba",
+      "url": "https://lareviewofbooks.org/article/infinite-influence/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/soldiers",
+      "title": "Soldiers",
+      "author": "Scott O'Connor",
+      "url": "https://lithub.com/soldiers/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-22T02:59:44.677Z"
   }
 }
