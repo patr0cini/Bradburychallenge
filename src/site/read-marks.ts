@@ -1,3 +1,5 @@
+import { initSupportPrompt, updateSupportPrompt } from './support-prompt.ts';
+
 // Marcações "Lido", guardadas só neste browser (localStorage).
 // Todas as leituras e escritas estão protegidas: se o armazenamento falhar, o site funciona na mesma.
 
@@ -32,6 +34,7 @@ export function lisbonToday(): string {
 
 export function initReadMarks() {
   let marks = loadMarks();
+  initSupportPrompt();
 
   for (const box of document.querySelectorAll<HTMLInputElement>('input[data-read-date]')) {
     const { readDate: date = '', readCategory: category = '' } = box.dataset;
@@ -44,6 +47,7 @@ export function initReadMarks() {
       if (set.size) marks[date] = [...set];
       else delete marks[date];
       save(marks);
+      updateSupportPrompt(marks[date]);
     });
   }
 

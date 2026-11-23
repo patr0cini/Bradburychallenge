@@ -1000,6 +1000,32 @@ main.wrap {
   }
 }
 
+/* Pedido de apoio, ao completar as três leituras */
+.support-prompt {
+  margin: 24px 0 0;
+  padding: 14px 16px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--text) 4%, var(--bg));
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.support-prompt[hidden] {
+  display: none;
+}
+
+.support-prompt-text {
+  margin: 0;
+}
+
+.support-prompt-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 12px 0 0;
+}
+
 /* Partilha das leituras do dia */
 .share {
   margin: 24px 0 0;

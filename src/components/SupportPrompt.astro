@@ -1,0 +1,19 @@
+---
+import { SUPPORT_URL } from '../site/settings.js';
+---
+
+{
+  SUPPORT_URL && (
+    <aside class="support-prompt" data-support-prompt aria-label="Support Bradbury Challenge" hidden>
+      <p class="support-prompt-text">
+        That's all three for today. If Bradbury Challenge is part of your routine, a coffee helps keep it free.
+      </p>
+      <p class="support-prompt-actions">
+        <a class="button button--primary" href={SUPPORT_URL} target="_blank" rel="noopener" data-support-link>
+          Buy me a coffee<span class="visually-hidden"> (opens in a new tab)</span>
+        </a>
+        <button type="button" class="link-button" data-support-dismiss>Not now</button>
+      </p>
+    </aside>
+  )
+}
