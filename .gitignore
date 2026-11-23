@@ -28,3 +28,6 @@ data/sample/
 
 # Configuração local do Claude Code
 .claude/
+
+# Desenhos de produtos gerados (npm run merch)
+merch/out/
