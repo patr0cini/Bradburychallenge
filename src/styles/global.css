@@ -1000,6 +1000,49 @@ main.wrap {
   }
 }
 
+/* Loja de produtos (página de apoio), só com BRADBURY_SHOP_URL */
+.shop {
+  margin: 36px 0 0;
+  padding-top: 18px;
+  border-top: 3px double var(--rule);
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.shop-grid a {
+  display: block;
+  text-decoration: none;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+}
+
+.shop-grid img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  padding: 8px;
+  border: 1px solid var(--border);
+  background: #fbfaf7;
+}
+
+.shop-grid a:hover span,
+.shop-grid a:focus-visible span {
+  color: var(--accent);
+}
+
+.shop-grid span {
+  display: block;
+  margin-top: 6px;
+}
+
 /* Pedido de apoio, ao completar as três leituras */
 .support-prompt {
   margin: 24px 0 0;

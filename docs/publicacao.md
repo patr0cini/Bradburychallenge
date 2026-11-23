@@ -136,3 +136,12 @@ experimentar sem enviar nada: `npm run outreach -- --dry-run`.
 
 **Feed RSS e imagens de partilha** não precisam de configuração: o feed está em `/feed.xml` e cada
 dia tem a sua imagem em `/og/AAAA-MM-DD.png`, gerada na construção do site.
+
+
+## Loja de produtos (Redbubble)
+
+A página `/support/` tem um bloco "Posters, mugs and tote bags" com as miniaturas dos produtos, que só aparece quando a variável `BRADBURY_SHOP_URL` está definida. Sem ela, nada aparece.
+
+1. Esperar que o Redbubble classifique a conta e abra a loja (pode demorar até 5 dias úteis; recebe um email).
+2. No Cloudflare Pages, em *Settings → Variables and secrets*, criar `BRADBURY_SHOP_URL` com o endereço da loja, por exemplo `https://www.redbubble.com/people/rbchallenge/shop`, e fazer um novo deploy.
+3. As miniaturas estão em `public/shop/` e geram-se com `npm run merch`. Todas as ligações do bloco apontam para a loja; quando houver ligações para cada produto, trocam-se em `src/pages/support.astro`.

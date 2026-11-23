@@ -45,6 +45,12 @@ export function amazonLink(asin: string): string {
 /** Página de doações (Ko-fi). Pode ser trocada pela variável BRADBURY_SUPPORT_URL. */
 export const SUPPORT_URL = env('BRADBURY_SUPPORT_URL') ?? 'https://ko-fi.com/bradburychallenge';
 
+/**
+ * Loja de produtos (Redbubble), por exemplo "https://www.redbubble.com/people/rbchallenge/shop".
+ * Sem esta variável (BRADBURY_SHOP_URL), o bloco da loja não aparece no site.
+ */
+export const SHOP_URL = env('BRADBURY_SHOP_URL');
+
 /** Nome de utilizador no Buttondown (newsletter). Sem ele, o formulário de subscrição não aparece. */
 export const BUTTONDOWN_USERNAME = env('BRADBURY_BUTTONDOWN_USERNAME');
 

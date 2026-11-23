@@ -1,6 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SUPPORT_URL } from '../site/settings.js';
+import { SHOP_URL, SUPPORT_URL } from '../site/settings.js';
+
+const products = [
+  { image: '/shop/tote.png', name: 'Tote bag', alt: 'A tote bag printed with One poem. One essay. One story. Every day.' },
+  { image: '/shop/mug.png', name: 'Mug', alt: 'A mug printed with a line from Francis Bacon on reading' },
+  { image: '/shop/sticker.png', name: 'Sticker', alt: 'A sticker reading One poem. One essay. One story. Every day.' },
+  { image: '/shop/glossary.png', name: 'Glossary poster', alt: 'A poster listing 146 literary devices' },
+  { image: '/shop/tracker.png', name: 'Reading tracker poster', alt: 'A poster of 1,000 circles to fill in, one for every night you read' },
+];
 ---
 
 <Base tab="support" title="Buy me a coffee" description="Help keep Bradbury Challenge free.">
@@ -23,5 +31,26 @@ import { SUPPORT_URL } from '../site/settings.js';
       )
     }
     <p>Thank you. Telling a friend about the site helps just as much.</p>
+    {
+      SHOP_URL && (
+        <section class="shop" id="shop" aria-labelledby="shop-title">
+          <h2 id="shop-title">Posters, mugs and tote bags</h2>
+          <p>
+            A few things for readers, printed on demand and shipped by Redbubble. RB Challenge is an independent reading
+            project.
+          </p>
+          <ul class="shop-grid">
+            {products.map((p) => (
+              <li>
+                <a href={SHOP_URL} target="_blank" rel="noopener">
+                  <img src={p.image} alt={p.alt} loading="lazy" width="300" height="300" />
+                  <span>{p.name}<span class="visually-hidden"> (opens in a new tab)</span></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )
+    }
   </article>
 </Base>
