@@ -249,3 +249,18 @@ mug('rb-mug-tall-bacon', 2700, 1624);
 }
 glossary('rb-poster-readers-glossary', 8310, 11790);
 tracker('rb-poster-thousand-nights-tracker', 8310, 11790);
+
+// --- 6. Perfil da loja no Redbubble: capa (2400 × 600) e imagem de perfil (1000 × 1000) ---
+{
+  const W = 2400;
+  const H = 600;
+  let body = text(W / 2, 300, 'One poem. One essay. One story. Every day.', { size: 118, anchor: 'middle' });
+  body += `<line x1="${W / 2 - 220}" y1="372" x2="${W / 2 + 220}" y2="372" stroke="${ACCENT}" stroke-width="5"/>`;
+  body += text(W / 2, 470, BRAND, { size: 46, bold: true, anchor: 'middle', spacing: 26 });
+  render('rb-shop-cover', W, H, body, PAPER);
+}
+{
+  const S = 1000;
+  const body = text(S / 2, 640, 'RB', { size: 460, fill: PAPER, bold: true, anchor: 'middle', spacing: 10 });
+  render('rb-shop-avatar', S, S, body, INK);
+}
