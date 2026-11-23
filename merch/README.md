@@ -1,6 +1,6 @@
 # Produtos (merchandising)
 
-Desenhos prontos a enviar para um serviço de impressão sob encomenda, ou a vender como ficheiro. Geram-se com `npm run merch` e ficam em `merch/out/` (PNG e PDF de alta resolução; não vão para o git). Os textos dos anúncios estão em `merch/listings.md`.
+Desenhos prontos a enviar para um serviço de impressão sob encomenda, ou a vender como ficheiro. Geram-se com `npm run merch` e ficam em `merch/out/` (PNG e PDF de alta resolução; não vão para o git). Os textos dos anúncios estão em `merch/listings.md` (Etsy e Gumroad) e `merch/redbubble.md` (Redbubble, com ficheiros nos tamanhos oficiais em `merch/out/redbubble/`).
 
 | Ficheiro | Produto | Tamanho |
 |---|---|---|

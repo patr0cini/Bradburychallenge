@@ -48,7 +48,7 @@ function render(name: string, width: number, height: number, body: string, backg
   }${body}</svg>`;
   const img = new Resvg(svg, { font: { fontFiles: FONTS, loadSystemFonts: false, defaultFontFamily: 'PT Serif' } }).render();
   const png = img.asPng();
-  writeFileSync(join(OUT, `${name}.png`), png);
+  writeFileSync(join(outDir, `${name}.png`), png);
   console.log(`${name}.png  ${width}×${height}  ${(png.length / 1e6).toFixed(1)} MB`);
   return img;
 }
@@ -88,39 +88,39 @@ function writePdf(name: string, img: { width: number; height: number; pixels: Bu
   tail += `trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xref}\n%%EOF\n`;
   parts.push(Buffer.from(tail, 'latin1'));
   const pdf = Buffer.concat(parts);
-  writeFileSync(join(OUT, `${name}.pdf`), pdf);
+  writeFileSync(join(outDir, `${name}.pdf`), pdf);
   console.log(`${name}.pdf  A3  ${(pdf.length / 1e6).toFixed(1)} MB`);
 }
 
+let outDir = OUT;
 mkdirSync(OUT, { recursive: true });
 
 // --- 1. Tote bag: fundo transparente, em tinta escura (para tecido claro) e em branco (para tecido escuro) ---
-function tote(ink: string, name: string) {
-  const W = 4500;
-  const H = 5400;
+function tote(ink: string, name: string, W = 4500, H = 5400) {
   const lines = ['One poem.', 'One essay.', 'One story.'];
   let body = '';
-  lines.forEach((l, i) => (body += text(W / 2, 1700 + i * 520, l, { size: 430, fill: ink, anchor: 'middle' })));
-  body += `<line x1="${W / 2 - 700}" y1="3500" x2="${W / 2 + 700}" y2="3500" stroke="${ink}" stroke-width="14"/>`;
-  body += text(W / 2, 4000, 'EVERY DAY.', { size: 300, fill: ink, bold: true, anchor: 'middle', spacing: 60 });
-  body += text(W / 2, 4900, BRAND, { size: 130, fill: ink, bold: true, anchor: 'middle', spacing: 50 });
+  const k = W / 4500;
+  lines.forEach((l, i) => (body += text(W / 2, (1700 + i * 520) * k, l, { size: 430 * k, fill: ink, anchor: 'middle' })));
+  body += `<line x1="${W / 2 - 700 * k}" y1="${3500 * k}" x2="${W / 2 + 700 * k}" y2="${3500 * k}" stroke="${ink}" stroke-width="${14 * k}"/>`;
+  body += text(W / 2, 4000 * k, 'EVERY DAY.', { size: 300 * k, fill: ink, bold: true, anchor: 'middle', spacing: 60 * k });
+  body += text(W / 2, 4900 * k, BRAND, { size: 130 * k, fill: ink, bold: true, anchor: 'middle', spacing: 50 * k });
   render(name, W, H, body);
 }
 tote(INK, 'tote-bag-dark-ink');
 tote('#ffffff', 'tote-bag-white-ink');
 
 // --- 2. Caneca (11 oz, volta inteira): citação de Francis Bacon, "Of Studies" (1625), em domínio público ---
-{
-  const W = 2820;
-  const H = 1080;
+function mug(name: string, W: number, H: number) {
+  const cy = H / 2;
   let body = '';
   const q = ['Reading maketh a full man;', 'conference a ready man;', 'and writing an exact man.'];
-  q.forEach((l, i) => (body += text(W / 2, 360 + i * 150, l, { size: 120, anchor: 'middle' })));
-  body += `<line x1="${W / 2 - 300}" y1="760" x2="${W / 2 + 300}" y2="760" stroke="${ACCENT}" stroke-width="6"/>`;
-  body += text(W / 2, 850, 'FRANCIS BACON · OF STUDIES · 1625', { size: 52, fill: MUTED, anchor: 'middle', spacing: 10 });
-  body += text(W / 2, 980, BRAND, { size: 44, fill: INK, bold: true, anchor: 'middle', spacing: 24 });
-  render('mug-bacon-wrap', W, H, body);
+  q.forEach((l, i) => (body += text(W / 2, cy - 170 + i * 150, l, { size: 120, anchor: 'middle' })));
+  body += `<line x1="${W / 2 - 300}" y1="${cy + 230}" x2="${W / 2 + 300}" y2="${cy + 230}" stroke="${ACCENT}" stroke-width="6"/>`;
+  body += text(W / 2, cy + 330, 'FRANCIS BACON · OF STUDIES · 1625', { size: 52, fill: MUTED, anchor: 'middle', spacing: 10 });
+  body += text(W / 2, cy + 450, BRAND, { size: 44, fill: INK, bold: true, anchor: 'middle', spacing: 24 });
+  render(name, W, H, body);
 }
+mug('mug-bacon-wrap', 2820, 1080);
 
 // --- 3. Cartaz "The Reader's Glossary": os nomes das 146 figuras, por grupo ---
 type Dev = { name: string; group: string };
@@ -228,3 +228,24 @@ function tracker(name: string, W: number, H: number, pdf = false) {
 }
 tracker('poster-thousand-nights-tracker', 3600, 4800);
 tracker('print-a3-thousand-nights-tracker', 3508, 4961, true);
+
+// --- 5. Redbubble: tamanhos do guia oficial "Dimensions & Format" (atualizado a 26 de outubro de 2026) ---
+// Só aceita JPEG e PNG. Cotton tote 2400 × 3200 e Premium T-shirt 2875 × 3900 (mesmo ficheiro de 3600 × 4800,
+// proporção 3:4), caneca standard 2700 × 1120 e alta 2700 × 1624, sticker 2800 × 2800 (cobre os quatro
+// tamanhos) e cartazes até ao tamanho grande, 8310 × 11790.
+outDir = join(OUT, 'redbubble');
+mkdirSync(outDir, { recursive: true });
+tote(INK, 'rb-tote-and-tshirt-one-poem-one-essay-one-story', 3600, 4800);
+mug('rb-mug-standard-bacon', 2700, 1120);
+mug('rb-mug-tall-bacon', 2700, 1624);
+{
+  const W = 2800;
+  let body = '';
+  ['One poem.', 'One essay.', 'One story.'].forEach((l, i) => (body += text(W / 2, 760 + i * 380, l, { size: 330, anchor: 'middle' })));
+  body += `<line x1="${W / 2 - 520}" y1="1990" x2="${W / 2 + 520}" y2="1990" stroke="${INK}" stroke-width="10"/>`;
+  body += text(W / 2, 2290, 'EVERY DAY.', { size: 220, bold: true, anchor: 'middle', spacing: 44 });
+  body += text(W / 2, 2560, BRAND, { size: 96, bold: true, anchor: 'middle', spacing: 36 });
+  render('rb-sticker-one-poem-one-essay-one-story', W, W, body);
+}
+glossary('rb-poster-readers-glossary', 8310, 11790);
+tracker('rb-poster-thousand-nights-tracker', 8310, 11790);
