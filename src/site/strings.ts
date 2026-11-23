@@ -43,6 +43,7 @@ export const STRINGS = {
   freeBooks: 'Free books',
   freeBooksBy: (name: string) => ` by ${name} on Project Gutenberg`,
   onThisDayCredit: 'Writers from Wikidata; free books on Project Gutenberg.',
+  onThisDayCreditWikidata: 'Writers from Wikidata.',
   deviceOfTheDay: 'Literary device of the day',
   allDevices: 'All literary devices →',
   devicesTitle: 'Literary devices',

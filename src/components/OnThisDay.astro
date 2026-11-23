@@ -1,5 +1,6 @@
 ---
 import { onThisDay, shortDescription } from '../site/on-this-day.js';
+import { PAUSED_SOURCES } from '../config.js';
 import { STRINGS as t } from '../site/strings.js';
 
 interface Props {
@@ -8,6 +9,8 @@ interface Props {
 
 const { date } = Astro.props;
 const events = onThisDay(date);
+// Com o Project Gutenberg em pausa (site em baixo), não se mostram as ligações para os livros.
+const books = !PAUSED_SOURCES.has('gutenberg');
 const id = `otd-${date}`;
 ---
 
@@ -27,15 +30,20 @@ const id = `otd-${date}`;
             ) : (
               <span class="on-this-day-name">{e.name}</span>
             )}
-            {e.description && <>, {shortDescription(e.description)}</>}.{' '}
-            <a href={e.gutenberg} target="_blank" rel="noopener" class="on-this-day-books">
-              {t.freeBooks}
-              <span class="visually-hidden">{t.freeBooksBy(e.name)}{t.opensNewTab}</span>
-            </a>
+            {e.description && <>, {shortDescription(e.description)}</>}.
+            {books && (
+              <>
+                {' '}
+                <a href={e.gutenberg} target="_blank" rel="noopener" class="on-this-day-books">
+                  {t.freeBooks}
+                  <span class="visually-hidden">{t.freeBooksBy(e.name)}{t.opensNewTab}</span>
+                </a>
+              </>
+            )}
           </li>
         ))}
       </ul>
-      <p class="on-this-day-credit">{t.onThisDayCredit}</p>
+      <p class="on-this-day-credit">{books ? t.onThisDayCredit : t.onThisDayCreditWikidata}</p>
     </section>
   )
 }

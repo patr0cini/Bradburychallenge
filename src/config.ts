@@ -37,6 +37,9 @@ export const SOURCE_REFRESH_DAYS = 7;
 export const PAUSED_SOURCES: ReadonlySet<string> = new Set([
   // Site inteiro em manutenção por causa de uma falha de segurança (21 de outubro de 2026).
   'poetryinternational',
+  // www.gutenberg.org devolve 503 desde cerca de 18 de novembro de 2026 (aviso de um leitor, 23 de
+  // novembro). Tirar daqui quando voltar; o espelho gutenberg.pglaf.org continua a responder.
+  'gutenberg',
 ]);
 
 /** Um texto usado não volta a aparecer antes de passarem N dias. */
