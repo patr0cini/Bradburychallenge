@@ -1022,5 +1022,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-22T02:59:44.677Z"
+  },
+  "2026-11-23": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/la-nuit-de-mai",
+      "title": "La Nuit de Mai",
+      "author": "Alfred de Musset",
+      "url": "https://rpo.library.utoronto.ca/content/la-nuit-de-mai",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "gutenberg:gutenberg.org/cache/epub/61550/pg61550-images.html#Page_128",
+      "title": "On History in Travel",
+      "author": "Hilaire Belloc",
+      "url": "https://www.gutenberg.org/cache/epub/61550/pg61550-images.html#Page_128",
+      "source": "gutenberg",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/the-parasitic-hand",
+      "title": "The Parasitic Hand",
+      "author": "Anthony M. Rud",
+      "url": "https://www.libraryofshortstories.com/onlinereader/the-parasitic-hand",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-23T03:40:35.776Z"
   }
 }
