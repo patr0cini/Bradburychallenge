@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, BUTTONDOWN_USERNAME, CF_ANALYTICS_TOKEN, CONTACT_EMAIL, OPERATOR_NAME } from '../site/settings.js';
+import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, BUTTONDOWN_USERNAME, CF_ANALYTICS_TOKEN, CONTACT_EMAIL, MEMBERSHIP_URL, OPERATOR_NAME } from '../site/settings.js';
 
 const UPDATED = '4 November 2026';
 ---
@@ -101,6 +101,16 @@ const UPDATED = '4 November 2026';
       links, Amazon may use cookies on its own site to record that the visit came from here; we receive no personal data
       about you, only aggregate figures on purchases. The Buy me a coffee page links to Ko-fi, an external payment service whose
       own privacy policy applies to any contribution you make there.
+      {
+        MEMBERSHIP_URL && (
+          <>
+            {' '}
+            If you become a friend of the project on Ko-fi, Ko-fi handles your payment and your details; we only see what
+            Ko-fi shares with us, such as your name or email. We list your name on the Buy me a coffee page only if you
+            ask us to, on the basis of your consent, and you can ask us to remove it at any time at {CONTACT_EMAIL}.
+          </>
+        )
+      }
     </p>
 
     <h2>Links to other sites</h2>

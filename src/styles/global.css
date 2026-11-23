@@ -1000,6 +1000,33 @@ main.wrap {
   }
 }
 
+/* Amigos do projeto (página de apoio), só com BRADBURY_MEMBERSHIP_URL */
+.friends {
+  margin: 36px 0 0;
+  padding-top: 18px;
+  border-top: 3px double var(--rule);
+}
+
+.friends-list-title {
+  margin: 24px 0 0;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.friends-list {
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+  columns: 2 180px;
+}
+
+.friends-list li {
+  margin: 0 0 4px;
+}
+
 /* Loja de produtos (página de apoio), só com BRADBURY_SHOP_URL */
 .shop {
   margin: 36px 0 0;

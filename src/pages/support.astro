@@ -1,6 +1,9 @@
 ---
 import Base from '../layouts/Base.astro';
-import { SHOP_URL, SUPPORT_URL } from '../site/settings.js';
+import { MEMBERSHIP_URL, SHOP_URL, SUPPORT_URL } from '../site/settings.js';
+import { loadSupporters } from '../site/supporters.js';
+
+const supporters = loadSupporters();
 
 const products = [
   { image: '/shop/tote.png', name: 'Tote bag', alt: 'A tote bag printed with One poem. One essay. One story. Every day.' },
@@ -31,6 +34,35 @@ const products = [
       )
     }
     <p>Thank you. Telling a friend about the site helps just as much.</p>
+    {
+      MEMBERSHIP_URL && (
+        <section class="friends" id="friends" aria-labelledby="friends-title">
+          <h2 id="friends-title">Friends of the project</h2>
+          <p>
+            For 3 euros a month you become a friend of the project and, if you would like, your name appears below. It is a
+            way of saying thank you and helping keep the site free. Everything on the site stays free for everyone either
+            way.
+          </p>
+          <p>
+            <a class="button" href={MEMBERSHIP_URL} target="_blank" rel="noopener">
+              Become a friend on Ko-fi<span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </p>
+          {
+            supporters.length > 0 && (
+              <>
+                <h3 class="friends-list-title">With thanks to the friends who chose to be listed</h3>
+                <ul class="friends-list">
+                  {supporters.map((name) => (
+                    <li>{name}</li>
+                  ))}
+                </ul>
+              </>
+            )
+          }
+        </section>
+      )
+    }
     {
       SHOP_URL && (
         <section class="shop" id="shop" aria-labelledby="shop-title">
