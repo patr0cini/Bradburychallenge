@@ -31,7 +31,7 @@ export function saveNotes(notes: NotesFile, path = NOTES_FILE) {
  * (bloqueiam ClaudeBot, GPTBot, CCBot...): as notas desses textos são escritas por uma pessoa.
  * Fontes de curadoria manual também ficam de fora por omissão.
  */
-const TEXT_READABLE_SOURCES = new Set(['wikisource', 'gutenberg', 'libraryofshortstories', 'rpo', 'lithub', 'poetryarchive', 'poetryinternational']);
+const TEXT_READABLE_SOURCES = new Set(['wikisource', 'gutenberg', 'publicdomainreview', 'libraryofshortstories', 'rpo', 'lithub', 'poetryarchive', 'poetryinternational']);
 
 export function generatorMayReadText(source: string): boolean {
   return TEXT_READABLE_SOURCES.has(source);
