@@ -1052,5 +1052,36 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-23T03:40:35.776Z"
+  },
+  "2026-11-24": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/the-world-according-to-jelly-babies",
+      "title": "The World According to Jelly Babies",
+      "author": "Paul Groves",
+      "url": "https://poetryarchive.org/poem/the-world-according-to-jelly-babies/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/may-the-best-story-win",
+      "title": "May the Best Story Win",
+      "author": "Zoe Mendelson",
+      "url": "https://lareviewofbooks.org/article/may-the-best-story-win/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/caronang",
+      "title": "Caronang",
+      "author": "Eka Kurniawan",
+      "url": "https://lithub.com/caronang/",
+      "source": "lithub",
+      "paywalled": false,
+      "translator": "Tiffany Tsao",
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-24T06:54:11.111Z"
   }
 }
