@@ -24,6 +24,7 @@ const shareText = `${day.readings.map((r) => `${t.category[r.category]}: ${r.tit
 <h1 class="day-title">{formatLongDate(day.date)}</h1>
 <slot name="notice" />
 {home ? <ProgressPanel /> : <p class="day-context" data-personal-day={day.date} hidden />}
+<div class="day-body">
 <ol class="readings" aria-label={t.readingsOfDay}>
   {
     day.readings.map((r, i) => (
@@ -34,6 +35,8 @@ const shareText = `${day.readings.map((r) => `${t.category[r.category]}: ${r.tit
     ))
   }
 </ol>
+<slot name="after-readings" />
+</div>
 <SupportPrompt />
 <FriendsPopup />
 <LiteraryDevice day={day.number} />

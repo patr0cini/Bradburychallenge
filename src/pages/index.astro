@@ -2,13 +2,18 @@
 import Base from '../layouts/Base.astro';
 import DayView from '../components/DayView.astro';
 import NewsletterForm from '../components/NewsletterForm.astro';
+import WeeklyBook from '../components/WeeklyBook.astro';
 import { START_DATE } from '../config.js';
 import { addDays } from '../lib/dates.js';
+import { authorsOf } from '../site/authors.js';
+import { loadBooks } from '../site/books.js';
 import { loadSiteData } from '../site/data.js';
+import { weeklyBook } from '../site/weekly-book.js';
 import { STRINGS as t, archivePath, dayPath, formatLongDate } from '../site/strings.js';
 
 const { days, today } = loadSiteData();
 const day = days.at(-1);
+const bookPick = weeklyBook(loadBooks(), authorsOf(days), day?.date ?? today);
 const previous = days.at(-2);
 // No momento do build a seleção de hoje pode ainda não existir: mostra-se a mais recente.
 const builtStale = day && day.date < today;
@@ -20,6 +25,7 @@ const staticText = day && day.date === addDays(today, -1) ? t.staleYesterday : o
   {
     day ? (
       <DayView day={day} home>
+        <WeeklyBook slot="after-readings" pick={bookPick} />
         <p
           slot="notice"
           class="notice"

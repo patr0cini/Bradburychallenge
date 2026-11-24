@@ -1148,6 +1148,153 @@ main.wrap {
   margin: 12px 0 0;
 }
 
+/* Livro da semana: cartão com capa tipográfica, junto às leituras do dia */
+.weekly-book {
+  margin: 32px 0;
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--text) 14%, var(--bg));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--text) 3%, var(--bg));
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.06);
+  font-family: var(--font-ui);
+}
+
+.weekly-book p {
+  margin: 0;
+}
+
+.weekly-book-kicker {
+  display: inline-block;
+  margin-bottom: 14px !important;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--accent) 12%, var(--bg));
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.weekly-book-body {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.weekly-book-cover {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 84px;
+  height: 122px;
+  padding: 10px 9px;
+  border-radius: 3px 8px 8px 3px;
+  background:
+    linear-gradient(90deg, rgb(0 0 0 / 0.28) 0 4px, rgb(255 255 255 / 0.1) 4px 6px, transparent 6px),
+    linear-gradient(160deg, hsl(var(--hue) 38% 34%), hsl(var(--hue) 42% 20%));
+  box-shadow: 3px 5px 12px rgb(0 0 0 / 0.28);
+  color: #f6efe2;
+  font-family: var(--font-serif, Georgia, serif);
+  overflow: hidden;
+}
+
+.weekly-book-cover-title {
+  padding-left: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.15;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.weekly-book-cover-author {
+  padding-left: 6px;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.weekly-book-info {
+  min-width: 0;
+}
+
+.weekly-book-title {
+  font-family: var(--font-serif, inherit);
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.weekly-book-by {
+  margin-top: 4px !important;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.weekly-book-context {
+  margin-top: 10px !important;
+  font-size: 0.9rem;
+}
+
+.weekly-book-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 11px 16px;
+  border-radius: 10px;
+  background: var(--text);
+  color: var(--bg);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.weekly-book-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgb(0 0 0 / 0.2);
+}
+
+.weekly-book-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Corpo do dia: leituras e, em ecrãs largos, o livro da semana na coluna da direita */
+.day-body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.day-body > .readings {
+  order: 1;
+}
+
+.day-body > .weekly-book {
+  order: 2;
+}
+
+@media (min-width: 1300px) {
+  .day-body > .weekly-book {
+    position: absolute;
+    top: 0;
+    left: calc(100% + 32px);
+    width: 300px;
+    margin: 0;
+  }
+}
+
 /* Janela "Friends of the project", depois do poema */
 .friends-popup {
   max-width: min(440px, calc(100vw - 32px));

@@ -1,0 +1,52 @@
+---
+import { authorPath } from '../site/authors.js';
+import { isbn13To10 } from '../site/isbn.js';
+import type { WeeklyBook } from '../site/weekly-book.js';
+import { AMAZON_TAG, amazonLink } from '../site/settings.js';
+import { dayPath, formatLongDate } from '../site/strings.js';
+
+interface Props {
+  pick?: WeeklyBook;
+}
+
+const { pick } = Astro.props;
+const asin = pick ? isbn13To10(pick.book.isbn13) : undefined;
+const latest = pick?.author.readings[0];
+// Sem etiqueta de afiliado (ou sem ISBN-10), a recomendação não aparece.
+// Cada livro tem a sua cor de capa, sempre a mesma (derivada do ISBN).
+const hue = pick ? Number(pick.book.isbn13.slice(-6)) % 360 : 0;
+const surname = pick?.author.name.split(/\s+/).at(-1) ?? '';
+const show = !!(pick && AMAZON_TAG && asin);
+---
+
+{
+  show && pick && asin && (
+    <section class="weekly-book" aria-labelledby="weekly-book-title">
+      <p class="weekly-book-kicker" id="weekly-book-title">Book of the week</p>
+      <div class="weekly-book-body">
+        <div class="weekly-book-cover" style={`--hue: ${hue}`} aria-hidden="true">
+          <span class="weekly-book-cover-title">{pick.book.title}</span>
+          <span class="weekly-book-cover-author">{surname}</span>
+        </div>
+        <div class="weekly-book-info">
+          <p class="weekly-book-title">{pick.book.title}</p>
+          <p class="weekly-book-by">
+            {pick.author.name}
+            {pick.book.by && ` · ${pick.book.by}`}
+          </p>
+          {latest && (
+            <p class="weekly-book-context">
+              Also in the challenge:{' '}
+              <a href={dayPath(latest.date)}>{latest.reading.title}</a>
+            </p>
+          )}
+        </div>
+      </div>
+      <a class="weekly-book-link" href={amazonLink(asin)} target="_blank" rel="sponsored noopener">
+        Get the book on Amazon
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true" focusable="false"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        <span class="visually-hidden"> (opens in a new tab)</span>
+      </a>
+    </section>
+  )
+}
