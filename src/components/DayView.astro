@@ -5,6 +5,7 @@ import ProgressPanel from './ProgressPanel.astro';
 import OnThisDay from './OnThisDay.astro';
 import LiteraryDevice from './LiteraryDevice.astro';
 import SupportPrompt from './SupportPrompt.astro';
+import FriendsPopup from './FriendsPopup.astro';
 import type { SiteDay } from '../site/data.js';
 import { STRINGS as t, formatLongDate } from '../site/strings.js';
 import { dayUrl } from '../site/digest.js';
@@ -34,6 +35,7 @@ const shareText = `${day.readings.map((r) => `${t.category[r.category]}: ${r.tit
   }
 </ol>
 <SupportPrompt />
+<FriendsPopup />
 <LiteraryDevice day={day.number} />
 <OnThisDay date={day.date} />
 <p class="share">

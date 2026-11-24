@@ -1,3 +1,4 @@
+import { initFriendsPopup, maybeShowFriends } from './friends-popup.ts';
 import { initSupportPrompt, updateSupportPrompt } from './support-prompt.ts';
 
 // Marcações "Lido", guardadas só neste browser (localStorage).
@@ -35,6 +36,7 @@ export function lisbonToday(): string {
 export function initReadMarks() {
   let marks = loadMarks();
   initSupportPrompt();
+  initFriendsPopup();
 
   for (const box of document.querySelectorAll<HTMLInputElement>('input[data-read-date]')) {
     const { readDate: date = '', readCategory: category = '' } = box.dataset;
@@ -48,6 +50,7 @@ export function initReadMarks() {
       else delete marks[date];
       save(marks);
       updateSupportPrompt(marks[date]);
+      maybeShowFriends(category, box.checked, lisbonToday());
     });
   }
 

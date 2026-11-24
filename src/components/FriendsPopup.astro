@@ -1,0 +1,21 @@
+---
+import { MEMBERSHIP_URL } from '../site/settings.js';
+---
+
+{
+  MEMBERSHIP_URL && (
+    <dialog class="friends-popup" data-friends-popup aria-labelledby="friends-popup-title">
+      <h2 id="friends-popup-title">Friends of the project</h2>
+      <p>
+        Glad you read today's poem. For 3 euros a month you can become a friend of the project and, if you would like,
+        your name appears on the support page. Everything on the site stays free for everyone either way.
+      </p>
+      <p class="friends-popup-actions">
+        <a class="button button--primary" href={MEMBERSHIP_URL} target="_blank" rel="noopener" data-friends-link>
+          Become a friend on Ko-fi<span class="visually-hidden"> (opens in a new tab)</span>
+        </a>
+        <button type="button" class="link-button" data-friends-close>Not now</button>
+      </p>
+    </dialog>
+  )
+}

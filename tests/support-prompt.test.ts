@@ -18,3 +18,22 @@ describe('pedido de apoio', () => {
     expect(isQuiet(undefined, now)).toBe(false);
   });
 });
+
+import { shouldShowFriends } from '../src/site/friends-popup.ts';
+
+describe('janela Friends of the project', () => {
+  const today = '2026-11-24';
+  it('só aparece ao marcar o poema', () => {
+    expect(shouldShowFriends({}, 'poem', true, today)).toBe(true);
+    expect(shouldShowFriends({}, 'essay', true, today)).toBe(false);
+    expect(shouldShowFriends({}, 'story', true, today)).toBe(false);
+    expect(shouldShowFriends({}, 'poem', false, today)).toBe(false);
+  });
+  it('uma vez por dia', () => {
+    expect(shouldShowFriends({ last: today }, 'poem', true, today)).toBe(false);
+    expect(shouldShowFriends({ last: '2026-11-23' }, 'poem', true, today)).toBe(true);
+  });
+  it('nunca mais depois de fechada', () => {
+    expect(shouldShowFriends({ last: '2026-11-01', closed: true }, 'poem', true, today)).toBe(false);
+  });
+});

@@ -1148,6 +1148,39 @@ main.wrap {
   margin: 12px 0 0;
 }
 
+/* Janela "Friends of the project", depois do poema */
+.friends-popup {
+  max-width: min(440px, calc(100vw - 32px));
+  padding: 20px 22px;
+  border: 1px solid var(--text);
+  border-left: 3px solid var(--accent);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+}
+
+.friends-popup::backdrop {
+  background: rgb(0 0 0 / 0.35);
+}
+
+.friends-popup h2 {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+}
+
+.friends-popup p {
+  margin: 0 0 12px;
+}
+
+.friends-popup-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin: 16px 0 0;
+}
+
 /* Partilha das leituras do dia */
 .share {
   margin: 24px 0 0;
