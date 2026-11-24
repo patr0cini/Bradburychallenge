@@ -1,7 +1,12 @@
 import { describe, expect, it } from 'vitest';
 import {
+  IMPORT_UNTIL,
+  SITE_FIRST_DAY,
   addDays,
   applyCheckin,
+  importCandidate,
+  importedState,
+  keepImported,
   cleanName,
   lisbonDate,
   liveStreak,
@@ -12,6 +17,7 @@ import {
   type StreakState,
 } from '../src/site/leaderboard.ts';
 import { readingStats } from '../src/site/stats.ts';
+import { loadSiteData } from '../src/site/data.ts';
 
 const ALL = ['poem', 'essay', 'story'];
 
@@ -108,5 +114,52 @@ describe('leaderboard: tabela das sequências', () => {
       { name: 'Eva', streak: 7 },
       { name: 'Ana', streak: 5 },
     ]);
+  });
+});
+
+describe('leaderboard: importação da sequência ao entrar', () => {
+  const today = '2026-11-30';
+  const full = (days: string[]) => Object.fromEntries(days.map((d) => [d, ALL]));
+
+  it('o primeiro dia do site bate certo com os dados publicados', () => {
+    expect(loadSiteData().days[0]?.date).toBe(SITE_FIRST_DAY);
+  });
+
+  it('o browser envia a sequência até ontem e o último dia completo', () => {
+    const marks = full(['2026-11-25', '2026-11-26', '2026-11-27', '2026-11-28', '2026-11-29', '2026-11-30']);
+    expect(importCandidate(marks, today, SITE_FIRST_DAY)).toEqual({ streak: 5, last: '2026-11-29' });
+    // Ontem falhado (descanso): o último dia completo é anteontem.
+    expect(importCandidate(full(['2026-11-27', '2026-11-28']), today, SITE_FIRST_DAY)).toEqual({ streak: 2, last: '2026-11-28' });
+    expect(importCandidate({}, today, SITE_FIRST_DAY)).toBeNull();
+  });
+
+  it('aceita uma sequência viva e marca-a como importada', () => {
+    expect(importedState({ streak: 5, last: '2026-11-29' }, today)).toEqual({
+      streak: 5,
+      best: 5,
+      last: '2026-11-29',
+      rest: null,
+      imported: 5,
+    });
+    expect(importedState({ streak: 2, last: '2026-11-28' }, today)?.rest).toBe('2026-11-29');
+  });
+
+  it('nunca mais dias do que os que o site tem', () => {
+    expect(importedState({ streak: 999, last: '2026-11-29' }, today)?.streak).toBe(41); // 20 out a 29 nov
+  });
+
+  it('recusa sequências acabadas, valores estranhos e depois das duas semanas', () => {
+    expect(importedState({ streak: 5, last: '2026-11-20' }, today)).toBeNull();
+    expect(importedState({ streak: 2.5, last: '2026-11-29' }, today)).toBeNull();
+    expect(importedState({ streak: '9', last: '2026-11-29' }, today)).toBeNull();
+    expect(importedState(null, today)).toBeNull();
+    const after = addDays(IMPORT_UNTIL, 1);
+    expect(importedState({ streak: 5, last: addDays(after, -1) }, after)).toBeNull();
+  });
+
+  it('a marca de importada some quando a sequência recomeça', () => {
+    const before = { streak: 5, best: 5, last: '2026-11-29', rest: null };
+    expect(keepImported(before, applyCheckin(before, '2026-11-30'), 5)).toBe(5);
+    expect(keepImported(before, applyCheckin(before, '2026-12-03'), 5)).toBe(0);
   });
 });

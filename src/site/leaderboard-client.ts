@@ -1,7 +1,8 @@
 // Leaderboard no browser: a chave secreta do leitor, o envio do dia completo e a página /leaderboard/.
 // Só faz alguma coisa se o site tiver a leaderboard ligada (<meta name="bradbury-leaderboard">).
 // Tudo falha em silêncio: sem rede ou sem a base de dados, o resto do site funciona na mesma.
-import type { Board } from './leaderboard.js';
+import { importCandidate, type Board } from './leaderboard.js';
+import type { Marks } from './stats.js';
 
 const KEY = 'bradbury:leaderboard';
 const API = '/api/leaderboard';
@@ -18,6 +19,8 @@ interface Me {
   streak: number;
   best: number;
   week: number;
+  /** Dias trazidos de antes de entrar, se a sequência atual ainda os inclui. */
+  imported?: number;
 }
 
 export const leaderboardEnabled = () => !!document.querySelector('meta[name="bradbury-leaderboard"]');
@@ -64,13 +67,14 @@ async function call<T>(path: string, body: unknown): Promise<{ ok: boolean; stat
  * Chamado a cada marcação "Read" e ao abrir uma página: se o leitor está na leaderboard e marcou hoje as três
  * leituras de hoje, avisa o servidor (uma vez por dia). O servidor usa a sua própria data.
  */
-export async function maybeCheckin(date: string, categories: string[] | undefined, today: string) {
-  if (!leaderboardEnabled() || date !== today || new Set(categories ?? []).size < 3) return;
+export async function maybeCheckin(date: string, categories: string[] | undefined, today: string): Promise<Me | null> {
+  if (!leaderboardEnabled() || date !== today || new Set(categories ?? []).size < 3) return null;
   const saved = load();
-  if (!saved || saved.sent === today) return;
+  if (!saved || saved.sent === today) return null;
   const res = await call<{ me: Me }>('checkin', { secret: saved.secret });
   if (res.ok) save({ ...saved, sent: today });
   else if (res.status === 404) save(null); // saiu noutro sítio ou foi apagado
+  return res.ok && 'me' in res.data ? res.data.me : null;
 }
 
 /** Botões "Join the Leaderboard": para quem já entrou, passam a "See the leaderboard". */
@@ -90,7 +94,13 @@ const ERRORS: Record<string, string> = {
 
 const el = <T extends HTMLElement>(sel: string, root: ParentNode = document) => root.querySelector<T>(sel);
 
-function renderRows(list: HTMLOListElement | null, rows: Array<{ name: string; value: number }>, unit: (n: number) => string, mine?: string) {
+interface Row {
+  name: string;
+  value: number;
+  imported?: boolean;
+}
+
+function renderRows(list: HTMLOListElement | null, rows: Row[], unit: (n: number) => string, mine?: string) {
   if (!list) return;
   list.replaceChildren(
     ...rows.map((r) => {
@@ -102,6 +112,13 @@ function renderRows(list: HTMLOListElement | null, rows: Array<{ name: string; v
       const value = document.createElement('span');
       value.className = 'lb-value';
       value.textContent = unit(r.value);
+      if (r.imported) {
+        const mark = document.createElement('abbr');
+        mark.className = 'lb-imported';
+        mark.title = 'Includes days read before joining';
+        mark.textContent = '*';
+        value.append(mark);
+      }
       li.append(name, value);
       return li;
     }),
@@ -120,7 +137,14 @@ async function refreshBoard(mine?: string, fresh = false) {
     if (!res.ok) throw new Error(String(res.status));
     const board = (await res.json()) as Board;
     renderRows(el<HTMLOListElement>('[data-lb-week]'), board.week.map((r) => ({ name: r.name, value: r.days })), days, mine);
-    renderRows(el<HTMLOListElement>('[data-lb-streaks]'), board.streaks.map((r) => ({ name: r.name, value: r.streak })), days, mine);
+    renderRows(
+      el<HTMLOListElement>('[data-lb-streaks]'),
+      board.streaks.map((r) => ({ name: r.name, value: r.streak, imported: r.imported })),
+      days,
+      mine,
+    );
+    const legend = el('[data-lb-legend]');
+    if (legend) legend.hidden = !board.streaks.some((r) => r.imported);
     if (status) status.hidden = true;
   } catch {
     if (status) {
@@ -143,13 +167,14 @@ function showMe(me: Me | null) {
     if (node) node.textContent = text;
   };
   set('[data-lb-me-name]', me.name);
-  set('[data-lb-me-streak]', days(me.streak));
+  set('[data-lb-me-streak]', me.imported ? `${days(me.streak)} (including ${days(me.imported)} before joining)` : days(me.streak));
   set('[data-lb-me-week]', days(me.week));
 }
 
-export function initLeaderboardPage(todayMarks: () => string[] | undefined, today: () => string) {
+export function initLeaderboardPage(allMarks: () => Marks, today: () => string) {
   const page = el('[data-leaderboard-page]');
   if (!page) return;
+  const firstDay = page.dataset.firstDay ?? today();
   const saved = load();
   showMe(null);
   void refreshBoard(saved?.name, !!saved);
@@ -175,14 +200,17 @@ export function initLeaderboardPage(todayMarks: () => string[] | undefined, toda
     const name = String(data.get('name') ?? '');
     const button = el<HTMLButtonElement>('button[type="submit"]', form);
     if (button) button.disabled = true;
-    const res = await call<{ me: Me }>('join', { secret, name, consent: data.get('consent') === 'on' });
+    // Primeira entrada: leva a sequência que já tinha neste browser (o servidor decide se a aceita).
+    const history = current ? undefined : (importCandidate(allMarks(), today(), firstDay) ?? undefined);
+    const res = await call<{ me: Me }>('join', { secret, name, consent: data.get('consent') === 'on', history });
     if (button) button.disabled = false;
     if (res.ok && 'me' in res.data) {
       save({ secret, name: res.data.me.name });
       if (error) error.hidden = true;
       showMe(res.data.me);
       // Se hoje já está completo, conta já.
-      await maybeCheckin(today(), todayMarks(), today());
+      const after = await maybeCheckin(today(), allMarks()[today()], today());
+      if (after) showMe(after);
       void refreshBoard(res.data.me.name, true);
     } else if (error) {
       const code = (res.data as { error?: string }).error ?? 'unavailable';

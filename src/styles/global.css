@@ -1596,6 +1596,31 @@ button.button:not(.button--primary) {
   font-variant-numeric: tabular-nums;
 }
 
+.lb-imported {
+  margin-left: 2px;
+  color: var(--accent);
+  text-decoration: none;
+  cursor: help;
+}
+
+.lb-legend {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.lb-legend[hidden] {
+  display: none;
+}
+
+.lb-import-note {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--accent) 8%, var(--bg));
+  font-size: 0.9rem;
+}
+
 .lb-empty {
   margin: 14px 0 0;
   color: var(--muted);

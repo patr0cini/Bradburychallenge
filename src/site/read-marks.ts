@@ -40,7 +40,7 @@ export function initReadMarks() {
   initFriendsPopup();
   // Leaderboard: se hoje já está completo (por exemplo, marcado sem rede), envia agora; e liga a página.
   void maybeCheckin(lisbonToday(), marks[lisbonToday()], lisbonToday());
-  initLeaderboardPage(() => loadMarks()[lisbonToday()], lisbonToday);
+  initLeaderboardPage(loadMarks, lisbonToday);
   updateLeaderboardButtons();
 
   for (const box of document.querySelectorAll<HTMLInputElement>('input[data-read-date]')) {

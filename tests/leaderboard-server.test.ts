@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { DatabaseSync } from 'node:sqlite';
 import { beforeEach, describe, expect, it } from 'vitest';
 import { getBoard, postCheckin, postJoin, postLeave, postMe, type D1Database, type Env } from '../src/site/leaderboard-server.ts';
@@ -6,7 +6,7 @@ import { getBoard, postCheckin, postJoin, postLeave, postMe, type D1Database, ty
 // O D1 é SQLite: este adaptador usa o SQLite do Node com a mesma migração.
 function fakeD1(): D1Database {
   const db = new DatabaseSync(':memory:');
-  db.exec(readFileSync('migrations/0001_leaderboard.sql', 'utf8'));
+  for (const f of readdirSync('migrations').filter((n) => n.endsWith('.sql')).sort()) db.exec(readFileSync(`migrations/${f}`, 'utf8'));
   const statement = (query: string, values: unknown[] = []) => ({
     bind: (...v: unknown[]) => statement(query, v),
     first: async <T,>() => ((db.prepare(query).get(...(values as never[])) as T) ?? null),
@@ -74,7 +74,7 @@ describe('leaderboard: servidor', () => {
     ]);
 
     const me = await (await postMe(post('me', { secret: ana }), env, at('2026-11-24'))).json();
-    expect(me.me).toEqual({ name: 'Ana', streak: 5, best: 5, week: 2 });
+    expect(me.me).toEqual({ name: 'Ana', streak: 5, best: 5, week: 2, imported: 0 });
   });
 
   it('quem não entrou não pode marcar dias', async () => {
@@ -98,5 +98,38 @@ describe('leaderboard: servidor', () => {
     const board = await (await getBoard(env, at('2026-11-24'))).json();
     expect(board.week).toEqual([]);
     expect(board.streaks).toEqual([]);
+  });
+
+  it('na primeira entrada traz a sequência que o leitor já tinha, com limite e marca', async () => {
+    const day = at('2026-11-30');
+    await postJoin(post('join', { secret: ana, name: 'Ana', consent: true, history: { streak: 12, last: '2026-11-29' } }), env, day);
+    await postCheckin(post('checkin', { secret: ana }), env, day);
+    const board = await (await getBoard(env, day)).json();
+    expect(board.streaks).toEqual([{ name: 'Ana', streak: 13, imported: true }]);
+    expect(board.week).toEqual([{ name: 'Ana', days: 1 }]); // a semana só conta dias marcados depois de entrar
+    const me = await (await postMe(post('me', { secret: ana }), env, day)).json();
+    expect(me.me.imported).toBe(12);
+  });
+
+  it('mudar de nome não volta a importar', async () => {
+    const day = at('2026-11-30');
+    await postJoin(post('join', { secret: ana, name: 'Ana', consent: true }), env, day);
+    await postJoin(post('join', { secret: ana, name: 'Ana L.', consent: true, history: { streak: 30, last: '2026-11-29' } }), env, day);
+    const me = await (await postMe(post('me', { secret: ana }), env, day)).json();
+    expect(me.me).toMatchObject({ name: 'Ana L.', streak: 0, imported: 0 });
+  });
+
+  it('depois das duas semanas não importa', async () => {
+    const day = at('2026-12-08');
+    await postJoin(post('join', { secret: ana, name: 'Ana', consent: true, history: { streak: 12, last: '2026-12-07' } }), env, day);
+    const me = await (await postMe(post('me', { secret: ana }), env, day)).json();
+    expect(me.me.streak).toBe(0);
+  });
+
+  it('se a sequência recomeça, deixa de estar marcada como importada', async () => {
+    await postJoin(post('join', { secret: ana, name: 'Ana', consent: true, history: { streak: 5, last: '2026-11-29' } }), env, at('2026-11-30'));
+    await postCheckin(post('checkin', { secret: ana }), env, at('2026-12-04')); // falhou vários dias
+    const board = await (await getBoard(env, at('2026-12-04'))).json();
+    expect(board.streaks).toEqual([{ name: 'Ana', streak: 1 }]);
   });
 });

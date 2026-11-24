@@ -6,6 +6,8 @@
 import {
   TOP,
   applyCheckin,
+  importedState,
+  keepImported,
   cleanName,
   lisbonDate,
   liveStreak,
@@ -43,6 +45,7 @@ interface ReaderRow {
   best: number;
   last_day: string | null;
   rest_day: string | null;
+  imported: number;
 }
 
 const MAX_BODY = 2048;
@@ -82,7 +85,7 @@ export async function readerId(secret: string): Promise<string> {
 const toState = (r: ReaderRow): StreakState => ({ streak: r.streak, best: r.best, last: r.last_day, rest: r.rest_day });
 
 async function findReader(db: D1Database, id: string) {
-  return db.prepare('SELECT id, name, streak, best, last_day, rest_day FROM readers WHERE id = ?1').bind(id).first<ReaderRow>();
+  return db.prepare('SELECT id, name, streak, best, last_day, rest_day, imported FROM readers WHERE id = ?1').bind(id).first<ReaderRow>();
 }
 
 async function weekDays(db: D1Database, id: string, today: string) {
@@ -94,7 +97,14 @@ async function weekDays(db: D1Database, id: string, today: string) {
 }
 
 async function me(db: D1Database, reader: ReaderRow, today: string) {
-  return { name: reader.name, streak: liveStreak(toState(reader), today), best: reader.best, week: await weekDays(db, reader.id, today) };
+  const streak = liveStreak(toState(reader), today);
+  return {
+    name: reader.name,
+    streak,
+    best: reader.best,
+    week: await weekDays(db, reader.id, today),
+    imported: streak > 0 ? reader.imported : 0,
+  };
 }
 
 /** GET /api/leaderboard: as duas tabelas (semana e sequências). Guardada em cache 2 minutos. */
@@ -114,11 +124,11 @@ export async function getBoard(env: Env, now = new Date()): Promise<Response> {
   // Só leitores com atividade nos últimos dias podem ter uma sequência viva.
   const recent = await db
     .prepare(
-      `SELECT name, streak, best, last_day AS last, rest_day AS rest FROM readers
+      `SELECT name, streak, best, last_day AS last, rest_day AS rest, imported FROM readers
        WHERE hidden = 0 AND streak > 0 AND last_day >= ?1 ORDER BY streak DESC LIMIT ?2`,
     )
     .bind(addDays(today, -2), TOP * 5)
-    .all<{ name: string } & StreakState>();
+    .all<{ name: string; imported: number } & StreakState>();
   const board: Board = { today, weekStart: start, week: week.results, streaks: topStreaks(recent.results, today) };
   return json(board, 200, 'public, max-age=120');
 }
@@ -138,13 +148,20 @@ export async function postJoin(request: Request, env: Env, now = new Date()): Pr
   const taken = await db.prepare('SELECT id FROM readers WHERE name_key = ?1').bind(key).first<{ id: string }>();
   if (taken && taken.id !== id) return fail('name-taken', 409);
   const today = lisbonDate(now);
-  await db
-    .prepare(
-      `INSERT INTO readers (id, name, name_key, created) VALUES (?1, ?2, ?3, ?4)
-       ON CONFLICT(id) DO UPDATE SET name = excluded.name, name_key = excluded.name_key`,
-    )
-    .bind(id, name, key, today)
-    .run();
+  const existing = await findReader(db, id);
+  if (existing) {
+    // Já estava na leaderboard: só muda de nome (a importação é só na primeira entrada).
+    await db.prepare('UPDATE readers SET name = ?2, name_key = ?3 WHERE id = ?1').bind(id, name, key).run();
+  } else {
+    const start = importedState(body.history, today);
+    await db
+      .prepare(
+        `INSERT INTO readers (id, name, name_key, created, streak, best, last_day, rest_day, imported)
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)`,
+      )
+      .bind(id, name, key, today, start?.streak ?? 0, start?.best ?? 0, start?.last ?? null, start?.rest ?? null, start?.imported ?? 0)
+      .run();
+  }
   const reader = await findReader(db, id);
   return reader ? json({ ok: true, me: await me(db, reader, today) }) : fail('error', 500);
 }
@@ -161,12 +178,14 @@ export async function postCheckin(request: Request, env: Env, now = new Date()):
   if (!reader) return fail('not-joined', 404);
   // A data é sempre a do servidor: não se aceitam dias passados nem futuros.
   const today = lisbonDate(now);
-  const next = applyCheckin(toState(reader), today);
+  const before = toState(reader);
+  const next = applyCheckin(before, today);
+  const imported = keepImported(before, next, reader.imported);
   await db.batch([
     db.prepare('INSERT OR IGNORE INTO checkins (reader_id, day) VALUES (?1, ?2)').bind(id, today),
     db
-      .prepare('UPDATE readers SET streak = ?2, best = ?3, last_day = ?4, rest_day = ?5 WHERE id = ?1')
-      .bind(id, next.streak, next.best, next.last ?? null, next.rest ?? null),
+      .prepare('UPDATE readers SET streak = ?2, best = ?3, last_day = ?4, rest_day = ?5, imported = ?6 WHERE id = ?1')
+      .bind(id, next.streak, next.best, next.last ?? null, next.rest ?? null, imported),
   ]);
   const updated = await findReader(db, id);
   return updated ? json({ ok: true, me: await me(db, updated, today) }) : fail('error', 500);

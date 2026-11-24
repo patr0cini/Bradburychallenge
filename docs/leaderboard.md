@@ -15,6 +15,14 @@ site). Mostra o top 10 de cada.
 - **Batota:** as marcações são declaradas pelo leitor; o máximo que alguém consegue é marcar um dia por dia, que é o
   mesmo que um leitor honesto. Nomes únicos (sem distinguir maiúsculas nem acentos) e uma lista curta de palavras
   proibidas.
+- **Trazer a sequência que já tinha (só até 7 de dezembro de 2026).** Na primeira entrada, o browser envia a
+  sequência que calculou a partir das marcações "Read" (até ontem) e o último dia completo. O servidor aceita-a se
+  ainda estiver viva (último dia ontem, ou anteontem com ontem como descanso), limita-a ao número de dias desde o
+  primeiro dia do site (20 de outubro de 2026) e guarda-a em `imported`. Nas tabelas aparece com "*" ("includes days
+  read before joining"); a marca desaparece se essa sequência recomeçar. Mudar de nome não volta a importar. A tabela
+  da semana não muda: só conta dias marcados depois de entrar. Datas em `src/site/leaderboard.ts`
+  (`SITE_FIRST_DAY`, `LEADERBOARD_OPENED`, `IMPORT_UNTIL`). Dá para fazer batota uma vez (marcar dias passados no
+  arquivo antes de entrar); é o preço de reconhecer quem já vinha a ler.
 - **Sair** ("Leave and delete my data") apaga o nome e os dias de imediato.
 - **Custo:** plano gratuito da Cloudflare (Pages Functions: 100 000 pedidos por dia; D1: 5 milhões de linhas lidas e
   100 000 escritas por dia). A tabela pública fica em cache 2 minutos.
@@ -26,9 +34,9 @@ Código: `src/site/leaderboard.ts` (regras), `src/site/leaderboard-server.ts` (A
 ## Ativar (uma vez, no painel da Cloudflare)
 
 1. **Criar a base de dados.** *Storage & databases → D1 SQL database → Create* com o nome `bradbury-leaderboard`
-   (localização: Europa Ocidental).
+   (em *Data location*, escolher *Specify jurisdiction → The European Union*: os dados ficam só na UE).
 2. **Criar as tabelas.** Na base criada, separador *Console*: colar o conteúdo de `migrations/0001_leaderboard.sql` e
-   executar.
+   executar; depois o de `migrations/0002_imported.sql` (cada migração só uma vez, por ordem).
 3. **Ligar a base ao site.** *Workers & Pages →* projeto do site *→ Settings → Bindings → Add → D1 database*:
    - Variable name: `LEADERBOARD_DB`
    - D1 database: `bradbury-leaderboard`
@@ -69,5 +77,5 @@ Na primeira vez, abrir `http://localhost:8788/api/leaderboard` (cria a base loca
 depois criar as tabelas no ficheiro da base local:
 
 ```bash
-node -e "const {DatabaseSync}=require('node:sqlite');const f=require('fs');const p=f.readdirSync('.wrangler/state/v3/d1/miniflare-D1DatabaseObject').find(n=>n!=='metadata.sqlite'&&n.endsWith('.sqlite'));new DatabaseSync('.wrangler/state/v3/d1/miniflare-D1DatabaseObject/'+p).exec(f.readFileSync('migrations/0001_leaderboard.sql','utf8'))"
+node -e "const {DatabaseSync}=require('node:sqlite');const f=require('fs');const p=f.readdirSync('.wrangler/state/v3/d1/miniflare-D1DatabaseObject').find(n=>n!=='metadata.sqlite'&&n.endsWith('.sqlite'));const db=new DatabaseSync('.wrangler/state/v3/d1/miniflare-D1DatabaseObject/'+p);for(const m of f.readdirSync('migrations').sort())db.exec(f.readFileSync('migrations/'+m,'utf8'))"
 ```

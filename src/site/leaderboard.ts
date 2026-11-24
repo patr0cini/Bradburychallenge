@@ -6,6 +6,8 @@
 // site (src/site/stats.ts): falhar um dia por semana não a quebra; um segundo dia falhado em menos de 7
 // dias recomeça-a. Só conta a partir do dia em que o leitor entra na leaderboard.
 
+import { readingStats, type Marks } from './stats.js';
+
 const DAY = 86_400_000;
 const noon = (iso: string) => Date.parse(`${iso}T12:00:00Z`);
 export const addDays = (iso: string, n: number) => new Date(noon(iso) + n * DAY).toISOString().slice(0, 10);
@@ -16,6 +18,15 @@ export const REST_EVERY = 7;
 
 /** Quantos leitores aparecem em cada tabela. */
 export const TOP = 10;
+
+// Importação única da sequência que o leitor já tinha (só no browser) ao entrar pela primeira vez.
+// Só nas primeiras duas semanas da leaderboard e nunca com mais dias do que os que o site tem.
+/** Primeiro dia publicado no site (tests/leaderboard.test.ts confirma que bate certo com os dados). */
+export const SITE_FIRST_DAY = '2026-10-20';
+/** Dia em que a leaderboard abriu. */
+export const LEADERBOARD_OPENED = '2026-11-24';
+/** Último dia em que se pode entrar e trazer a sequência (duas semanas). */
+export const IMPORT_UNTIL = '2026-12-07';
 
 /** Data de hoje em Lisboa, AAAA-MM-DD. */
 export function lisbonDate(now: Date = new Date()): string {
@@ -55,6 +66,45 @@ export function applyCheckin(state: StreakState, today: string): StreakState {
     } else rest = null;
   }
   return { streak, best: Math.max(state.best, streak), last: today, rest };
+}
+
+export interface ImportedState extends StreakState {
+  /** Dias trazidos de antes de entrar (marcados com * nas tabelas). */
+  imported: number;
+}
+
+/**
+ * Estado inicial a partir da sequência que o browser calculou: `streak` dias até `last` (ontem, ou anteontem com
+ * ontem como descanso). `null` se a importação não for aceite.
+ */
+export function importedState(history: unknown, today: string): ImportedState | null {
+  if (today > IMPORT_UNTIL || !history || typeof history !== 'object') return null;
+  const { streak, last } = history as { streak?: unknown; last?: unknown };
+  if (typeof streak !== 'number' || !Number.isInteger(streak) || streak < 1) return null;
+  const yesterday = addDays(today, -1);
+  if (last !== yesterday && last !== addDays(today, -2)) return null; // sequência já acabou
+  const n = Math.min(streak, daysBetween(SITE_FIRST_DAY, last) + 1);
+  if (n < 1) return null;
+  return { streak: n, best: n, last, rest: last === yesterday ? null : yesterday, imported: n };
+}
+
+/**
+ * No browser: a sequência até ontem e o último dia completo, a partir das marcações "Read". É isto que se envia
+ * ao entrar; o servidor valida (importedState).
+ */
+export function importCandidate(marks: Marks, today: string, firstDay: string): { streak: number; last: string } | null {
+  const yesterday = addDays(today, -1);
+  const { streak } = readingStats(marks, today, firstDay, yesterday);
+  if (streak < 1) return null;
+  for (let d = yesterday; d >= firstDay; d = addDays(d, -1)) {
+    if (new Set(marks[d] ?? []).size >= 3) return { streak, last: d };
+  }
+  return null;
+}
+
+/** Os dias importados só contam enquanto essa sequência continuar; se recomeçar, deixam de contar. */
+export function keepImported(before: StreakState, after: StreakState, imported: number): number {
+  return after.streak >= before.streak && before.streak > 0 ? imported : 0;
 }
 
 /** Sequência que se mostra hoje: deixa de contar se o leitor já falhou mais do que o descanso permite. */
@@ -100,6 +150,8 @@ export interface WeekRow {
 export interface StreakRow {
   name: string;
   streak: number;
+  /** Inclui dias de antes de entrar. */
+  imported?: boolean;
 }
 
 export interface Board {
@@ -110,9 +162,9 @@ export interface Board {
 }
 
 /** As maiores sequências ainda vivas hoje, a partir das linhas guardadas. */
-export function topStreaks(rows: Array<{ name: string } & StreakState>, today: string, top = TOP): StreakRow[] {
+export function topStreaks(rows: Array<{ name: string; imported?: number } & StreakState>, today: string, top = TOP): StreakRow[] {
   return rows
-    .map((r) => ({ name: r.name, streak: liveStreak(r, today) }))
+    .map((r) => ({ name: r.name, streak: liveStreak(r, today), ...(r.imported ? { imported: true } : {}) }))
     .filter((r) => r.streak > 0)
     .sort((a, b) => b.streak - a.streak || a.name.localeCompare(b.name))
     .slice(0, top);
