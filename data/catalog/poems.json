@@ -3754,6 +3754,18 @@
   },
   {
     "category": "poem",
+    "title": "The Rib Remembers",
+    "author": "Awuor Ouma",
+    "url": "https://lithub.com/the-rib-remembers-a-poem-by-awuor-ouma/",
+    "paywalled": false,
+    "id": "lithub:lithub.com/the-rib-remembers-a-poem-by-awuor-ouma",
+    "source": "lithub",
+    "firstSeen": "2026-11-24",
+    "lastSeen": "2026-11-24",
+    "active": true
+  },
+  {
+    "category": "poem",
     "title": "The Right Ratio",
     "author": "David Lehman",
     "url": "https://lithub.com/the-right-ratio/",
@@ -14930,7 +14942,7 @@
     "id": "nybooks:nybooks.com/articles/2026/12/03/our-lady-of-beverly-tx-susana-plotts-pineda",
     "source": "nybooks",
     "firstSeen": "2026-11-17",
-    "lastSeen": "2026-11-17",
+    "lastSeen": "2026-11-24",
     "active": true
   },
   {
@@ -14942,7 +14954,7 @@
     "id": "nybooks:nybooks.com/articles/2026/12/03/why-i-go-to-the-movies-alone-aaron-fagan",
     "source": "nybooks",
     "firstSeen": "2026-11-17",
-    "lastSeen": "2026-11-17",
+    "lastSeen": "2026-11-24",
     "active": true
   },
   {
