@@ -1,0 +1,224 @@
+{
+  "charles-lamb": [
+    {
+      "title": "Essays of Elia",
+      "by": "University of Iowa Press",
+      "isbn13": "9780877458517"
+    }
+  ],
+  "william-hazlitt": [
+    {
+      "title": "Selected Writings",
+      "by": "Oxford World's Classics",
+      "isbn13": "9780199552528"
+    }
+  ],
+  "michel-de-montaigne": [
+    {
+      "title": "The Complete Essays",
+      "by": "Penguin Classics, trans. M. A. Screech",
+      "isbn13": "9780141915937"
+    }
+  ],
+  "francis-bacon": [
+    {
+      "title": "The Major Works",
+      "by": "Oxford World's Classics",
+      "isbn13": "9780199540792"
+    }
+  ],
+  "virginia-woolf": [
+    {
+      "title": "A Room of One's Own",
+      "by": "Broadview Press",
+      "isbn13": "9781551114286"
+    }
+  ],
+  "g-k-chesterton": [
+    {
+      "title": "The Innocence of Father Brown",
+      "by": "Penguin",
+      "isbn13": "9780143570097"
+    }
+  ],
+  "mark-twain": [
+    {
+      "title": "The Adventures of Tom Sawyer",
+      "by": "Dover",
+      "isbn13": "9780486129723"
+    }
+  ],
+  "edgar-allan-poe": [
+    {
+      "title": "Complete Tales and Poems",
+      "by": "Penguin Classics",
+      "isbn13": "9780140103847"
+    }
+  ],
+  "james-joyce": [
+    {
+      "title": "Dubliners",
+      "by": "Oxford World's Classics",
+      "isbn13": "9780192839992"
+    }
+  ],
+  "katherine-mansfield": [
+    {
+      "title": "The Garden Party and Other Stories",
+      "by": "Penguin Classics",
+      "isbn13": "9780141441801"
+    }
+  ],
+  "arthur-conan-doyle": [
+    {
+      "title": "The Adventures of Sherlock Holmes",
+      "by": "Penguin",
+      "isbn13": "9780141045160"
+    }
+  ],
+  "e-m-forster": [
+    {
+      "title": "A Room with a View",
+      "by": "Penguin Modern Classics",
+      "isbn13": "9780141182643"
+    },
+    {
+      "title": "Aspects of the Novel",
+      "by": "Penguin Modern Classics",
+      "isbn13": "9780141184135"
+    }
+  ],
+  "e-m-forster-2": [
+    {
+      "title": "Aspects of the Novel",
+      "by": "Penguin Modern Classics",
+      "isbn13": "9780141184135"
+    }
+  ],
+  "jonathan-swift": [
+    {
+      "title": "A Modest Proposal and Other Satirical Works",
+      "by": "Dover",
+      "isbn13": "9780486287591"
+    }
+  ],
+  "oliver-goldsmith": [
+    {
+      "title": "The Vicar of Wakefield",
+      "by": "Oxford World's Classics",
+      "isbn13": "9780192805126"
+    }
+  ],
+  "jorge-luis-borges": [
+    {
+      "title": "Labyrinths",
+      "by": "New Directions",
+      "isbn13": "9780811216999"
+    }
+  ],
+  "george-eliot": [
+    {
+      "title": "Middlemarch",
+      "by": "Penguin Classics",
+      "isbn13": "9780140620764"
+    }
+  ],
+  "mary-shelley": [
+    {
+      "title": "Frankenstein",
+      "by": "Penguin",
+      "isbn13": "9781784874414"
+    }
+  ],
+  "william-james": [
+    {
+      "title": "Pragmatism",
+      "by": "Dover",
+      "isbn13": "9780486282701"
+    }
+  ],
+  "tommy-orange": [
+    {
+      "title": "There There",
+      "by": "Vintage",
+      "isbn13": "9780525436140"
+    }
+  ],
+  "ken-liu": [
+    {
+      "title": "The Paper Menagerie and Other Stories",
+      "by": "Saga Press",
+      "isbn13": "9781481424370"
+    }
+  ],
+  "kamila-shamsie": [
+    {
+      "title": "Home Fire",
+      "by": "Penguin",
+      "isbn13": "9780735217690"
+    }
+  ],
+  "khaled-mattawa": [
+    {
+      "title": "Fugitive Atlas",
+      "by": "Graywolf Press",
+      "isbn13": "9781644450376"
+    }
+  ],
+  "robert-pinsky": [
+    {
+      "title": "The Figured Wheel",
+      "by": "Farrar, Straus and Giroux",
+      "isbn13": "9780374525064"
+    }
+  ],
+  "henry-wadsworth-longfellow": [
+    {
+      "title": "Evangeline and Selected Tales and Poems",
+      "by": "Signet Classics",
+      "isbn13": "9780451529657"
+    }
+  ],
+  "elizabeth-barrett-browning": [
+    {
+      "title": "Sonnets from the Portuguese",
+      "by": "Ecco Press",
+      "isbn13": "9780880014519"
+    }
+  ],
+  "george-orwell": [
+    {
+      "title": "Shooting an Elephant and Other Essays",
+      "by": "Penguin Modern Classics",
+      "isbn13": "9780141187396"
+    }
+  ],
+  "laura-van-den-berg": [
+    {
+      "title": "The Isle of Youth",
+      "by": "Farrar, Straus and Giroux",
+      "isbn13": "9780374177232"
+    }
+  ],
+  "jessica-riskin": [
+    {
+      "title": "The Restless Clock",
+      "by": "University of Chicago Press",
+      "isbn13": "9780226528267"
+    }
+  ],
+  "john-donne": [
+    {
+      "title": "John Donne: Selected Poems",
+      "by": "Penguin Classics",
+      "isbn13": "9780140424409"
+    }
+  ],
+  "a-e-housman": [
+    {
+      "title": "A Shropshire Lad",
+      "by": "Penguin Classics",
+      "isbn13": "9780140437188"
+    }
+  ]
+}

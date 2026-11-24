@@ -1,0 +1,49 @@
+---
+import type { Book } from '../site/books.js';
+import { isbn13To10 } from '../site/isbn.js';
+import { AMAZON_DISCLOSURE, AMAZON_TAG, BOOKSHOP_DISCLOSURE, BOOKSHOP_ID, amazonLink, bookshopLink } from '../site/settings.js';
+
+interface Props {
+  author: string;
+  books: Book[];
+}
+
+const { author, books } = Astro.props;
+// Sem nenhum programa de afiliados configurado, o bloco não aparece.
+const show = (BOOKSHOP_ID || AMAZON_TAG) && books.length > 0;
+---
+
+{
+  show && (
+    <section class="author-books" aria-labelledby="author-books-title">
+      <h2 id="author-books-title">Books by {author}</h2>
+      <ul class="author-books-list">
+        {books.map((b) => {
+          const asin = isbn13To10(b.isbn13);
+          return (
+            <li>
+              <span class="author-book-title">{b.title}</span>
+              {b.by && <span class="author-book-by">{b.by}</span>}
+              <span class="author-book-links">
+                {BOOKSHOP_ID && (
+                  <a href={bookshopLink(b.isbn13)} target="_blank" rel="sponsored noopener">
+                    Bookshop.org<span class="visually-hidden"> (opens in a new tab)</span>
+                  </a>
+                )}
+                {AMAZON_TAG && asin && (
+                  <a href={amazonLink(asin)} target="_blank" rel="sponsored noopener">
+                    Amazon<span class="visually-hidden"> (opens in a new tab)</span>
+                  </a>
+                )}
+              </span>
+            </li>
+          );
+        })}
+      </ul>
+      <p class="author-books-note">
+        {BOOKSHOP_ID && <>{BOOKSHOP_DISCLOSURE} Bookshop.org shares its profits with independent bookstores. </>}
+        {AMAZON_TAG && <>{AMAZON_DISCLOSURE} </>}It costs you nothing extra and helps keep this site free.
+      </p>
+    </section>
+  )
+}

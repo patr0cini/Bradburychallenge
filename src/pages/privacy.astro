@@ -1,6 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
-import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, BUTTONDOWN_USERNAME, CF_ANALYTICS_TOKEN, CONTACT_EMAIL, MEMBERSHIP_URL, OPERATOR_NAME } from '../site/settings.js';
+import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, BUTTONDOWN_USERNAME, CF_ANALYTICS_TOKEN, BOOKSHOP_DISCLOSURE, BOOKSHOP_ID, CONTACT_EMAIL, MEMBERSHIP_URL, OPERATOR_NAME } from '../site/settings.js';
 
 const UPDATED = '4 November 2026';
 ---
@@ -97,8 +97,8 @@ const UPDATED = '4 November 2026';
 
     <h2>Affiliate links and contributions</h2>
     <p>
-      The Read and Write pages link to Amazon. {AMAZON_TAG ? <>{AMAZON_DISCLOSURE}{' '}</> : ''}If you follow one of those
-      links, Amazon may use cookies on its own site to record that the visit came from here; we receive no personal data
+      The Read and Write pages and the author pages link to Amazon{BOOKSHOP_ID ? ' and Bookshop.org' : ''}. {AMAZON_TAG ? <>{AMAZON_DISCLOSURE}{' '}</> : ''}{BOOKSHOP_ID ? <>{BOOKSHOP_DISCLOSURE}{' '}</> : ''}If you follow one of those
+      links, {BOOKSHOP_ID ? 'those sites' : 'Amazon'} may use cookies on {BOOKSHOP_ID ? 'their own sites' : 'its own site'} to record that the visit came from here; we receive no personal data
       about you, only aggregate figures on purchases. The Buy me a coffee page links to Ko-fi, an external payment service whose
       own privacy policy applies to any contribution you make there.
       {

@@ -60,5 +60,15 @@ export const SHOP_URL = env('BRADBURY_SHOP_URL');
 /** Nome de utilizador no Buttondown (newsletter). Sem ele, o formulário de subscrição não aparece. */
 export const BUTTONDOWN_USERNAME = env('BRADBURY_BUTTONDOWN_USERNAME');
 
+/**
+ * Número de afiliado do Bookshop.org (o que aparece nas ligações "bookshop.org/a/<número>/<ISBN>", copiadas
+ * do botão "Copy" na página de um livro). Sem ele, as ligações ao Bookshop.org não aparecem.
+ */
+export const BOOKSHOP_ID = env('BRADBURY_BOOKSHOP_ID');
+export const BOOKSHOP_DISCLOSURE = 'As a Bookshop.org affiliate I earn from qualifying purchases.';
+
+/** Ligação de afiliado para a página de um livro no Bookshop.org, pelo ISBN-13. */
+export const bookshopLink = (isbn13: string) => `https://bookshop.org/a/${encodeURIComponent(BOOKSHOP_ID ?? '')}/${isbn13}`;
+
 /** Frase de divulgação que o programa Amazon Associates exige. */
 export const AMAZON_DISCLOSURE = 'As an Amazon Associate I earn from qualifying purchases.';

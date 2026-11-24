@@ -1000,6 +1000,58 @@ main.wrap {
   }
 }
 
+/* Livros de cada autor (páginas de autor), só com um programa de afiliados */
+.author-books {
+  margin: 36px 0 0;
+  padding-top: 18px;
+  border-top: 3px double var(--rule);
+}
+
+.author-books h2 {
+  margin: 0;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.author-books-list {
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.author-books-list li {
+  margin: 0 0 12px;
+  line-height: 1.45;
+}
+
+.author-book-title {
+  font-weight: 600;
+}
+
+.author-book-by {
+  display: block;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.875rem;
+}
+
+.author-book-links {
+  display: flex;
+  gap: 14px;
+  font-family: var(--font-ui);
+  font-size: 0.9375rem;
+}
+
+.author-books-note {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
+}
+
 /* Amigos do projeto (página de apoio), só com BRADBURY_MEMBERSHIP_URL */
 .friends {
   margin: 36px 0 0;

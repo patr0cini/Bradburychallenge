@@ -3,6 +3,8 @@ import type { GetStaticPaths } from 'astro';
 import Base from '../../layouts/Base.astro';
 import { loadSiteData } from '../../site/data.js';
 import { AUTHORS_PATH, authorsOf, type Author } from '../../site/authors.js';
+import { loadBooks } from '../../site/books.js';
+import AuthorBooks from '../../components/AuthorBooks.astro';
 import { STRINGS as t, dayPath, formatLongDate } from '../../site/strings.js';
 
 export const getStaticPaths = (() =>
@@ -14,6 +16,7 @@ interface Props {
 
 const { author } = Astro.props;
 const n = author.readings.length;
+const books = loadBooks()[author.slug] ?? [];
 ---
 
 <Base tab="archive" title={author.name} description={t.authorDescription(author.name, n)}>
@@ -42,4 +45,5 @@ const n = author.readings.length;
       ))
     }
   </ol>
+  <AuthorBooks author={author.name} books={books} />
 </Base>
