@@ -72,3 +72,9 @@ export const bookshopLink = (isbn13: string) => `https://bookshop.org/a/${encode
 
 /** Frase de divulgação que o programa Amazon Associates exige. */
 export const AMAZON_DISCLOSURE = 'As an Amazon Associate I earn from qualifying purchases.';
+
+/**
+ * Leaderboard opt-in (Cloudflare Pages Functions + base D1 ligada como LEADERBOARD_DB). Só aparece com
+ * BRADBURY_LEADERBOARD=1, depois de criada a base (ver docs/leaderboard.md).
+ */
+export const LEADERBOARD_ENABLED = env('BRADBURY_LEADERBOARD') === '1';

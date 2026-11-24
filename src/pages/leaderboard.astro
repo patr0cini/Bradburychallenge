@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import { NAME_MAX, NAME_MIN, TOP } from '../site/leaderboard.js';
+import { LEADERBOARD_ENABLED } from '../site/settings.js';
+---
+
+<Base title="Leaderboard" description="The readers who completed the most days this week, and the longest current streaks.">
+  {!LEADERBOARD_ENABLED && <meta slot="head" name="robots" content="noindex" />}
+  <article class="leaderboard">
+    <h1 class="page-title">Leaderboard</h1>
+    {
+      LEADERBOARD_ENABLED ? (
+        <div data-leaderboard-page>
+          <p class="page-lead">
+            A day counts when you tick all three readings on the day itself: the poem, the essay and the short story. Joining
+            is optional, and only the name you choose is shown.
+          </p>
+
+          <p class="lb-status" data-lb-status role="status" hidden />
+
+          <div class="lb-boards">
+            <section class="lb-board" aria-labelledby="lb-week-title">
+              <h2 id="lb-week-title">This week</h2>
+              <p class="lb-sub">Days completed since Monday</p>
+              <ol class="lb-list" data-lb-week />
+              <p class="lb-empty" data-lb-empty>No one has completed a day this week yet. Be the first.</p>
+            </section>
+            <section class="lb-board" aria-labelledby="lb-streak-title">
+              <h2 id="lb-streak-title">Current streaks</h2>
+              <p class="lb-sub">Days in a row, with one rest day a week</p>
+              <ol class="lb-list" data-lb-streaks />
+              <p class="lb-empty" data-lb-empty>No streaks yet.</p>
+            </section>
+          </div>
+          <p class="lb-note">Top {TOP} in each list. Updated every couple of minutes.</p>
+
+          <section class="lb-join" aria-labelledby="lb-join-title">
+            <h2 id="lb-join-title">Join the leaderboard</h2>
+
+            <div class="lb-joined" data-lb-joined hidden>
+              <p>
+                You are on the leaderboard as <strong data-lb-me-name /> · this week: <span data-lb-me-week /> · current
+                streak: <span data-lb-me-streak />.
+              </p>
+              <p class="lb-joined-actions">
+                <button type="button" class="link-button" data-lb-rename>Change name</button>
+                <button type="button" class="link-button" data-lb-leave>Leave and delete my data</button>
+              </p>
+            </div>
+
+            <form class="lb-form" data-lb-form>
+              <label for="lb-name">Name to show</label>
+              <input
+                id="lb-name"
+                name="name"
+                type="text"
+                required
+                minlength={NAME_MIN}
+                maxlength={NAME_MAX}
+                autocomplete="nickname"
+                placeholder="e.g. Ana from Lisbon"
+              />
+              <label class="lb-consent">
+                <input type="checkbox" name="consent" required />
+                <span>
+                  Show this name publicly on the leaderboard, with the days I complete from today. I can leave at any time,
+                  which deletes it. See the <a href="/privacy/#leaderboard">privacy policy</a>.
+                </span>
+              </label>
+              <p class="lb-error" data-lb-error role="alert" hidden />
+              <button type="submit" class="button button--primary">Join</button>
+              <p class="lb-small">
+                Only days completed after you join count, and only on the day itself: past days cannot be added. Your place is
+                kept in this browser; on another device you would join again with a new name.
+              </p>
+            </form>
+          </section>
+        </div>
+      ) : (
+        <p class="page-lead">The leaderboard is not open yet.</p>
+      )
+    }
+  </article>
+</Base>

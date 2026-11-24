@@ -1,3 +1,4 @@
+import { LEADERBOARD_ENABLED } from '../site/settings.js';
 import type { APIRoute } from 'astro';
 import { loadSiteData } from '../site/data.js';
 import { DAYS_PER_PAGE, pastDays } from '../site/paths.js';
@@ -16,7 +17,7 @@ export const GET: APIRoute = ({ site }) => {
     ...days.map((d) => ({ loc: abs(dayPath(d.date)), lastmod: d.date })),
     { loc: abs(AUTHORS_PATH), lastmod: latest },
     ...authorsOf(days).map((a) => ({ loc: abs(authorPath(a.name)), lastmod: a.readings[0]!.date })),
-    ...['/bradbury-challenge/', '/literary-devices/', '/rss/', '/read/', '/write/', '/support/', '/about/', '/privacy/', '/cookies/', '/contact/'].map((p) => ({ loc: abs(p) })),
+    ...['/bradbury-challenge/', '/literary-devices/', '/rss/', '/read/', '/write/', '/support/', '/about/', '/privacy/', '/cookies/', '/contact/', ...(LEADERBOARD_ENABLED ? ['/leaderboard/'] : [])].map((p) => ({ loc: abs(p) })),
   ];
   const body =
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +

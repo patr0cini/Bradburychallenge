@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { SITE_NAME } from '../config.js';
 import { HOME_PATH, HTML_LANG, STRINGS as t, archivePath } from '../site/strings.js';
 import { OG_HEIGHT, OG_WIDTH } from '../site/og-image.js';
-import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, CF_ANALYTICS_TOKEN } from '../site/settings.js';
+import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, CF_ANALYTICS_TOKEN, LEADERBOARD_ENABLED } from '../site/settings.js';
 
 interface Props {
   title?: string;
@@ -58,6 +58,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
         <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon={JSON.stringify({ token: CF_ANALYTICS_TOKEN })} />
       )
     }
+    {LEADERBOARD_ENABLED && <meta name="bradbury-leaderboard" content="1" />}
     <slot name="head" />
   </head>
   <body>
@@ -89,6 +90,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
             <li><a href="/bradbury-challenge/">What is the Bradbury Challenge?</a></li>
             <li><a href="/about/">About</a></li>
             <li><a href="/literary-devices/">Literary devices</a></li>
+            {LEADERBOARD_ENABLED && <li><a href="/leaderboard/">Leaderboard</a></li>}
             <li><a href="/rss/">RSS</a></li>
             <li><a href="/privacy/">Privacy</a></li>
             <li><a href="/cookies/">Cookies</a></li>

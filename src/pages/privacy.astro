@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, BUTTONDOWN_USERNAME, CF_ANALYTICS_TOKEN, BOOKSHOP_DISCLOSURE, BOOKSHOP_ID, CONTACT_EMAIL, MEMBERSHIP_URL, OPERATOR_NAME } from '../site/settings.js';
+import { ADSENSE_CLIENT, AMAZON_DISCLOSURE, AMAZON_TAG, BUTTONDOWN_USERNAME, CF_ANALYTICS_TOKEN, BOOKSHOP_DISCLOSURE, BOOKSHOP_ID, CONTACT_EMAIL, LEADERBOARD_ENABLED, MEMBERSHIP_URL, OPERATOR_NAME } from '../site/settings.js';
 
-const UPDATED = '4 November 2026';
+const UPDATED = '24 November 2026';
 ---
 
 <Base title="Privacy policy" description="What personal data Bradbury Challenge processes and your rights.">
@@ -22,13 +22,22 @@ const UPDATED = '4 November 2026';
       BUTTONDOWN_USERNAME ? (
         <p>
           There are no accounts. The only personal data we ask for is your email address, and only if you choose to
-          subscribe to the newsletter (see below). We do not sell or share personal data.
+          subscribe to the newsletter{LEADERBOARD_ENABLED && ', and a name, only if you choose to join the leaderboard'} (see
+          below). We do not sell or share personal data.
         </p>
       ) : (
-        <p>
-          There are no accounts, no forms and no newsletter. We do not ask for your name or email address, and we do
-          not sell or share personal data.
-        </p>
+        LEADERBOARD_ENABLED ? (
+          <p>
+            There are no accounts and no newsletter. The only personal data we ask for is a name, and only if you choose to
+            join the leaderboard (see below). We do not ask for your email address, and we do not sell or share personal
+            data.
+          </p>
+        ) : (
+          <p>
+            There are no accounts, no forms and no newsletter. We do not ask for your name or email address, and we do
+            not sell or share personal data.
+          </p>
+        )
       )
     }
 
@@ -50,8 +59,30 @@ const UPDATED = '4 November 2026';
     <h2>Your reading marks and start date</h2>
     <p>
       When you tick a reading as read, or start counting your challenge, the mark or the date is stored in your own
-      browser (local storage). It never leaves your device and we cannot see it. Clearing your browser data removes it.
+      browser (local storage). {LEADERBOARD_ENABLED ? 'It stays on your device and we cannot see it, unless you join the leaderboard (below).' : 'It never leaves your device and we cannot see it.'} Clearing your browser data removes it.
     </p>
+
+    {
+      LEADERBOARD_ENABLED && (
+        <>
+          <h2 id="leaderboard">Leaderboard</h2>
+          <p>
+            The <a href="/leaderboard/">leaderboard</a> is optional. If you join, we store, in a database hosted by
+            Cloudflare (Cloudflare D1): the name you choose, which is shown publicly; a code derived from a random key kept in
+            your browser (we never receive the key itself, only a one-way hash of it); and the dates on which you ticked all
+            three readings of the day, counted from the day you joined. We do not store your email, your IP address or any
+            other reading marks.
+          </p>
+          <p>
+            We process this data with your consent, given when you tick the box to join, and only to show the leaderboard.
+            It is kept for as long as you stay on the leaderboard. You can leave at any time with “Leave and delete my data”
+            on the leaderboard page, which deletes your name and your dates at once. If you lose access to the browser you
+            joined from, write to us and we will delete your entry. We may hide names that are offensive or impersonate
+            someone.
+          </p>
+        </>
+      )
+    }
 
     <h2>Hosting</h2>
     <p>

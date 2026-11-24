@@ -1517,3 +1517,151 @@ button.button:not(.button--primary) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Leaderboard */
+.lb-boards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
+
+.lb-board {
+  padding: 18px;
+  border: 1px solid color-mix(in srgb, var(--text) 14%, var(--bg));
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--text) 3%, var(--bg));
+  font-family: var(--font-ui);
+}
+
+.lb-board h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.lb-sub,
+.lb-note,
+.lb-small {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+}
+
+.lb-list {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: lb;
+}
+
+.lb-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 1px solid color-mix(in srgb, var(--text) 10%, var(--bg));
+  counter-increment: lb;
+}
+
+.lb-list li::before {
+  content: counter(lb);
+  flex: none;
+  width: 1.6em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.lb-list li:nth-child(-n + 3)::before {
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.lb-list li.is-me {
+  font-weight: 700;
+}
+
+.lb-name {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.lb-value {
+  flex: none;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.lb-empty {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.lb-empty[hidden],
+.lb-status[hidden],
+.lb-error[hidden],
+.lb-joined[hidden],
+.lb-form[hidden] {
+  display: none;
+}
+
+.lb-status,
+.lb-error {
+  margin: 16px 0 0;
+  color: var(--accent);
+  font-family: var(--font-ui);
+}
+
+.lb-join {
+  margin-top: 40px;
+  font-family: var(--font-ui);
+}
+
+.lb-join h2 {
+  font-size: 1.25rem;
+}
+
+.lb-form {
+  display: grid;
+  gap: 10px;
+  max-width: 460px;
+}
+
+.lb-form label {
+  font-weight: 700;
+}
+
+.lb-form input[type='text'] {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, var(--text) 30%, var(--bg));
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+}
+
+.lb-form .lb-consent {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  font-weight: 400;
+  font-size: 0.92rem;
+}
+
+.lb-consent input {
+  margin-top: 4px;
+}
+
+.lb-form .button {
+  justify-self: start;
+}
+
+.lb-joined-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+}

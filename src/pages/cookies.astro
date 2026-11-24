@@ -1,8 +1,8 @@
 ---
 import Base from '../layouts/Base.astro';
-import { ADSENSE_CLIENT } from '../site/settings.js';
+import { ADSENSE_CLIENT, LEADERBOARD_ENABLED } from '../site/settings.js';
 
-const UPDATED = '4 November 2026';
+const UPDATED = '24 November 2026';
 ---
 
 <Base title="Cookie policy" description="Which cookies and similar technologies Bradbury Challenge uses.">
@@ -11,11 +11,23 @@ const UPDATED = '4 November 2026';
     <p class="updated">Last updated: {UPDATED}</p>
 
     <h2>Our own site</h2>
+    <p>Bradbury Challenge itself sets no cookies. It keeps a few items in your browser's local storage:</p>
+    <ul>
+      <li><code>bradbury:lidos</code>: the readings you have ticked as read.</li>
+      <li><code>bradbury:inicio</code>: the date you started your challenge, if you chose one.</li>
+      <li><code>bradbury:apoio</code>: when the "buy me a coffee" note may appear again, after you close it.</li>
+      <li><code>bradbury:amigos</code>: whether the "Friends of the project" window was already shown today or closed.</li>
+      {
+        LEADERBOARD_ENABLED && (
+          <li>
+            <code>bradbury:leaderboard</code>: only if you join the <a href="/leaderboard/">leaderboard</a>. Your chosen name
+            and a random key that identifies your place. See the <a href="/privacy/#leaderboard">privacy policy</a>.
+          </li>
+        )
+      }
+    </ul>
     <p>
-      Bradbury Challenge itself sets no cookies. It keeps up to two items in your browser's local storage:{' '}
-      <code>bradbury:lidos</code>, which records the readings you have ticked as read, and <code>bradbury:inicio</code>,
-      the date you started your challenge, if you chose one. They are strictly necessary for those features, stay on your
-      device and are never sent to us.
+      They are strictly necessary for those features and stay on your device. {LEADERBOARD_ENABLED ? 'Only the leaderboard item is ever used to send anything to us, and only if you join.' : 'They are never sent to us.'}
     </p>
 
     <h2>Advertising</h2>
