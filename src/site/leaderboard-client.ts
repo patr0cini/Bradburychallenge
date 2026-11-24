@@ -73,6 +73,12 @@ export async function maybeCheckin(date: string, categories: string[] | undefine
   else if (res.status === 404) save(null); // saiu noutro sítio ou foi apagado
 }
 
+/** Botões "Join the Leaderboard": para quem já entrou, passam a "See the leaderboard". */
+export function updateLeaderboardButtons() {
+  if (!load()) return;
+  for (const a of document.querySelectorAll<HTMLElement>('[data-lb-cta]')) a.textContent = 'See the leaderboard';
+}
+
 // ---------- Página /leaderboard/ ----------
 
 const ERRORS: Record<string, string> = {

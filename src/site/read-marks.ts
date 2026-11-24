@@ -1,5 +1,5 @@
 import { initFriendsPopup, maybeShowFriends } from './friends-popup.ts';
-import { initLeaderboardPage, maybeCheckin } from './leaderboard-client.ts';
+import { initLeaderboardPage, maybeCheckin, updateLeaderboardButtons } from './leaderboard-client.ts';
 import { initSupportPrompt, updateSupportPrompt } from './support-prompt.ts';
 
 // Marcações "Lido", guardadas só neste browser (localStorage).
@@ -41,6 +41,7 @@ export function initReadMarks() {
   // Leaderboard: se hoje já está completo (por exemplo, marcado sem rede), envia agora; e liga a página.
   void maybeCheckin(lisbonToday(), marks[lisbonToday()], lisbonToday());
   initLeaderboardPage(() => loadMarks()[lisbonToday()], lisbonToday);
+  updateLeaderboardButtons();
 
   for (const box of document.querySelectorAll<HTMLInputElement>('input[data-read-date]')) {
     const { readDate: date = '', readCategory: category = '' } = box.dataset;

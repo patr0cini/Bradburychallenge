@@ -1,5 +1,6 @@
 ---
 import { loadSiteData } from '../site/data.js';
+import { LEADERBOARD_ENABLED } from '../site/settings.js';
 
 // Contagem pessoal do desafio e estatísticas de leitura (src/site/progress.ts, src/site/stats.ts). Só aparece com JavaScript, porque a data de
 // início vive no browser de cada leitor.
@@ -14,6 +15,7 @@ const lastDay = days.at(-1)?.date;
     <p class="progress-text">Start counting your 1,000 days. The count is kept in this browser only.</p>
     <p class="progress-actions">
       <button type="button" class="button button--primary" data-progress-start>Start my challenge today</button>
+      {LEADERBOARD_ENABLED && <a class="button" href="/leaderboard/" data-lb-cta>Join the Leaderboard</a>}
     </p>
     <details class="progress-change">
       <summary>Started on an earlier day?</summary>
@@ -26,6 +28,7 @@ const lastDay = days.at(-1)?.date;
   <div data-progress-active hidden>
     <p class="progress-title" data-progress-day></p>
     <p class="progress-text" data-progress-summary></p>
+    {LEADERBOARD_ENABLED && <p class="progress-actions"><a class="button" href="/leaderboard/" data-lb-cta>Join the Leaderboard</a></p>}
     <details class="progress-change">
       <summary>Change start date</summary>
       <form data-progress-form>

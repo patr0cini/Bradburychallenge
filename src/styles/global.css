@@ -980,14 +980,14 @@ main.wrap {
     letter-spacing: 0.1em;
   }
   .tabs a {
-    padding: 0 8px;
-    letter-spacing: 0.06em;
+    padding: 0 5px;
+    letter-spacing: 0.04em;
   }
 }
 
 @media (max-width: 359px) {
   .tabs a {
-    padding: 0 6px;
+    padding: 0 4px;
     font-size: 0.75rem;
   }
 }
@@ -1430,6 +1430,9 @@ button.button:not(.button--primary) {
 }
 
 .progress-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   margin: 12px 0 0;
 }
 

@@ -4,7 +4,7 @@ import { NAME_MAX, NAME_MIN, TOP } from '../site/leaderboard.js';
 import { LEADERBOARD_ENABLED } from '../site/settings.js';
 ---
 
-<Base title="Leaderboard" description="The readers who completed the most days this week, and the longest current streaks.">
+<Base tab="leaderboard" title="Leaderboard" description="The readers who completed the most days this week, and the longest current streaks.">
   {!LEADERBOARD_ENABLED && <meta slot="head" name="robots" content="noindex" />}
   <article class="leaderboard">
     <h1 class="page-title">Leaderboard</h1>
