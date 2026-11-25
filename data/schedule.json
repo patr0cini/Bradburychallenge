@@ -1083,5 +1083,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-24T06:54:11.111Z"
+  },
+  "2026-11-25": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/long-legged-fly",
+      "title": "Long-Legged Fly",
+      "author": "William Butler Yeats",
+      "url": "https://rpo.library.utoronto.ca/content/long-legged-fly",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "publicdomainreview:publicdomainreview.org/essay/richard-spruce-and-the-trials-of-victorian-bryology",
+      "title": "Richard Spruce and the Trials of Victorian Bryology",
+      "author": "Elaine Ayers",
+      "url": "https://publicdomainreview.org/essay/richard-spruce-and-the-trials-of-victorian-bryology/",
+      "source": "publicdomainreview",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/mr-braddys-bottle",
+      "title": "Mr. Braddy’s Bottle",
+      "author": "Richard Connell",
+      "url": "https://www.libraryofshortstories.com/onlinereader/mr-braddys-bottle",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-25T05:22:58.457Z"
   }
 }
