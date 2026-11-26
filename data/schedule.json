@@ -1113,5 +1113,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-25T05:22:58.457Z"
+  },
+  "2026-11-26": {
+    "poem": {
+      "id": "nybooks:nybooks.com/articles/2021/03/25/winter",
+      "title": "Winter",
+      "author": "Maureen N. McLane",
+      "url": "https://www.nybooks.com/articles/2021/03/25/winter/",
+      "source": "nybooks",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/st-kevin-construction-site",
+      "title": "St. Kevin at the Construction Site",
+      "author": "Kelly Candaele",
+      "url": "https://lareviewofbooks.org/article/st-kevin-construction-site/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/invisible-yet-enduring-lilacs",
+      "title": "Invisible Yet Enduring Lilacs",
+      "author": "Gerald Murnane",
+      "url": "https://lithub.com/invisible-yet-enduring-lilacs/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-26T04:55:57.222Z"
   }
 }
