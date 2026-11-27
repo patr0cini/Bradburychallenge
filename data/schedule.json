@@ -1143,5 +1143,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-26T04:55:57.222Z"
+  },
+  "2026-11-27": {
+    "poem": {
+      "id": "rpo:rpo.library.utoronto.ca/content/lhyver-des-alpes",
+      "title": "L'Hyver des Alpes",
+      "author": "Sieur de Saint-Amant, Saint-Amant Girard",
+      "url": "https://rpo.library.utoronto.ca/content/lhyver-des-alpes",
+      "source": "rpo",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "publicdomainreview:publicdomainreview.org/essay/redressing-the-balance-levinus-vincents-wonder-theatre-of-nature",
+      "title": "Redressing the Balance: Levinus Vincent’s Wonder Theatre of Nature",
+      "author": "Bert van de Roemer",
+      "url": "https://publicdomainreview.org/essay/redressing-the-balance-levinus-vincents-wonder-theatre-of-nature/",
+      "source": "publicdomainreview",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "libraryofshortstories:libraryofshortstories.com/onlinereader/a-day-in-the-country",
+      "title": "A Day in the Country",
+      "author": "Anton Chekhov",
+      "url": "https://www.libraryofshortstories.com/onlinereader/a-day-in-the-country",
+      "source": "libraryofshortstories",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-27T04:55:53.979Z"
   }
 }
