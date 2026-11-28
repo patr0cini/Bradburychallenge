@@ -1173,5 +1173,35 @@
       "previousUses": 0
     },
     "createdAt": "2026-11-27T04:55:53.979Z"
+  },
+  "2026-11-28": {
+    "poem": {
+      "id": "poetryarchive:poetryarchive.org/poem/told-one-goldfish-wouldnt-last-night",
+      "title": "Told one of the goldfish wouldn’t last the night…",
+      "author": "David Constantine",
+      "url": "https://poetryarchive.org/poem/told-one-goldfish-wouldnt-last-night/",
+      "source": "poetryarchive",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "essay": {
+      "id": "larb:lareviewofbooks.org/article/eaton-fire-altadena-house-rebuilding-insurance-damages",
+      "title": "When the Flames Went Out",
+      "author": "Anthony Dinh Tran",
+      "url": "https://lareviewofbooks.org/article/eaton-fire-altadena-house-rebuilding-insurance-damages/",
+      "source": "larb",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "story": {
+      "id": "lithub:lithub.com/life-is-awful",
+      "title": "Life Is Awful",
+      "author": "Souvankham Thammavongsa",
+      "url": "https://lithub.com/life-is-awful/",
+      "source": "lithub",
+      "paywalled": false,
+      "previousUses": 0
+    },
+    "createdAt": "2026-11-28T04:41:15.594Z"
   }
 }
